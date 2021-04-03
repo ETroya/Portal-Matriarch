@@ -8,6 +8,6 @@ cache:
   directories:
     - node_modules
 services:
-  - mysql
+  - mongodb
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS testdb;'
+  - mongo mydb_test
