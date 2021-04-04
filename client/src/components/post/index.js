@@ -1,6 +1,6 @@
 import React from "react";
 import Comment from "../comment/index";
-
+import "./style.css";
 const Post = ({ state, addComment }) => {
   return (
     <div className="post">
