@@ -11,7 +11,7 @@ function App() {
       <div>
         <Navbar />
         <Wrapper>
-          <Route exact path={"/user"}>
+          <Route exact path={["/user", "/"]}>
             <h1>hello user</h1>
             <User />
           </Route>
