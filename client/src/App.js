@@ -12,11 +12,13 @@ function App() {
       <div>
         <Navbar />
         <Wrapper>
-        <Route exact path={"/user"}>
-          <User /></Route>
-        <Route exact path={"/admin"}>
-<Admin />
-        </Route>
+          <Route exact path={["/user", "/"]}>
+            <h1>hello user</h1>
+            <User />
+          </Route>
+          <Route exact path={"/admin"}>
+            <Admin />
+          </Route>
         </Wrapper>
         <Footer />
       </div>
