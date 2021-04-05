@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Feed from "../components/feed/index";
 import NextDay from "../components/nextDay/index";
+
 function User() {
   //setting state
   const [newComment, setNewComment] = useState(false);
 
-  function addComment() {
+  useEffect(() => {}, []);
+
+  function addComment(event) {
+    console.log(event.target.value);
     setNewComment(!newComment);
   }
 
