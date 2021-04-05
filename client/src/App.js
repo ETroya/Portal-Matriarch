@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import User from "./pages/user";
+import Login from "./pages/login";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path={"/admin"}>
             <h1>Hello admin</h1>
           </Route>
+          <Route path= "/login" component= {Login} />
         </Wrapper>
         <Footer />
       </div>
