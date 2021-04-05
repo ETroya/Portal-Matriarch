@@ -15,10 +15,10 @@ function User() {
 
   return (
     <div className="row">
-      <div className="col-6">
+      <div className="col-md-6">
         <Feed state={newComment} addComment={addComment} />
       </div>
-      <div className="col-6">
+      <div className="col-md-6">
         <NextDay />
       </div>
     </div>
