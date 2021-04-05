@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import User from "./pages/user";
+import Admin from "./pages/admin";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
             <User />
           </Route>
           <Route exact path={"/admin"}>
-            <h1>Hello admin</h1>
+            <Admin />
           </Route>
         </Wrapper>
         <Footer />
