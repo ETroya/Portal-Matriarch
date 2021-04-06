@@ -56,6 +56,7 @@ const Feed = ({ state, addComment }) => {
       {postArray.map((post) => {
         return (
           <Post
+            state={state}
             id={post.id}
             addComment={addComment}
             key={post.id}
