@@ -4,6 +4,7 @@ import { Row, Container, Col, Form, Button } from "react-bootstrap";
 //need a button to look at all the employee List of just names.
 import Feed from "../components/feed/index";
 import EmployeeForm from "../components/EmployeeForm"
+import Employeelist from "../components/Employeelist"
 
 
 function Admin() {
@@ -16,7 +17,7 @@ function Admin() {
             <Form.Control type="text" placeholder="Find Employee" />
           </Form.Group>
           <Container>
-      Employee information goes here 
+            <Employeelist />
           </Container>
         </Col>
 
