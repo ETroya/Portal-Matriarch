@@ -19,6 +19,11 @@ function Admin() {
             />
             <Employeelist />
           </Form.Group>
+            <Form.Control type="text" placeholder="Find Employee" />
+          </Form.Group>
+          <Container>
+            {/* <Employeelist /> */}
+          </Container>
         </Col>
 
         <Col xs={12} md={7}>

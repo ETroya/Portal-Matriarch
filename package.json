@@ -24,11 +24,9 @@
   },
   "homepage": "https://github.com/ETroya/Portal-Matriarch#readme",
   "devDependencies": {
-    "concurrently": "^4.1.0",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.2",
-    "nodemon": "^1.18.7"
+    "eslint-plugin-prettier": "^2.6.2"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -44,5 +42,6 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "prettier": "^2.2.1"
+    "concurrently": "^4.1.0"
   }
 }
