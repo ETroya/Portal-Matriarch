@@ -1,29 +1,48 @@
-//emplyoee list that weill go to the admin page 
-import React, { useState, useEffect } from "react"
-import API from "../../utils/API"
+//emplyoee list that weill go to the admin page
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 // import EmployeeForm from "../EmployeeForm"
 
-function Employeelist(){
+function Employeelist() {
+  const [employeeState, setEmployeeState] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://randomuser.me/api/?nat=us&results=50")
+      .then((allUsers) => {
+        setEmployeeState(
+          allUsers.data.results.map((results) => {
+            let employeeData = {
+              firstName: results.name.first,
+              lastName: results.name.last,
+            };
+            return employeeData;
+          })
+        );
+      });
+  }, []);
 
-    const[ state, setState] =useState([])
+  // filter employees by first name in search bar
+  const filterName = (event) => {
+    let first = event.target.value.toLowerCase();
+    setEmployeeState(
+      employeeState.filter((employee) => {
+        return employee.first.toLowerCase().includes(first);
+      })
+    );
+  };
 
-    async function getEmployee() {
-        try {
-          const response = await API.search();
-          console.log(response)
-          setResults( response.data.results )
-        } catch (error) {
-          console.error(error);
-        }
-    };
-
-    useEffect(()=>{
-        getEmployee()
-    },[])
-    
+  return (
+    <div className="col-3">
+      <input
+        type="text"
+        onChange={(e) => {
+          filterName(e);
+        }}
+        className="form-control"
+        placeholder="Filter by First Name!"
+      ></input>
+    </div>
+  );
 }
-return(
-    <h1>{God Bless}</h1>
-)
-   
-export default Employeelist
+
+export default Employeelist;

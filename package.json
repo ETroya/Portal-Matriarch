@@ -31,11 +31,9 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.21.1",
-=======
     "bcryptjs": "^2.4.3",
->>>>>>> cfa763972b5c5bf06b36620100f1c8c7b8c0fa74
+    "bootstrap": "^4.6.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.23.0",
     "express": "^4.16.3",
@@ -44,6 +42,7 @@
     "nodemon": "^2.0.7",
     "normalize-email": "^1.1.1",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "prettier": "^2.2.1"
   }
 }
