@@ -21,6 +21,7 @@ const reducer = (state, action) => {
 const StateProvider = ({ value = false, ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     posts: [],
+    addComment: false,
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };
