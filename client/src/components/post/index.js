@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useStateContext } from "../../utils/GlobalState";
+import React from "react";
 import Comment from "../comment/index";
 import "./style.css";
 
@@ -16,7 +15,6 @@ const Post = ({ author, date, content, id, addComment, dispatch }) => {
         value={id}
         name="commentButton"
         onClick={() => {
-          console.log(`clicked ${id}`);
           dispatch({ type: "toggle-comment", id });
         }}
       >
