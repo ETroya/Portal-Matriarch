@@ -23,7 +23,7 @@ function Employeelist(){
     
 }
 return(
-    <h1>{God Bless}</h1>
+    
 )
    
 export default Employeelist
