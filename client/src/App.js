@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import User from "./pages/user";
+import Login from "./pages/login";
 import Admin from "./pages/admin";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path={"/admin"}>
             <Admin />
           </Route>
+          <Route path= "/login" component= {Login} />
         </Wrapper>
         <Footer />
       </div>
