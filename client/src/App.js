@@ -20,7 +20,7 @@ function App() {
           <Route exact path={"/admin"}>
             <Admin />
           </Route>
-          <Route path= "/login" component= {Login} />
+          <Route path="/login" component={Login} />
         </Wrapper>
         <Footer />
       </div>
