@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useStateContext } from "../../utils/GlobalState";
 import Post from "../post/index";
 import "./style.css";
@@ -64,7 +64,10 @@ const Feed = () => {
   ];
 
   useEffect(() => {
+
     dispatch({ type: "create-array", payload: postArray });
+
+
   }, []);
 
   return (

@@ -5,9 +5,11 @@ import { Row, Container, Col, Form, Button } from "react-bootstrap";
 import Feed from "../components/feed/index";
 import EmployeeForm from "../components/EmployeeForm"
 // import Employeelist from "../components/Employeelist"
+import { useStateContext } from "../utils/GlobalState"
 
 
 function Admin() {
+  const [ state, dispatch] = useStateContext();
   return (
     <>
       <h1>Hello Admin</h1>
@@ -25,10 +27,10 @@ function Admin() {
           <Feed />
         </Col>
         <Col xs={12} md={3}>
-        <Button  variant="primary" size="lg" block>
+        <Button  onClick={() => dispatch({ type: "toggle-user"})} variant="primary" size="lg" block>
             Create New Employee Account
           </Button>
-          <EmployeeForm />
+          {state.addUser ? <EmployeeForm /> : null}
           <Button  variant="primary" size="lg" block>
             Requested Time Off
           </Button>
