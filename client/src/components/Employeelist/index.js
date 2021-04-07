@@ -2,31 +2,38 @@
 import React, { useState, useEffect } from "react";
 import List from "../List";
 import axios from "axios";
-// import EmployeeForm from "../EmployeeForm"
 
 function Employeelist() {
   const [employeeState, setEmployeeState] = useState([]);
   useEffect(() => {
     axios
       .get("https://randomuser.me/api/?nat=us&results=50")
-      .then((allUsers) => setEmployeeState(allUsers.data.results));
+      .then((allUsers) => {
+        setEmployeeState(
+          allUsers.data.results.map((result) => {
+            let employeeData = {
+              firstName: result.name.first,
+              lastName: result.name.last,
+            };
+            return employeeData;
+          })
+        );
+      });
   }, []);
 
   return (
+    // input search bar here
     <div>
       {/* make a list here with called items from API */}
       <table className="table">
-            <tbody>
-              {employeeState.map((employee) => (
-                <List
-                  firstName={employee.firstName}
-                  lastName={employee.lastName}
-                />
-              ))}
-            </tbody>
-          </table>
+        <tbody>
+          {employeeState.map((employee) => (
+            <List firstName={employee.firstName} lastName={employee.lastName} />
+          ))}
+        </tbody>
+      </table>
     </div>
-  )
+  );
 
   // filter employees by first name in search bar
   // const filterName = (event) => {
