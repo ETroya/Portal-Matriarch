@@ -12,11 +12,15 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+<<<<<<< HEAD
+app.get("/", req,res)=>res.send("hello World ")
+=======
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
 app.use(passport.initialize());
 app.use(passport.session());
+>>>>>>> cfa763972b5c5bf06b36620100f1c8c7b8c0fa74
 // Add routes, both API and view
 app.use(routes);
 
@@ -27,3 +31,4 @@ app.use(routes);
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
