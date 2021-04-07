@@ -17,7 +17,7 @@ function Admin() {
             <Form.Control type="text" placeholder="Find Employee" />
           </Form.Group>
           <Container>
-            <Employeelist />
+            {/* <Employeelist /> */}
           </Container>
         </Col>
 
