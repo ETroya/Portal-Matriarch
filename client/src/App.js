@@ -7,9 +7,10 @@ import User from "./pages/user";
 import Login from "./pages/login";
 import Admin from "./pages/admin";
 import Signup from "./pages/signup";
-
+import { StateProvider } from "./utils/GlobalState";
 function App() {
   return (
+    <StateProvider>
     <Router>
       <div>
         <Navbar />
@@ -27,6 +28,10 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </StateProvider>
+
+
+
   );
 }
 

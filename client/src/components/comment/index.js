@@ -1,6 +1,6 @@
 import React from "react";
 
-const Comment = () => {
+const Comment = ({ id }) => {
   return (
     <div className="comment">
       <h1>New comment goes here</h1>
