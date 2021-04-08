@@ -6,6 +6,7 @@ import Wrapper from "./components/Wrapper";
 import User from "./pages/user";
 import Login from "./pages/login";
 import Admin from "./pages/admin";
+import Signup from "./pages/signup";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Admin />
           </Route>
           <Route path= "/login" component= {Login} />
+          <Route path= "/signup" component= {Signup} />
         </Wrapper>
         <Footer />
       </div>

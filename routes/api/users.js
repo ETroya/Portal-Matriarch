@@ -3,10 +3,10 @@ const bcrypt= require("bcyrptjs")
 const User= require("../../models")
 
 router.post("/", async(req, res)=> {
-    const {email,password}= req.body
+    const {username, password}= req.body
     try {
         const user= new User({
-            email,password
+            username, password
         })
 
         const salt= await bcrypt.genSalt(10);
