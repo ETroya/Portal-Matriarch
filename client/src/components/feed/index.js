@@ -14,6 +14,8 @@ const Feed = () => {
       content:
         "The greatest glory in living lies not in never falling, but in rising every time we fall.",
       addComment: false,
+      comments: [],
+      commentCount: 0,
     },
     {
       id: 1,
@@ -21,6 +23,8 @@ const Feed = () => {
       date: "4 days ago",
       content: "The way to get started is to quit talking and begin doing.",
       addComment: false,
+      comments: [],
+      commentCount: 0,
     },
     {
       id: 2,
@@ -29,6 +33,8 @@ const Feed = () => {
       content:
         "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
       addComment: false,
+      comments: [],
+      commentCount: 0,
     },
     {
       id: 3,
@@ -37,6 +43,8 @@ const Feed = () => {
       content:
         "If life were predictable it would cease to be life, and be without flavor.",
       addComment: false,
+      comments: [],
+      commentCount: 0,
     },
     {
       id: 4,
@@ -45,6 +53,8 @@ const Feed = () => {
       content:
         "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.",
       addComment: false,
+      comments: [],
+      commentCount: 0,
     },
     {
       id: 5,
@@ -53,6 +63,8 @@ const Feed = () => {
       content:
         "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.",
       addComment: false,
+      comments: [],
+      commentCount: 0,
     },
     {
       id: 6,
@@ -60,14 +72,13 @@ const Feed = () => {
       date: "9 days ago",
       content: "Life is what happens when you're busy making other plans.",
       addComment: false,
+      comments: [],
+      commentCount: 0,
     },
   ];
 
   useEffect(() => {
-
     dispatch({ type: "create-array", payload: postArray });
-
-
   }, []);
 
   return (
@@ -75,6 +86,7 @@ const Feed = () => {
       {state.posts.map((post) => {
         return (
           <Post
+            state={state}
             dispatch={dispatch}
             id={post.id}
             key={post.id}
@@ -82,6 +94,7 @@ const Feed = () => {
             date={post.date}
             content={post.content}
             addComment={post.addComment}
+            commentCount={post.commentCount}
           />
         );
       })}
