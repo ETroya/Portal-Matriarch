@@ -18,11 +18,12 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/portal_DB", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
