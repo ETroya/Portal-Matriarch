@@ -11,6 +11,7 @@ const Post = ({
   addComment,
   commentCount,
   dispatch,
+  commentList,
 }) => {
   return (
     <div className="post">
@@ -20,16 +21,25 @@ const Post = ({
       <h3>Title to a post</h3>
       <p>{content}</p>
       <hr />
-      <button
-        value={id}
-        name="commentButton"
-        onClick={() => {
-          dispatch({ type: "toggle-comment", id });
-        }}
-      >
-        Comment
-      </button>
-      {commentCount > 0 ? <p>you have mail</p> : null}
+      <div className="comments-btns">
+        <button
+          clsasName=""
+          value={id}
+          name="commentButton"
+          onClick={() => {
+            console.log(id);
+            dispatch({ type: "toggle-comment", id });
+          }}
+        >
+          Comment
+        </button>
+        {commentCount > 0 ? (
+          <p onClick={() => dispatch({ type: "toggle-comment-list", id })}>
+            {commentCount} comments for this post
+          </p>
+        ) : null}
+      </div>
+      {commentList ? <h1>comment List</h1> : null}
       {addComment ? <Comment id={id} dispatch={dispatch} /> : null}
     </div>
   );

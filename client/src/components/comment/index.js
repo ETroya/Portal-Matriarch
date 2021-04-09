@@ -13,6 +13,7 @@ const Comment = ({ id, dispatch }) => {
       <button
         onClick={(event) => {
           event.preventDefault();
+
           dispatch({ type: "push-comment", payload: { comment, id } });
         }}
       >

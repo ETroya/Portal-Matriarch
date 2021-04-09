@@ -8,8 +8,10 @@ const reducer = (state, action) => {
     case "toggle-comment":
       return {
         ...state,
-        posts: state.posts.map((post, index) =>
-          index === action.id ? { ...post, addComment: !post.addComment } : post
+        posts: state.posts.map((post) =>
+          post.id === action.id
+            ? { ...post, addComment: !post.addComment }
+            : post
         ),
       };
     case "create-array":
@@ -37,6 +39,15 @@ const reducer = (state, action) => {
       });
 
       return { ...state, posts: new_posts };
+    case "toggle-comment-list":
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post.id === action.id
+            ? { ...post, commentList: !post.commentList }
+            : post
+        ),
+      };
     default:
       return;
   }
@@ -48,7 +59,6 @@ const StateProvider = ({ value = false, ...props }) => {
     // addComment: false,
     //add user
     addUser: false,
-
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

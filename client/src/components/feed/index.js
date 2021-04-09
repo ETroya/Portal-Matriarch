@@ -8,7 +8,7 @@ const Feed = () => {
 
   const postArray = [
     {
-      id: 0,
+      id: 1023,
       author: "Nelson Mandela",
       date: "3 days ago",
       content:
@@ -16,6 +16,7 @@ const Feed = () => {
       addComment: false,
       comments: [],
       commentCount: 0,
+      commentList: false,
     },
     {
       id: 1,
@@ -25,6 +26,7 @@ const Feed = () => {
       addComment: false,
       comments: [],
       commentCount: 0,
+      commentList: false,
     },
     {
       id: 2,
@@ -35,6 +37,7 @@ const Feed = () => {
       addComment: false,
       comments: [],
       commentCount: 0,
+      commentList: false,
     },
     {
       id: 3,
@@ -45,6 +48,7 @@ const Feed = () => {
       addComment: false,
       comments: [],
       commentCount: 0,
+      commentList: false,
     },
     {
       id: 4,
@@ -55,6 +59,7 @@ const Feed = () => {
       addComment: false,
       comments: [],
       commentCount: 0,
+      commentList: false,
     },
     {
       id: 5,
@@ -65,6 +70,7 @@ const Feed = () => {
       addComment: false,
       comments: [],
       commentCount: 0,
+      commentList: false,
     },
     {
       id: 6,
@@ -74,6 +80,7 @@ const Feed = () => {
       addComment: false,
       comments: [],
       commentCount: 0,
+      commentList: false,
     },
   ];
 
@@ -95,6 +102,7 @@ const Feed = () => {
             content={post.content}
             addComment={post.addComment}
             commentCount={post.commentCount}
+            commentList={post.commentList}
           />
         );
       })}
