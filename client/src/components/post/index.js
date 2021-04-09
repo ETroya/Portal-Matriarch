@@ -2,7 +2,16 @@ import React from "react";
 import Comment from "../comment/index";
 import "./style.css";
 
-const Post = ({ author, date, content, id, addComment, dispatch }) => {
+const Post = ({
+  state,
+  author,
+  date,
+  content,
+  id,
+  addComment,
+  commentCount,
+  dispatch,
+}) => {
   return (
     <div className="post">
       <p>Author: {author}</p>
@@ -20,7 +29,8 @@ const Post = ({ author, date, content, id, addComment, dispatch }) => {
       >
         Comment
       </button>
-      {addComment ? <Comment id={id} /> : null}
+      {commentCount > 0 ? <p>you have mail</p> : null}
+      {addComment ? <Comment id={id} dispatch={dispatch} /> : null}
     </div>
   );
 };

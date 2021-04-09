@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Comment = ({ id }) => {
+const Comment = ({ id, dispatch }) => {
+  const [comment, setComment] = useState();
   return (
     <div className="comment">
-      <h1>New comment goes here</h1>
-      <textarea></textarea>
-      <button>Post</button>
+      <textarea
+        value={comment}
+        onChange={(event) => {
+          setComment(event.target.value);
+        }}
+      ></textarea>
+      <button
+        onClick={(event) => {
+          event.preventDefault();
+          dispatch({ type: "push-comment", payload: { comment, id } });
+        }}
+      >
+        Post
+      </button>
     </div>
   );
 };
