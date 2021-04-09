@@ -1,8 +1,34 @@
-nav.navbar.navbar-default {
-    margin-bottom: 0;
-  }
-  
-  .navbar a {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 35px;
-  }
+.mynav {
+  background-color: rgb(255, 208, 255);
+}
+
+.logo {
+  margin-right: 10px;
+}
+
+#appName {
+  font-size: 54px;
+  font-family: "Shadows Into Light", cursive;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.nav-link {
+  margin-right: 10px;
+}
+
+.btn-circle.btn-sm {
+  width: 80px;
+  height: 80px;
+  padding: 6px 0px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  color: black;
+  border-width: 2px;
+  border-color: rgb(0, 0, 0);
+  background-color: rgb(243, 205, 243);
+}
