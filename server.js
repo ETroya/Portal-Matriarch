@@ -1,7 +1,8 @@
 const express = require("express");
+const session = require("express-session");
 const passport = require("./config/passport");
 const mongoose = require("mongoose");
-// const routes = require("./routes");
+const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3030;
 
@@ -17,14 +18,19 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
- mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
-
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
 });
 
+// Start the API server
+app.listen(PORT, () => {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
