@@ -10,7 +10,11 @@ const reducer = (state, action) => {
         ...state,
         posts: state.posts.map((post) =>
           post.id === action.id
-            ? { ...post, addComment: !post.addComment }
+            ? {
+                ...post,
+                addComment: !post.addComment,
+                // hasComments: !post.hasComments,
+              }
             : post
         ),
       };
@@ -44,7 +48,7 @@ const reducer = (state, action) => {
         ...state,
         posts: state.posts.map((post) =>
           post.id === action.id
-            ? { ...post, commentList: !post.commentList }
+            ? { ...post, hasComments: !post.hasComments }
             : post
         ),
       };

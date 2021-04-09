@@ -1,5 +1,6 @@
 import React from "react";
 import Comment from "../comment/index";
+import CommentList from "../comment_list/index";
 import "./style.css";
 
 const Post = ({
@@ -11,7 +12,8 @@ const Post = ({
   addComment,
   commentCount,
   dispatch,
-  commentList,
+  comments,
+  hasComments,
 }) => {
   return (
     <div className="post">
@@ -34,12 +36,14 @@ const Post = ({
           Comment
         </button>
         {commentCount > 0 ? (
-          <p onClick={() => dispatch({ type: "toggle-comment-list", id })}>
-            {commentCount} comments for this post
-          </p>
+          <a>
+            <p onClick={() => dispatch({ type: "toggle-comment-list", id })}>
+              {commentCount} comments for this post
+            </p>
+          </a>
         ) : null}
       </div>
-      {commentList ? <h1>comment List</h1> : null}
+      {hasComments ? <CommentList comments={comments} /> : null}
       {addComment ? <Comment id={id} dispatch={dispatch} /> : null}
     </div>
   );
