@@ -16,11 +16,7 @@ function Admin() {
       <Row>
         <Col xs={12} md={2}>
           <Form.Group>
-<<<<<<< HEAD
-          <Form.Control type="text" placeholder="Find Employee" />
-=======
             <Form.Control type="text" placeholder="Find Employee" />
->>>>>>> 15c8d4d0ad515f0119f6707ad7fdc7d94d2629e7
             <Employeelist />
           </Form.Group>
         </Col>
