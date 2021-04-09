@@ -6,9 +6,11 @@ import Wrapper from "./components/Wrapper";
 import User from "./pages/user";
 import Login from "./pages/login";
 import Admin from "./pages/admin";
-
+import Signup from "./pages/signup";
+import { StateProvider } from "./utils/GlobalState";
 function App() {
   return (
+    <StateProvider>
     <Router>
       <div>
         <Navbar />
@@ -21,10 +23,15 @@ function App() {
             <Admin />
           </Route>
           <Route path= "/login" component= {Login} />
+          <Route path= "/signup" component= {Signup} />
         </Wrapper>
         <Footer />
       </div>
     </Router>
+    </StateProvider>
+
+
+
   );
 }
 
