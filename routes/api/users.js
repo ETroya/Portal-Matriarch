@@ -10,13 +10,15 @@ router.post("/", async (req, res) => {
       password,
     });
 
-
     const salt = await bcrypt.genSalt(10);
+    console.log(password, salt, username)
     user.password = await bcrypt.hash(password, salt);
 
     await user.save();
     res.json(user);
   } catch (error) {
+      console.log(error)
+
     res.status(500).json({ message: "Server error try again!" });
   }
 });
