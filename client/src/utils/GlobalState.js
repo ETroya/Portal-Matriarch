@@ -32,6 +32,7 @@ const StateProvider = ({ value = false, ...props }) => {
     // addComment: false,
     //add user
     addUser: false,
+
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };
