@@ -35,6 +35,7 @@ function Signup() {
 
   return (
     <Form.Row >
+      
       <Col>
         <Form.Group controlId="formBasicUsername">
           <Form.Label>Username</Form.Label>
