@@ -3,44 +3,61 @@ import "./style.css";
 
 const index = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        <a className="navbar-brand jumbotron" href="#">
-          Portal-Matriach
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarText"
-          aria-controls="navbarText"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarText">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Schedule
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+    <nav class="mynav navbar navbar-expand-lg navbar-light">
+      <img class="logo" src="/assets/bubbles.svg" width="3%"></img>
+      <a class="navbar-brand" id="appName" href="#">
+        Bubbles
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">
+              <button type="button" class="btn btn-dark btn-circle btn-sm">
+                News
+              </button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <button type="button" class="btn btn-dark btn-circle btn-sm">
+                Time
+              </button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <button type="button" class="btn btn-dark btn-circle btn-sm">
                 Pay
-              </a>
-            </li>
-          </ul>
-          <span className="navbar-text">
-            Random Text???? (Need to move to the left)
-          </span>
-        </div>
+              </button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <button type="button" class="btn btn-dark btn-circle btn-sm">
+                Directory
+              </button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <button type="button" class="btn btn-dark btn-circle btn-sm">
+                Logout
+              </button>
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   );
