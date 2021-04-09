@@ -13,10 +13,10 @@ function Admin() {
       <Row>
         <Col xs={12} md={2}>
           <Form.Group>
-            <Form.Control
+            {/* <Form.Control
               type="text"
               placeholder="Find by First Name"
-            />
+            /> */}
             <Employeelist />
           </Form.Group>
         </Col>
