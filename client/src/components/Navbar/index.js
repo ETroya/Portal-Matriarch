@@ -3,7 +3,7 @@ import "./style.css";
 
 const index = () => {
   return (
-    <nav class="mynav navbar navbar-expand-lg navbar-light">
+    <nav class="mynav navbar navbar-expand-lg navbar-dark">
       <img class="logo" src="/assets/bubbles.svg" width="3%"></img>
       <a class="navbar-brand" id="appName" href="#">
         Bubbles

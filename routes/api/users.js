@@ -11,7 +11,8 @@ router.post("/", async (req, res) => {
     });
 
     const salt = await bcrypt.genSalt(10);
-    console.log(password, salt, username)
+    //salt is an encryption
+    console.log(password, salt, username);
     user.password = await bcrypt.hash(password, salt);
 
     await user.save();

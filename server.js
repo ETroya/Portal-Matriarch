@@ -3,8 +3,9 @@ const session = require("express-session");
 const passport = require("./config/passport");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+require("dotenv").config();
 const app = express();
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 4000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -23,12 +24,18 @@ app.use(passport.session());
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/user", {
+
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false,
 });
+
+
+mongoose.connection.on("connected", ()=>{
+  console.log("connected to mongoose")
+})
 
 // Start the API server
 app.listen(PORT, () => {

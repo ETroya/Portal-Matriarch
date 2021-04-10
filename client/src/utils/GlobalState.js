@@ -71,4 +71,13 @@ const useStateContext = () => {
   return useContext(stateContext);
 };
 
-export { StateProvider, useStateContext };
+const authContext = React.createContext({
+  authData: {
+    isAuthenticated: null,
+    loading: true,
+    user: null,
+  },
+  setAuth: () => {}
+})
+
+export { StateProvider, useStateContext, authContext };
