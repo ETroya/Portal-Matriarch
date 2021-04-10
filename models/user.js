@@ -13,11 +13,15 @@ const adminEmployeeSchema = new Schema({
     required: "Enter a new password.",
     trim: true,
   },
-  position: {
+  admin: {
+    type: Boolean,
+    position: true,
+  },
+  city: {
     type: String,
-    required: "Add position."
-    
-  }
+    required: "Add a city.",
+    trim: true,
+  },
 });
 
 const employee = mongoose.model("employee", adminEmployeeSchema);
