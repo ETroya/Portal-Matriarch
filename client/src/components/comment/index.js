@@ -25,7 +25,7 @@ const Comment = ({ id, dispatch }) => {
           dispatch({ type: "push-comment", payload: { comment, id } });
         }}
       >
-        <FaRegPaperPlane />
+        <GiBubbles />
       </button>
     </div>
   );
