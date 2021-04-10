@@ -10,27 +10,24 @@ import { StateProvider } from "./utils/GlobalState";
 function App() {
   return (
     <StateProvider>
-    <Router>
-      <div>
-        <Navbar />
-        <div className = "container-fluid">
-          <Route exact path={"/user"}>
-            <h1>hello user</h1>
-            <User />
-          </Route>
-          <Route exact path={"/admin"}>
-            <Admin />
-          </Route>
-          <Route path={["/", "/login"]} component= {Login} />
-          <Route path= "/signup" component= {Signup} />
-       </div>
-        <Footer />
-      </div>
-    </Router>
+      <Router>
+        <div>
+          <Navbar />
+          <div className="container-fluid">
+            <Route exact path={["/user", "/"]}>
+              <h1>hello user</h1>
+              <User />
+            </Route>
+            <Route exact path={"/admin"}>
+              <Admin />
+            </Route>
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+          </div>
+          <Footer />
+        </div>
+      </Router>
     </StateProvider>
-
-
-
   );
 }
 
