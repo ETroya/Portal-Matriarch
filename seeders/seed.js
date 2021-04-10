@@ -1,81 +1,57 @@
 let mongoose = require("mongoose");
 let db = require("../models");
+require("dotenv").config();
 
-mongoose.connect("mongodb://localhost/user", {
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/adminEmployee",
+  {
     useNewUrlParser: true,
-    useFindAndModify: false
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
+
+mongoose.connection.on("connected", () => {
+  console.log("connected to mongoose");
 });
 
-let userSeed = [
-    {
-        username: [
-            {
-                name: "carlos"
-            }
-        ],
-        password: [
-            {
-                pass: "1234"
-            }
-        ],
-    },
-    {
-        username: [
-            {
-                name: "edwin"
-            }
-        ],
-        password: [
-            {
-                pass: "5678"
-            }
-        ],
-    },
-    {
-        username: [
-            {
-                name: "eric"
-            }
-        ],
-        password: [
-            {
-                pass: "9123"
-            }
-        ],
-    },
-    {
-        username: [
-            {
-                name: "marlon"
-            }
-        ],
-        password: [
-            {
-                pass: "abcd"
-            }
-        ],
-    },
-    {
-        username: [
-            {
-                name: "amar"
-            }
-        ],
-        password: [
-            {
-                pass: "efgh"
-            }
-        ],
-    }
+let employeesSeed = [
+  {
+    username: "carlos",
+
+    password: "1234",
+  },
+  {
+    username: "edwin",
+
+    password: "5678",
+  },
+  {
+    username: "eric",
+
+    password: "9123",
+  },
+  {
+    username: "marlon",
+
+    password: "abcd",
+  },
+  {
+    username: "amar",
+
+    password: "efgh",
+  },
 ];
 
-db.User.deleteMany({})
-  .then(() => db.User.collection.insertMany(userSeed))
-  .then(data => {
-    console.log(data.result.n + " users inputted!");
+db.employee
+  .deleteMany({})
+  .then(() => db.employee.collection.insertMany(employeesSeed))
+  .then((data) => {
+    console.log(data.result.n + " user inputted!");
     process.exit(0);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err);
     process.exit(1);
   });

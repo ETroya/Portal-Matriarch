@@ -1,5 +1,5 @@
 .footer {
-    min-height: 100px;
+    min-height: auto;
     background: gray;
     position: relative;
   }
