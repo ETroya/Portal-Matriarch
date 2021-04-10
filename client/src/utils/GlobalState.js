@@ -8,9 +8,15 @@ const reducer = (state, action) => {
     case "toggle-comment":
       return {
         ...state,
-        posts: state.posts.map((post, index) =>
-          index === action.id ? { ...post, addComment: !post.addComment } : post
-        ),
+        posts: state.posts.map((post) => {
+          if (post.id === action.id) {
+            return { ...post, addComment: !post.addComment };
+          }
+          if (post.addComment === true && post.id != action.id) {
+            return { ...post, addComment: !post.addComment };
+          }
+          return post;
+        }),
       };
     case "create-array":
       const new_state = { ...state, posts: action.payload };
@@ -37,6 +43,16 @@ const reducer = (state, action) => {
       });
 
       return { ...state, posts: new_posts };
+    case "toggle-comment-list":
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post.id === action.id
+            ? { ...post, hasComments: !post.hasComments }
+            : post
+        ),
+      };
+
     default:
       return;
   }
@@ -48,7 +64,7 @@ const StateProvider = ({ value = false, ...props }) => {
     // addComment: false,
     //add user
     addUser: false,
-
+    postCount: 5,
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };
@@ -57,4 +73,13 @@ const useStateContext = () => {
   return useContext(stateContext);
 };
 
-export { StateProvider, useStateContext };
+const authContext = React.createContext({
+  authData: {
+    isAuthenticated: null,
+    loading: true,
+    user: null,
+  },
+  setAuth: () => {},
+});
+
+export { StateProvider, useStateContext, authContext };
