@@ -1,5 +1,36 @@
 .post {
-    background-color: lightgreen;
+    color:white;
+    /* background-color: rgb(136, 182, 180); */
     margin-top: 1em;
     border-radius: 5px;
+}
+
+.comments.hover {
+    cursor: crosshair;
+}
+
+.postInfo {
+    margin-bottom: -.5em;
+    
+}
+
+.postAuthor {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.postDate {
+    margin-left: 1em;
+    font-size: .75em;
+}
+
+.post-title {
+    margin-top: .25em;
+}
+
+.comment-button {
+    border-style:none;
+    border-radius: 1em;
+    border: solid 2px white;
+    background-color: transparent;
+    color: white;
 }
