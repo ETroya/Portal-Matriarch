@@ -21,9 +21,29 @@ function Employeelist() {
       });
   }, []);
 
+  // input search bar here
+  // filter employees by first name in search bar
+  const filterName = (event) => {
+    let firstName = event.target.value.toLowerCase();
+    setEmployeeState(
+      employeeState.filter((employee) => {
+        return employee.firstName.toLowerCase().includes(firstName);
+      })
+    );
+  };
+
   return (
-    // input search bar here
     <div>
+      <div className="col-16">
+        <input
+          type="text"
+          onChange={(e) => {
+            filterName(e);
+          }}
+          className="form-control"
+          placeholder="Filter by First Name!"
+        ></input>
+      </div>
       {/* make a list here with called items from API */}
       <table className="table">
         <tbody>
@@ -34,29 +54,6 @@ function Employeelist() {
       </table>
     </div>
   );
-
-  // filter employees by first name in search bar
-  // const filterName = (event) => {
-  //   let first = event.target.value.toLowerCase();
-  //   setEmployeeState(
-  //     employeeState.filter((employee) => {
-  //       return employee.first.toLowerCase().includes(first);
-  //     })
-  //   );
-  // };
-
-  // return (
-  //   <div className="col-3">
-  //     <input
-  //       type="text"
-  //       onChange={(e) => {
-  //         filterName(e);
-  //       }}
-  //       className="form-control"
-  //       placeholder="Filter by First Name!"
-  //     ></input>
-  //   </div>
-  // );
 }
 
 export default Employeelist;
