@@ -52,6 +52,7 @@ const reducer = (state, action) => {
             : post
         ),
       };
+
     default:
       return;
   }
@@ -63,6 +64,7 @@ const StateProvider = ({ value = false, ...props }) => {
     // addComment: false,
     //add user
     addUser: false,
+    postCount: 5,
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

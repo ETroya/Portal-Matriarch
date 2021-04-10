@@ -17,7 +17,6 @@ const Feed = () => {
       addComment: false,
       comments: [],
       commentCount: 0,
-      hasComments: false,
     },
     {
       id: 1,
@@ -97,7 +96,7 @@ const Feed = () => {
 
   return (
     <div className="container feed">
-      {state.posts.map((post) => {
+      {state.posts.slice(0, 5).map((post) => {
         return (
           <div>
             <Post
@@ -112,12 +111,14 @@ const Feed = () => {
               addComment={post.addComment}
               commentCount={post.commentCount}
               comments={post.comments}
-              hasComments={post.hasComments}
             />
             <hr />
           </div>
         );
       })}
+      <div className="load-more">
+        <button>Load More!</button>
+      </div>
     </div>
   );
 };
