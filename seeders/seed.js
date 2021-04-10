@@ -1,7 +1,7 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect("mongodb://localhost/user", {
+mongoose.connect("mongodb://localhost/myFirstDatabase", {
     useNewUrlParser: true,
     useFindAndModify: false
 });
@@ -69,10 +69,10 @@ let userSeed = [
     }
 ];
 
-db.User.deleteMany({})
-  .then(() => db.User.collection.insertMany(userSeed))
+db.myFisrtDatabase.deleteMany({})
+  .then(() => db.myFisrtDatabase.collection.insertMany(userSeed))
   .then(data => {
-    console.log(data.result.n + " users inputted!");
+    console.log(data.result.n + " user inputted!");
     process.exit(0);
   })
   .catch(err => {
