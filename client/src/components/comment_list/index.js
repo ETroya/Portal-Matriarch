@@ -6,10 +6,7 @@ const CommentList = ({ comments }) => {
       {comments.map((comment) => {
         return (
           <div className="comment-card">
-            <p className="comment-author">
-              <i>comment author</i>
-            </p>
-            <IndividualComment comment={comment} />
+            <IndividualComment comment={comment} id={comment.id} />
           </div>
         );
       })}

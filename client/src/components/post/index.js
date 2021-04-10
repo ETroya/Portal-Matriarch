@@ -16,7 +16,6 @@ const Post = ({
   commentCount,
   dispatch,
   comments,
-  hasComments,
 }) => {
   const getCommentButton = () => {
     let buttonLabel;
