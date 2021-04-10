@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const adminEmployeeSchema = new Schema({
   username: {
     type: String,
     required: "Enter a new user name.",
@@ -13,7 +13,12 @@ const userSchema = new Schema({
     required: "Enter a new password.",
     trim: true,
   },
+  position: {
+    type: String,
+    required: "Add position."
+    
+  }
 });
 
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+const employee = mongoose.model("employee", adminEmployeeSchema);
+module.exports = employee;
