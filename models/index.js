@@ -1,3 +1,3 @@
 module.exports= {
-    myFisrtDatabase: require("./user")
+    employee: require("./user")
 }
