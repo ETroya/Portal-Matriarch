@@ -43,6 +43,7 @@ const reducer = (state, action) => {
       });
 
       return { ...state, posts: new_posts };
+
     case "toggle-comment-list":
       return {
         ...state,
@@ -52,6 +53,29 @@ const reducer = (state, action) => {
             : post
         ),
       };
+    case "load-more-post":
+      return {
+        ...state,
+        postCount: state.postCount + 2,
+      };
+    case "add-like":
+      const new_comments = state.posts.map((post) => {
+        return {
+          ...post,
+          comments: post.comments.map((comment) => {
+            if (comment.id === action.id) {
+              return {
+                ...comment,
+                likes: comment.likes + 1,
+              };
+            }
+            return comment;
+          }),
+        };
+      });
+
+      console.log(new_comments);
+      return { ...state, posts: new_comments };
 
     default:
       return;
@@ -64,7 +88,7 @@ const StateProvider = ({ value = false, ...props }) => {
     // addComment: false,
     //add user
     addUser: false,
-    postCount: 5,
+    postCount: 3,
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

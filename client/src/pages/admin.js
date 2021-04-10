@@ -4,7 +4,6 @@ import { Row, Container, Col, Form, Button } from "react-bootstrap";
 //need a button to look at all the employee List of just names.
 import Feed from "../components/feed/index";
 import EmployeeForm from "../components/EmployeeForm";
-// import Employeelist from "../components/Employeelist"
 import { useStateContext } from "../utils/GlobalState";
 import Employeelist from "../components/Employeelist";
 
@@ -39,7 +38,7 @@ function Admin() {
           <Button variant="primary" size="lg" block>
             Make a Schedule
           </Button>
-          {/* employeeform? */}
+          
         </Col>
       </Row>
     </>

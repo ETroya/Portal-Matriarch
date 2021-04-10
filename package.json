@@ -44,6 +44,8 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "prettier": "^2.2.1",
+    "react-dnd": "^14.0.2",
+    "react-dnd-html5-backend": "^14.0.0",
     "react-icons": "^4.2.0"
   }
 }
