@@ -1,36 +1,42 @@
 .post {
-    color:white;
-    /* background-color: rgb(136, 182, 180); */
-    margin-top: 1em;
-    border-radius: 5px;
+  color: white;
+  /* background-color: rgb(136, 182, 180); */
+  margin-top: 1em;
+  border-radius: 5px;
 }
 
 .comments.hover {
-    cursor: crosshair;
+  cursor: crosshair;
 }
 
 .postInfo {
-    margin-bottom: -.5em;
-    
+  margin-bottom: -0.5em;
 }
 
 .postAuthor {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .postDate {
-    margin-left: 1em;
-    font-size: .75em;
+  margin-left: 1em;
+  font-size: 0.75em;
 }
 
 .post-title {
-    margin-top: .25em;
+  margin-top: 0.25em;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .comment-button {
-    border-style:none;
-    border-radius: 1em;
-    border: solid 2px white;
-    background-color: transparent;
-    color: white;
+  border-style: none;
+  border-radius: 1em;
+  border: solid 2px white;
+  background-color: transparent;
+  color: white;
+  float: right;
 }

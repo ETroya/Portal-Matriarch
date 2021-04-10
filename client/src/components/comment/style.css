@@ -1,27 +1,25 @@
 .post-bubbles {
-    color: white;
-    font-size: 2.75em;
-    border-style: none;
-    background-color: transparent;
-
+  color: white;
+  font-size: 2.75em;
+  border-style: none;
+  background-color: transparent;
 }
 
 .comment-text {
-color: white;
-    border: none;
-    overflow:hidden;
-    outline: none;
-    resize: both;
-    border: solid 2px white;
-    background-color: transparent;
-    border-radius: 1em;
-  
-    padding-left: 10px;
-    height: 2em;
-    width: 75%;
+  color: white;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  resize: both;
+  border: solid 2px white;
+  background-color: transparent;
+  border-radius: 1em;
+  padding-left: 10px;
+  height: 2em;
+  width: 75%;
 }
+
 .comment-text [contenteditable]:empty::before {
-    content: "Placeholder still possible";
-    color: gray;
-  }
-  
+  content: "Placeholder still possible";
+  color: gray;
+}
