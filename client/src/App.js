@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -6,11 +6,10 @@ import User from "./pages/user";
 import Login from "./pages/login";
 import Admin from "./pages/admin";
 import Signup from "./pages/signup";
-import Workweek from "./pages/workweek"
+import Workweek from "./pages/workweek";
 import privateroute from "./components/privateroute";
 import { StateProvider, authContext } from "./utils/GlobalState";
 function App() {
-
   const [authState, setAuthState] = useState({
     isAuthenticated: null,
     loading: true,
@@ -18,11 +17,13 @@ function App() {
   });
   return (
     <StateProvider>
-      <authContext.Provider value = {{authData: authState, setAuth: setAuthState}}>
-      <Router>
-        <div>
-          <Navbar />
-          <div className="container-fluid">
+      <authContext.Provider
+        value={{ authData: authState, setAuth: setAuthState }}
+      >
+        <Router>
+          <div>
+            <Navbar />
+            <div className="container-fluid">
               {/* <Route path="/login" component={Login} /> */}
               <Route exact path={["/login", "/"]}>
                 <Login />
@@ -41,10 +42,10 @@ function App() {
               <Route exact path={"/workweek"}>
                 <Workweek />
               </Route>
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </Router>
+        </Router>
       </authContext.Provider>
     </StateProvider>
   );
