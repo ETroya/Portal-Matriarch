@@ -3,6 +3,7 @@ import Comment from "../comment/index";
 import CommentList from "../comment_list/index";
 import "./style.css";
 
+import { FaRegComment } from "react-icons/fa";
 const Post = ({
   state,
   author,
@@ -15,6 +16,33 @@ const Post = ({
   comments,
   hasComments,
 }) => {
+  const getCommentButton = () => {
+    let buttonLabel;
+
+    if (commentCount === 0) {
+      buttonLabel = "Add comment";
+    } else if (commentCount === 1) {
+      buttonLabel = `1 `;
+    } else {
+      buttonLabel = `${commentCount} comments`;
+    }
+    if (addComment === true) {
+      buttonLabel = "Close";
+    }
+    return (
+      <button
+        value={id}
+        name="commentButton"
+        onClick={() => {
+          console.log(id);
+          dispatch({ type: "toggle-comment", id });
+        }}
+      >
+        {buttonLabel} <FaRegComment />
+      </button>
+    );
+  };
+
   return (
     <div className="post">
       <p>Author: {author}</p>
@@ -23,27 +51,8 @@ const Post = ({
       <h3>Title to a post</h3>
       <p>{content}</p>
       <hr />
-      <div className="comments-btns">
-        <button
-          clsasName=""
-          value={id}
-          name="commentButton"
-          onClick={() => {
-            console.log(id);
-            dispatch({ type: "toggle-comment", id });
-          }}
-        >
-          Comment
-        </button>
-        {commentCount > 0 ? (
-          <a>
-            <p onClick={() => dispatch({ type: "toggle-comment-list", id })}>
-              {commentCount} comments for this post
-            </p>
-          </a>
-        ) : null}
-      </div>
-      {hasComments ? <CommentList comments={comments} /> : null}
+      <div className="comments-btns">{getCommentButton()}</div>
+      {addComment ? <CommentList comments={comments} /> : null}
       {addComment ? <Comment id={id} dispatch={dispatch} /> : null}
     </div>
   );
