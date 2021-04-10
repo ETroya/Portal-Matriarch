@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import List from "../List";
 import axios from "axios";
 
+// API call
 function Employeelist() {
   const [employeeState, setEmployeeState] = useState([]);
   useEffect(() => {
@@ -33,6 +34,7 @@ function Employeelist() {
   };
 
   return (
+    // search bar for names
     <div>
       <div className="col-16">
         <input
@@ -41,7 +43,7 @@ function Employeelist() {
             filterName(e);
           }}
           className="form-control"
-          placeholder="Filter by First Name!"
+          placeholder="Filter by First Name"
         ></input>
       </div>
       {/* make a list here with called items from API */}
