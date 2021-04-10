@@ -8,15 +8,15 @@ const reducer = (state, action) => {
     case "toggle-comment":
       return {
         ...state,
-        posts: state.posts.map((post) =>
-          post.id === action.id
-            ? {
-                ...post,
-                addComment: !post.addComment,
-                // hasComments: !post.hasComments,
-              }
-            : post
-        ),
+        posts: state.posts.map((post) => {
+          if (post.id === action.id) {
+            return { ...post, addComment: !post.addComment };
+          }
+          if (post.addComment === true && post.id != action.id) {
+            return { ...post, addComment: !post.addComment };
+          }
+          return post;
+        }),
       };
     case "create-array":
       const new_state = { ...state, posts: action.payload };
@@ -77,7 +77,7 @@ const authContext = React.createContext({
     loading: true,
     user: null,
   },
-  setAuth: () => {}
-})
+  setAuth: () => {},
+});
 
 export { StateProvider, useStateContext, authContext };

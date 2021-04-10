@@ -4,10 +4,12 @@ import CommentList from "../comment_list/index";
 import "./style.css";
 
 import { FaRegComment } from "react-icons/fa";
+
 const Post = ({
   state,
   author,
   date,
+  title,
   content,
   id,
   addComment,
@@ -31,6 +33,7 @@ const Post = ({
     }
     return (
       <button
+        className="comment-button"
         value={id}
         name="commentButton"
         onClick={() => {
@@ -45,12 +48,14 @@ const Post = ({
 
   return (
     <div className="post">
-      <p>Author: {author}</p>
-      <p>{date}</p>
-      <hr />
-      <h3>Title to a post</h3>
+      <p className="postInfo postAuthor">{author}</p>
+      <p className="postInfo postDate">
+        <i>{date}</i>
+      </p>
+
+      <h4 className="post-title">{title}</h4>
       <p>{content}</p>
-      <hr />
+
       <div className="comments-btns">{getCommentButton()}</div>
       {addComment ? <CommentList comments={comments} /> : null}
       {addComment ? <Comment id={id} dispatch={dispatch} /> : null}

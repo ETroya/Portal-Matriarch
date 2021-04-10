@@ -11,6 +11,7 @@ const Feed = () => {
       id: 1023,
       author: "Nelson Mandela",
       date: "3 days ago",
+      title: "",
       content:
         "The greatest glory in living lies not in never falling, but in rising every time we fall.",
       addComment: false,
@@ -22,6 +23,7 @@ const Feed = () => {
       id: 1,
       author: "Walt Disney",
       date: "4 days ago",
+      title: "Start doing",
       content: "The way to get started is to quit talking and begin doing.",
       addComment: false,
       comments: [],
@@ -32,6 +34,7 @@ const Feed = () => {
       id: 2,
       author: "Steve Jobs",
       date: "5 days ago",
+      title: "",
       content:
         "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
       addComment: false,
@@ -43,6 +46,7 @@ const Feed = () => {
       id: 3,
       author: "Eleanor Roosevelt",
       date: "6 days ago",
+      title: "",
       content:
         "If life were predictable it would cease to be life, and be without flavor.",
       addComment: false,
@@ -54,6 +58,7 @@ const Feed = () => {
       id: 4,
       author: "Oprah Winfrey",
       date: "7 days ago",
+      title: "",
       content:
         "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.",
       addComment: false,
@@ -65,6 +70,7 @@ const Feed = () => {
       id: 5,
       author: "James Cameron",
       date: "8 days ago",
+      title: "",
       content:
         "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.",
       addComment: false,
@@ -76,6 +82,7 @@ const Feed = () => {
       id: 6,
       author: "John Lennon",
       date: "9 days ago",
+      title: "When life happens",
       content: "Life is what happens when you're busy making other plans.",
       addComment: false,
       comments: [],
@@ -92,19 +99,23 @@ const Feed = () => {
     <div className="container feed">
       {state.posts.map((post) => {
         return (
-          <Post
-            state={state}
-            dispatch={dispatch}
-            id={post.id}
-            key={post.id}
-            author={post.author}
-            date={post.date}
-            content={post.content}
-            addComment={post.addComment}
-            commentCount={post.commentCount}
-            comments={post.comments}
-            hasComments={post.hasComments}
-          />
+          <div>
+            <Post
+              state={state}
+              dispatch={dispatch}
+              id={post.id}
+              key={post.id}
+              author={post.author}
+              date={post.date}
+              title={post.title}
+              content={post.content}
+              addComment={post.addComment}
+              commentCount={post.commentCount}
+              comments={post.comments}
+              hasComments={post.hasComments}
+            />
+            <hr />
+          </div>
         );
       })}
     </div>
