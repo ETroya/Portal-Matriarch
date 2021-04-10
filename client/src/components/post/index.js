@@ -31,17 +31,19 @@ const Post = ({
       buttonLabel = "Close";
     }
     return (
-      <button
-        className="comment-button"
-        value={id}
-        name="commentButton"
-        onClick={() => {
-          console.log(id);
-          dispatch({ type: "toggle-comment", id });
-        }}
-      >
-        {buttonLabel} <FaRegComment />
-      </button>
+      <div className="clearfix">
+        <button
+          className="comment-button"
+          value={id}
+          name="commentButton"
+          onClick={() => {
+            console.log(id);
+            dispatch({ type: "toggle-comment", id });
+          }}
+        >
+          {buttonLabel} <FaRegComment />
+        </button>
+      </div>
     );
   };
 

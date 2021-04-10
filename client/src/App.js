@@ -6,6 +6,7 @@ import User from "./pages/user";
 import Login from "./pages/login";
 import Admin from "./pages/admin";
 import Signup from "./pages/signup";
+import Workweek from "./pages/workweek";
 import privateroute from "./components/privateroute";
 import { StateProvider, authContext } from "./utils/GlobalState";
 function App() {
@@ -31,14 +32,15 @@ function App() {
                 <h1>hello user</h1>
                 <User />
               </Route>
-              //! This was a private route but was not working. to a normal
-              route for testing.
               <Route exact path={"/admin"}>
                 <Admin />
               </Route>
               {/* <Route path="/signup" component={Signup} /> */}
               <Route exact path={"/signup"}>
                 <Signup />
+              </Route>
+              <Route exact path={"/workweek"}>
+                <Workweek />
               </Route>
             </div>
             <Footer />
