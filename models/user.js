@@ -13,6 +13,16 @@ const adminEmployeeSchema = new Schema({
     required: "Enter a new password.",
     trim: true,
   },
+  first: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  last: {
+    type: String,
+    trim: true,
+    required: true,
+  },
   admin: {
     type: Boolean,
     position: true,
