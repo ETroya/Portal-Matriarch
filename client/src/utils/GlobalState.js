@@ -20,7 +20,7 @@ const reducer = (state, action) => {
       };
     case "create-array":
       const new_state = { ...state, posts: action.payload };
-      console.log(new_state);
+
       return new_state;
     // toggle-user
     case "toggle-user":
@@ -76,7 +76,25 @@ const reducer = (state, action) => {
 
       console.log(new_comments);
       return { ...state, posts: new_comments };
+    case "toggle-new-post":
+      return { ...state, createPost: !state.createPost };
+    case "add-new-post":
+      const new_post = {
+        id: 12,
+        author: "Me",
+        date: "today",
+        title: state.postTitle,
+        content: state.postContent,
+        addComment: false,
+        comments: [],
+        commentCount: 0,
+      };
 
+      return {
+        ...state,
+        posts: [new_post].concat(state.posts),
+        createPost: !state.createPost,
+      };
     default:
       return;
   }
@@ -85,9 +103,10 @@ const reducer = (state, action) => {
 const StateProvider = ({ value = false, ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     posts: [],
-    // addComment: false,
-    //add user
+    createPost: false,
     addUser: false,
+    postTitle: "",
+    postContent: "",
     postCount: 3,
   });
   return <Provider value={[state, dispatch]} {...props} />;

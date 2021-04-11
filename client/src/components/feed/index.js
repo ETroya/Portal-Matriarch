@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useStateContext } from "../../utils/GlobalState";
 import Post from "../post/index";
 import "./style.css";
+import axios from "axios";
+import NewPost from "../NewPost";
 
 const Feed = () => {
   const [state, dispatch] = useStateContext();
@@ -103,6 +105,7 @@ const Feed = () => {
 
   return (
     <div className="container feed">
+      {state.createPost ? <NewPost /> : null}
       {state.posts.slice(0, state.postCount).map((post) => {
         return (
           <div>

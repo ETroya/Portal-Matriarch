@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 require("dotenv").config();
 
-
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -24,20 +23,23 @@ app.use(passport.session());
 
 // Add routes, both API and view
 app.use(routes);
+app.use("/", require("./routes/messageBoardRoute"));
 
 // Connect to the Mongo DB
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/myFirstDatabase", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/myFirstDatabase",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
+
+mongoose.connection.on("connected", () => {
+  console.log("connected to mongoose");
 });
-
-
-mongoose.connection.on("connected", ()=>{
-  console.log("connected to mongoose")
-})
 
 // Start the API server
 app.listen(PORT, () => {
