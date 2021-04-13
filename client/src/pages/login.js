@@ -48,6 +48,7 @@ function Login() {
     return <Redirect to = "/admin" />;
   }
   return (
+    <div className="loginDiv">
     <Form.Row > 
     <Col>
       <Form.Group controlId="formBasicUsername">
@@ -55,26 +56,25 @@ function Login() {
         <Form.Control
           type="input"
           name="username"
-          placeholder="Enter username"
+          placeholder="Enter Username"
           onChange={(e) => onChange(e)}
         />
       </Form.Group>
-    </Col>
-    <Col>
       <Form.Group controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Enter Password"
           onChange={(e) => onChange(e)}
         />
       </Form.Group>
       <Button variant="primary" type="submit" onClick={(e) => onSubmit(e)}>
         Submit
       </Button>
-    </Col>
+      </Col>
   </Form.Row>
+  </div>
   );
 }
 
