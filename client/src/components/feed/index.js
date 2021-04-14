@@ -128,11 +128,12 @@ const Feed = () => {
       })}
       <div className="load-more">
         <button
+          className="loadButton"
           onClick={() => {
             dispatch({ type: "load-more-post" });
           }}
         >
-          Load More!
+          Load More
         </button>
       </div>
     </div>
