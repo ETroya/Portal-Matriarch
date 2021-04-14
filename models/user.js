@@ -23,10 +23,12 @@ const adminEmployeeSchema = new Schema({
     trim: true,
     required: true,
   },
+
   admin: {
     type: Boolean,
     position: true,
   },
+
   city: {
     type: String,
     required: "Add a city.",

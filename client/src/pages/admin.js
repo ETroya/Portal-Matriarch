@@ -24,6 +24,14 @@ function Admin() {
         </Col>
         <Col xs={12} md={3}>
           <Button
+            onClick={() => dispatch({ type: "toggle-new-post" })}
+            variant="primary"
+            size="lg"
+            block
+          >
+            Create New Post
+          </Button>
+          <Button
             onClick={() => dispatch({ type: "toggle-user" })}
             variant="primary"
             size="lg"
@@ -38,7 +46,6 @@ function Admin() {
           <Button variant="primary" size="lg" block>
             Make a Schedule
           </Button>
-          
         </Col>
       </Row>
     </>
