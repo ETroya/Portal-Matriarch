@@ -84,6 +84,20 @@ function EmployeeForm() {
           </Form.Group>
         </Form.Row>
         <Form.Row>
+          <Form.Group id="createUserInput" controlId="validationCustom03">
+            <Form.Label>City</Form.Label>
+            <Form.Control
+              required
+              name="city"
+              type="text"
+              placeholder="City"
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
           <Form.Group id="createUserInput" controlId="validationCustomUsername">
             <Form.Label>Username</Form.Label>
             <InputGroup hasValidation>
