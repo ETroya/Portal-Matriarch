@@ -1,4 +1,5 @@
 import React, { createContext, useReducer, useContext } from "react";
+import API from "./api";
 
 const stateContext = createContext();
 const { Provider } = stateContext;
@@ -19,9 +20,18 @@ const reducer = (state, action) => {
         }),
       };
     case "create-array":
+      // API.getAllPosts()
+      //   .then((res) => {
+
       const new_state = { ...state, posts: action.payload };
 
       return new_state;
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    //   return [];
+    // });
+
     // toggle-user
     case "toggle-user":
       return {
@@ -78,20 +88,19 @@ const reducer = (state, action) => {
       return { ...state, createPost: !state.createPost };
     case "add-new-post":
       const new_post = {
-        id: 12,
-        author: "Me",
-        date: "today",
+        author: "author",
         title: state.postTitle,
         content: state.postContent,
-        addComment: false,
-        comments: [],
-        commentCount: 0,
       };
-      return {
-        ...state,
-        posts: [new_post].concat(state.posts),
-        createPost: !state.createPost,
-      };
+
+      API.addNewPost(new_post).then((res) => {
+        return {
+          ...state,
+          posts: [new_post].concat(state.posts),
+          createPost: !state.createPost,
+        };
+      });
+
     default:
       return;
   }
