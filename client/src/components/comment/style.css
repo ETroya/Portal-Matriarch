@@ -5,9 +5,10 @@
   border: solid 2px white;
   background-color: transparent;
   position: relative;
-  top: -9px;
+  top: -10px;
   left: 4px;
   font-size: 17px;
+  height: 32px;
 }
 
 .comment-text {
