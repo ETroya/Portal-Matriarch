@@ -9,7 +9,7 @@ const IndividualComment = ({ comment, id }) => {
     <div className="commentDiv">
       <div className="comment-header">
         <p className="comment-author">
-          <i>{comment.author}</i>
+          <i>author name</i>
         </p>
       </div>
       <p>{comment.content}</p>
