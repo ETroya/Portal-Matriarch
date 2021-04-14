@@ -17,7 +17,11 @@ function EmployeeForm() {
   const { username, first, last, admin } = formData;
   const onChange = (e) => {
     console.log (e)
-    if (e.target.name === "admin")
+    if (e.target.name === "admin"{
+      if (true) {
+        
+      }
+    })
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
