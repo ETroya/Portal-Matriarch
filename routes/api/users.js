@@ -3,22 +3,45 @@ const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
 
 router.post("/", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, first, last } = req.body;
   try {
     const user = new User({
       username,
-      password,
+      first,
+      last,
+      password: "password",
+      city: "Los Angeles",
+      admin: false,
     });
 
     const salt = await bcrypt.genSalt(10);
     //salt is an encryption
-    console.log(password, salt, username);
-    user.password = await bcrypt.hash(password, salt);
+    user.password = await bcrypt.hash(user.password, salt);
 
     await user.save();
     res.json(user);
   } catch (error) {
-      console.log(error)
+    console.log(error);
+
+    res.status(500).json({ message: "Server error try again!" });
+  }
+});
+
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(400).json({ errors: [{ msg: "Invalid Credentials" }] });
+    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ errors: [{ msg: "Invalid Credentials" }] });
+    }
+
+    res.json(user)
+  } catch (error) {
+    console.log(error);
 
     res.status(500).json({ message: "Server error try again!" });
   }
