@@ -23,12 +23,12 @@ app.use(passport.session());
 
 // Add routes, both API and view
 app.use(routes);
-app.use("/", require("./routes/messageBoardRoute"));
+// app.use("/", require("./routes/messageBoardRoute"));
 
 // Connect to the Mongo DB
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/myFirstDatabase",
+  process.env.MONGODB_URI || "mongodb://localhost/adminEmployee",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

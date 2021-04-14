@@ -50,7 +50,7 @@ function Employeelist() {
       <table className="table">
         <tbody>
           {employeeState.map((employee) => (
-            <List firstName={employee.firstName} lastName={employee.lastName} />
+            <List firstName={employee.firstName} lastName={employee.lastName}/>
           ))}
         </tbody>
       </table>
