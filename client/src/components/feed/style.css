@@ -1,5 +1,14 @@
 .feed {
-    border: solid 2px;
-    border-radius: 5px;
-    background-color: rgb(89, 171, 173);
+  border: solid 2px;
+  border-radius: 5px;
+  background-color: rgb(89, 171, 173);
+}
+
+.loadButton {
+  color: white;
+  border-style: none;
+  border-radius: 1em;
+  border: solid 2px white;
+  background-color: transparent;
+  margin-bottom: 15px;
 }
