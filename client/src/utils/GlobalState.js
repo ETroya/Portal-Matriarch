@@ -73,8 +73,6 @@ const reducer = (state, action) => {
           }),
         };
       });
-
-      console.log(new_comments);
       return { ...state, posts: new_comments };
     case "toggle-new-post":
       return { ...state, createPost: !state.createPost };
@@ -89,7 +87,6 @@ const reducer = (state, action) => {
         comments: [],
         commentCount: 0,
       };
-
       return {
         ...state,
         posts: [new_post].concat(state.posts),
