@@ -1,0 +1,17 @@
+.footer {
+    min-height: 100px;
+    background: gray;
+    position: relative;
+  }
+  
+  .footer span {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: gray;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+  }
