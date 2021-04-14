@@ -4,11 +4,12 @@
 
 .commentDiv {
   margin-left: 20px;
+  margin-top: -60px;
 }
 
 .like-button {
   margin-left: auto;
-  margin-right: 1em;
+  margin-right: 10px;
   color: white;
   border-style: none;
   border-radius: 1em;
