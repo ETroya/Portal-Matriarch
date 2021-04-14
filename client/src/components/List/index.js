@@ -4,10 +4,10 @@ function List({ firstName, lastName }) {
   return (
     <div>
       <tr>
-        <td className="first-name" key="1">
+        <td className="first-name" key="1" class="dropzone">
           {firstName}
         </td>
-        <td className="last-name" key="2">
+        <td className="last-name" key="2" class="dropzone">
           {lastName}
         </td>
       </tr>
