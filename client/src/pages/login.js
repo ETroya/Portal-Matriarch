@@ -29,7 +29,7 @@ function Login() {
       password,
     });
     try {
-      const res = await axios.post("/api/users", body, config);
+      const res = await axios.post("/api/users/login", body, config);
       if (res.data){
         setAuth({
           ...authData,
