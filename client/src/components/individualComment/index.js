@@ -6,7 +6,7 @@ const IndividualComment = ({ comment, id }) => {
   const [state, dispatch] = useStateContext();
 
   return (
-    <div>
+    <div className="commentDiv">
       <div className="comment-header">
         <p className="comment-author">
           <i>{comment.author}</i>
@@ -17,8 +17,9 @@ const IndividualComment = ({ comment, id }) => {
         className="like-button"
         onClick={() => dispatch({ type: "add-like", id })}
       >
-        {comment.likes}Like!
+        Like
       </button>
+      {comment.likes} Likes
     </div>
   );
 };
