@@ -19,3 +19,20 @@ code {
   width: 450px;
   margin-bottom: 20px;
 }
+
+#helloText {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.adminDiv {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#adminButton {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
