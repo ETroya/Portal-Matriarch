@@ -10,8 +10,8 @@ const Workweek = () => {
         <Container>
             <Row>
         <Col xs={12} md={2}>
-          <Form.Group class="dropzone"draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
-            <Employeelist class="dropzone"/>
+          <Form.Group>
+            <Employeelist className="dropzone"/>
           </Form.Group>
         </Col>
         <Col xs={12} md={1}>
@@ -19,31 +19,31 @@ const Workweek = () => {
         </Col>
         <Col xs={12} md={1}>
          Sunday
-         <div class="dropzone"></div>
+         <div className="dropzone"></div>
         </Col>
         <Col xs={12} md={1}>
          Monday
-         <div class="dropzone"></div>
+         <div className="dropzone"></div>
         </Col>
         <Col xs={12} md={1}>
          Tuesday
-         <div class="dropzone"></div>
+         <div className="dropzone"></div>
         </Col>
         <Col xs={12} md={1}>
          Wednesday
-         <div class="dropzone"></div>
+         <div className="dropzone"></div>
         </Col>
         <Col xs={12} md={1}>
          Thursday
-         <div class="dropzone"></div>
+         <div className="dropzone"></div>
         </Col>
         <Col xs={12} md={1}>
          Friday
-         <div class="dropzone"></div>
+         <div className="dropzone"></div>
         </Col>
         <Col xs={12} md={1}>
          Saturday
-         <div class="dropzone"></div>
+         <div className="dropzone"></div>
         </Col>
     </Row>
   </Container>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useStateContext } from "../../utils/GlobalState";
 import Post from "../post/index";
 import "./style.css";
+import axios from "axios";
+import NewPost from "../NewPost";
 
 const Feed = () => {
   const [state, dispatch] = useStateContext();
@@ -15,8 +17,15 @@ const Feed = () => {
       content:
         "The greatest glory in living lies not in never falling, but in rising every time we fall.",
       addComment: false,
-      comments: [],
-      commentCount: 0,
+      comments: [
+        {
+          id: 43,
+          author: "Author's name will go here",
+          content: "this is a comment",
+          likes: 4,
+        },
+      ],
+      commentCount: 1,
     },
     {
       id: 1,
@@ -96,7 +105,8 @@ const Feed = () => {
 
   return (
     <div className="container feed">
-      {state.posts.slice(0, 5).map((post) => {
+      {state.createPost ? <NewPost /> : null}
+      {state.posts.slice(0, state.postCount).map((post) => {
         return (
           <div>
             <Post
@@ -117,7 +127,14 @@ const Feed = () => {
         );
       })}
       <div className="load-more">
-        <button>Load More!</button>
+        <button
+          className="loadButton"
+          onClick={() => {
+            dispatch({ type: "load-more-post" });
+          }}
+        >
+          Load More
+        </button>
       </div>
     </div>
   );

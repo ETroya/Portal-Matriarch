@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GiBubbles } from "react-icons/gi";
 import { FaRegPaperPlane } from "react-icons/fa";
+import { FaRegComment } from "react-icons/fa";
 
 import "./style.css";
 
@@ -25,7 +26,9 @@ const Comment = ({ id, dispatch }) => {
           dispatch({ type: "push-comment", payload: { comment, id } });
         }}
       >
-        <GiBubbles />
+        <p>
+          Post <FaRegComment />
+        </p>
       </button>
     </div>
   );

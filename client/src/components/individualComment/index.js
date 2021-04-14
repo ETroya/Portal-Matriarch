@@ -1,9 +1,25 @@
 import React from "react";
+import "./style.css";
+import { useStateContext } from "../../utils/GlobalState";
 
-const IndividualComment = ({ comment }) => {
+const IndividualComment = ({ comment, id }) => {
+  const [state, dispatch] = useStateContext();
+
   return (
-    <div>
-      <p>{comment}</p>
+    <div className="commentDiv">
+      <div className="comment-header">
+        <p className="comment-author">
+          <i>author name</i>
+        </p>
+      </div>
+      <p>{comment.content}</p>
+      <button
+        className="like-button"
+        onClick={() => dispatch({ type: "add-like", id })}
+      >
+        Like
+      </button>
+      {comment.likes} Likes
     </div>
   );
 };

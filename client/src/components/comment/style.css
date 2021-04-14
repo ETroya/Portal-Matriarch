@@ -1,8 +1,14 @@
 .post-bubbles {
   color: white;
-  font-size: 2.75em;
   border-style: none;
+  border-radius: 1em;
+  border: solid 2px white;
   background-color: transparent;
+  position: relative;
+  top: -10px;
+  left: 4px;
+  font-size: 17px;
+  height: 32px;
 }
 
 .comment-text {

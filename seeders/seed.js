@@ -18,29 +18,34 @@ mongoose.connection.on("connected", () => {
 
 let employeesSeed = [
   {
-    username: "carlos",
-
+    username: "Carlos",
     password: "1234",
+    admin: "true",
+    city: "Riverside,CA"
   },
   {
-    username: "edwin",
-
+    username: "Edwin",
     password: "5678",
+    admin: "true",
+    city: "Riverside,CA"
   },
   {
-    username: "eric",
-
+    username: "Eric",
     password: "9123",
+    admin: "true",
+    city: "Eastvale,CA"
   },
   {
-    username: "marlon",
-
+    username: "Marlon",
     password: "abcd",
+    admin: "true",
+    city: "San Diego,CA"
   },
   {
-    username: "amar",
-
+    username: "Amar",
     password: "efgh",
+    admin: "true",
+    city: "Highland,CA"
   },
 ];
 

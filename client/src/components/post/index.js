@@ -16,7 +16,6 @@ const Post = ({
   commentCount,
   dispatch,
   comments,
-  hasComments,
 }) => {
   const getCommentButton = () => {
     let buttonLabel;
@@ -24,12 +23,12 @@ const Post = ({
     if (commentCount === 0) {
       buttonLabel = "Add comment";
     } else if (commentCount === 1) {
-      buttonLabel = `1 `;
+      buttonLabel = `1 comment`;
     } else {
       buttonLabel = `${commentCount} comments`;
     }
     if (addComment === true) {
-      buttonLabel = "Close";
+      buttonLabel = "X";
     }
     return (
       <div className="clearfix">
@@ -42,7 +41,7 @@ const Post = ({
             dispatch({ type: "toggle-comment", id });
           }}
         >
-          {buttonLabel} <FaRegComment />
+          {buttonLabel}
         </button>
       </div>
     );
