@@ -26,7 +26,7 @@ function Admin() {
               size="lg"
               block
             >
-              Create New Employee Account
+              Create New Account
             </Button>
             {state.addUser ? <EmployeeForm /> : null}
             <Button
@@ -37,7 +37,7 @@ function Admin() {
               size="lg"
               block
             >
-              Create New Post
+              Manage Accounts
             </Button>
             <Button
               id="adminButton"
@@ -56,6 +56,16 @@ function Admin() {
               block
             >
               View Requested Time Off
+            </Button>
+            <Button
+              id="adminButton"
+              className="btn btn-dark"
+              onClick={() => dispatch({ type: "toggle-new-post" })}
+              variant="primary"
+              size="lg"
+              block
+            >
+              Create New Post
             </Button>
           </div>
         </Col>
