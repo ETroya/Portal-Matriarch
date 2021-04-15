@@ -3,15 +3,15 @@ const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
 
 router.post("/", async (req, res) => {
-  const { username, first, last, admin } = req.body;
-  console.log(req.body)
+  const { username, first, last, admin, password, city } = req.body;
+  console.log(req.body);
   try {
     const user = new User({
       username,
       first,
       last,
-      password: "password",
-      city: "Los Angeles",
+      password,
+      city,
       admin,
     });
 
@@ -39,7 +39,7 @@ router.post("/login", async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ errors: [{ msg: "Invalid Credentials" }] });
     }
-
+    
     res.json(user);
   } catch (error) {
     console.log(error);
