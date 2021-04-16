@@ -3,16 +3,6 @@ import React from "react";
 // creating list for workers to pull from api and show on site
 function List({ firstName, lastName }) {
   return (
-<<<<<<< HEAD
-    <tr>
-      <td className="first-name" key="1">
-        {firstName}
-      </td>
-      <td className="last-name" key="2">
-        {lastName}
-      </td>
-    </tr>
-=======
       <tr className = "drag-item" draggable ondragstart="event.dataTransfer.setData('text/plain',null)">
         <td className="first-name">
           {firstName}
@@ -21,7 +11,6 @@ function List({ firstName, lastName }) {
           {lastName}
         </td>
       </tr>
->>>>>>> b7044ae2fc3870937a8cc188ff527702c53859da
   );
 }
 
