@@ -41,10 +41,11 @@ function App() {
                 <Login />
               </Route>
               <Route exact path={"/user"}>
-                <h1>hello user</h1>
+                <h1 id="helloText">Hello User</h1>
                 <User />
               </Route>
               <Route exact path={"/admin"}>
+                <h1 id="helloText">Hello Admin</h1>
                 <Admin />
               </Route>
               {/* <Route path="/signup" component={Signup} /> */}

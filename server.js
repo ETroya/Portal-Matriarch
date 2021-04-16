@@ -23,7 +23,7 @@ app.use(passport.session());
 
 // Add routes, both API and view
 app.use(routes);
-app.use("/", require("./routes/messageBoardRoute"));
+// app.use("/", require("./routes/messageBoardRoute"));
 
 // Connect to the Mongo DB
 

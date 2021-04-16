@@ -13,6 +13,10 @@ const messageBoardSchema = {
     },
   ],
   commentCount: Number,
+  createdOn: {
+    type: Date,
+    default: Date.now,
+  },
 };
 
 const MessageBoard = mongoose.model("MessageBoard", messageBoardSchema);
