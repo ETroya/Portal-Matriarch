@@ -26,7 +26,6 @@ const adminEmployeeSchema = new Schema({
 
   admin: {
     type: Boolean,
-    position: true,
   },
 
   city: {

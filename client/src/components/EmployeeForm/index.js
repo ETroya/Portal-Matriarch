@@ -11,10 +11,12 @@ function EmployeeForm() {
     username: "",
     first: "",
     last: "",
+    password: "",
+    city: "",
     admin: false
   });
 
-  const { username, first, last, admin } = formData;
+  const { username, first, last, admin, password, city } = formData;
   const onChange = (e) => {
     console.log (e)
     if (e.target.name === "admin"){
@@ -42,6 +44,8 @@ function EmployeeForm() {
       first,
       last,
       admin,
+      password,
+      city,
     });
     try {
       const res = await axios.post("/api/users", body, config);
