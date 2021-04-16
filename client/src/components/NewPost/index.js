@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useStateContext } from "../../utils/GlobalState";
+import API from "../../utils/api";
 
 const NewPost = () => {
   const [state, dispatch] = useStateContext();
@@ -15,6 +16,14 @@ const NewPost = () => {
     } else {
       setContent(value);
     }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    API.addNewPost({ title, content }).then((res) => {
+      console.log(res.data);
+      dispatch({ type: "add-new-post", payload: res.data });
+    });
   };
 
   return (
@@ -36,14 +45,7 @@ const NewPost = () => {
           placeholder="Post content goes here!"
           onChange={handleChange}
         />
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch({ type: "add-new-post", payload: { title, content } });
-          }}
-        >
-          Post
-        </button>
+        <button onClick={(event) => handleSubmit(event)}>Post</button>
       </form>
     </div>
   );

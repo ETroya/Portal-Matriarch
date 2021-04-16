@@ -88,11 +88,10 @@ const reducer = (state, action) => {
       return { ...state, createPost: !state.createPost };
 
     case "add-new-post":
-      const new_post = {
-        author: "author",
-        title: action.payload.title,
-        content: action.payload.content,
-      };
+      const new_post = { ...action.payload };
+
+      return { ...state, posts: [new_post].concat(state.posts) };
+
     case "open-directory":
       return {
         ...state,
@@ -104,6 +103,7 @@ const reducer = (state, action) => {
     case "open-news":
       return {
         ...state,
+        openNews: true,
         openDirectory: false,
         openTime: false,
         openPay: false,
@@ -122,7 +122,7 @@ const reducer = (state, action) => {
         openDirectory: false,
         openTime: true,
         openNews: false,
-        openPay: true,
+        openPay: false,
       };
     default:
       return;

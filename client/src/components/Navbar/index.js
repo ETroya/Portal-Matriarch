@@ -3,7 +3,6 @@ import { useStateContext } from "../../utils/GlobalState";
 import Pay from "../Pay/index";
 import Time from "../Time/index";
 import "./style.css";
-import { useStateContext } from "../../utils/GlobalState";
 
 const Index = () => {
   const [state, dispatch] = useStateContext();

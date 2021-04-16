@@ -3,12 +3,20 @@ const router = express.Router();
 const MessageBoard = require("../../models/messageBoardModel");
 const { route } = require("./users");
 
-router.post("/newpost", async (req, res) => {
-  const { author, title, content } = req.body;
+const isAuth = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send("Not Authorized");
+  }
+  return next();
+};
 
+router.post("/newpost", isAuth, async (req, res) => {
+  const { author, title, content } = req.body;
+  console.log(req.user);
+  console.log(req.isAuthenticated());
   try {
     const newpost = new MessageBoard({
-      author,
+      author: req.user.first,
       title,
       content,
       addComment: false,
