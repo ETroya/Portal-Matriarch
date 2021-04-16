@@ -46,11 +46,11 @@ function Login() {
   };
 
   if (authData.isAuthenticated && authData.user.admin) {
-    console.log(authData)
+    console.log(authData);
     return <Redirect to="/admin" />;
-  } else if(authData.isAuthenticated && !authData.user.admin) {
-    console.log(authData)
-    return <Redirect to="/workweek" />;
+  } else if (authData.isAuthenticated && !authData.user.admin) {
+    console.log(authData);
+    return <Redirect to="/user" />;
   }
   return (
     <div className="loginDiv">
