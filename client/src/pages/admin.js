@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Container, Col, Form, Button } from "react-bootstrap";
 //Feed from the components folder
 //need a button to look at all the employee List of just names.
@@ -23,9 +23,9 @@ function Admin() {
       return <Feed />;
     }
   };
+
   return (
     <>
-      <h1 id="helloText">Hello Admin</h1>
       <Row>
         <Col xs={12} md={6}>
           {/* {state.openDirectory ? <Employeelist /> : <Feed />} */}
