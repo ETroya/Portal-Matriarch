@@ -5,47 +5,83 @@ import { Row, Container, Col, Form, Button } from "react-bootstrap";
 import Feed from "../components/feed/index";
 import EmployeeForm from "../components/EmployeeForm";
 import { useStateContext } from "../utils/GlobalState";
-import Employeelist from "../components/Employeelist";
+import EmployeeList from "../components/Employeelist";
+import Time from "../components/Time";
+import Pay from "../components/Pay";
 
 function Admin() {
   const [state, dispatch] = useStateContext();
+
+  const showDiv = () => {
+    if (state.openDirectory) {
+      return <EmployeeList />;
+    } else if (state.openTime) {
+      return <Time />;
+    } else if (state.openPay) {
+      return <Pay />;
+    } else {
+      return <Feed />;
+    }
+  };
   return (
     <>
-      <h1>Hello Admin</h1>
+      <h1 id="helloText">Hello Admin</h1>
       <Row>
-        <Col xs={12} md={2}>
-          <Form.Group>
-            <Employeelist />
-          </Form.Group>
+        <Col xs={12} md={6}>
+          {/* {state.openDirectory ? <Employeelist /> : <Feed />} */}
+          {showDiv()}
         </Col>
-
-        <Col xs={12} md={7}>
-          <Feed />
-        </Col>
-        <Col xs={12} md={3}>
-          <Button
-            onClick={() => dispatch({ type: "toggle-new-post" })}
-            variant="primary"
-            size="lg"
-            block
-          >
-            Create New Post
-          </Button>
-          <Button
-            onClick={() => dispatch({ type: "toggle-user" })}
-            variant="primary"
-            size="lg"
-            block
-          >
-            Create New Employee Account
-          </Button>
-          {state.addUser ? <EmployeeForm /> : null}
-          <Button variant="primary" size="lg" block>
-            Requested Time Off
-          </Button>
-          <Button variant="primary" size="lg" block>
-            Make a Schedule
-          </Button>
+        <Col xs={12} md={6}>
+          <div className="adminDiv">
+            <Button
+              id="adminButton"
+              className="btn btn-dark"
+              onClick={() => dispatch({ type: "toggle-user" })}
+              variant="primary"
+              size="lg"
+              block
+            >
+              Create New Account
+            </Button>
+            {state.addUser ? <EmployeeForm /> : null}
+            <Button
+              id="adminButton"
+              className="btn btn-dark"
+              variant="primary"
+              size="lg"
+              block
+            >
+              Manage Accounts
+            </Button>
+            <Button
+              id="adminButton"
+              className="btn btn-dark"
+              variant="primary"
+              size="lg"
+              block
+            >
+              Create Schedule
+            </Button>
+            <Button
+              id="adminButton"
+              className="btn btn-dark"
+              variant="primary"
+              size="lg"
+              block
+            >
+              View Requested Time Off
+            </Button>
+            <Button
+              id="adminButton"
+              className="btn btn-dark"
+              onClick={() => dispatch({ type: "toggle-new-post" })}
+              variant="primary"
+              size="lg"
+              block
+            >
+              Create New Post
+            </Button>
+          </div>
         </Col>
       </Row>
     </>
