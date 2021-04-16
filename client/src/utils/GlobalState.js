@@ -106,6 +106,7 @@ const reducer = (state, action) => {
         openDirectory: false,
         openTime: false,
         openPay: false,
+        openNews: true,
       };
     case "open-pay":
       return {
@@ -121,7 +122,7 @@ const reducer = (state, action) => {
         openDirectory: false,
         openTime: true,
         openNews: false,
-        openPay: true,
+        openPay: false,
       };
     default:
       return;
