@@ -93,16 +93,37 @@ const reducer = (state, action) => {
         title: action.payload.title,
         content: action.payload.content,
       };
-
-      API.addNewPost(new_post).then((res) => {
-        return {
-          ...state,
-          posts: [new_post].concat(state.posts),
-          createPost: !state.createPost,
-        };
-      });
     case "open-directory":
-      return { ...state, openDirectory: !state.openDirectory };
+      return {
+        ...state,
+        openDirectory: true,
+        openTime: false,
+        openPay: false,
+        openNews: false,
+      };
+    case "open-news":
+      return {
+        ...state,
+        openDirectory: false,
+        openTime: false,
+        openPay: false,
+      };
+    case "open-pay":
+      return {
+        ...state,
+        openDirectory: false,
+        openTime: false,
+        openNews: false,
+        openPay: true,
+      };
+    case "open-time":
+      return {
+        ...state,
+        openDirectory: false,
+        openTime: true,
+        openNews: false,
+        openPay: true,
+      };
     default:
       return;
   }
@@ -113,8 +134,12 @@ const StateProvider = ({ value = false, ...props }) => {
     posts: [],
     createPost: false,
     addUser: false,
-    // postTitle: "",
-    // postContent: "",
+    openDirectory: false,
+    openNews: false,
+    openPay: false,
+    openTime: false,
+    logout: false,
+
     postCount: 3,
     openDirectory: false,
   });

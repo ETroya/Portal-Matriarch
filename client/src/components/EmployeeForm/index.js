@@ -11,10 +11,19 @@ function EmployeeForm() {
     username: "",
     first: "",
     last: "",
+    password: "",
+    city: "",
+    admin: false
   });
 
-  const { username, first, last } = formData;
+  const { username, first, last, admin, password, city } = formData;
   const onChange = (e) => {
+    console.log (e)
+    if (e.target.name === "admin"){
+      if (e.target.value === "on") {
+     return setFormData({...formData, admin: true});
+      }
+    }
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -34,6 +43,9 @@ function EmployeeForm() {
       username,
       first,
       last,
+      admin,
+      password,
+      city,
     });
     try {
       const res = await axios.post("/api/users", body, config);
@@ -69,6 +81,20 @@ function EmployeeForm() {
               name="last"
               type="text"
               placeholder="Last Name"
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group id="createUserInput" controlId="validationCustom03">
+            <Form.Label>City</Form.Label>
+            <Form.Control
+              required
+              name="city"
+              type="text"
+              placeholder="City"
               required
               onChange={(e) => onChange(e)}
             />

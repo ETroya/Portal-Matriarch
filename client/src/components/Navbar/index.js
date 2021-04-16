@@ -1,4 +1,7 @@
 import React from "react";
+import { useStateContext } from "../../utils/GlobalState";
+import Pay from "../Pay/index";
+import Time from "../Time/index";
 import "./style.css";
 import { useStateContext } from "../../utils/GlobalState";
 
@@ -26,21 +29,33 @@ const Index = () => {
         <ul class="navbar-nav">
           <li class="nav-item active">
             <a class="nav-link" href="#">
-              <button type="button" class="btn btn-dark btn-circle btn-sm">
+              <button
+                type="button"
+                class="btn btn-dark btn-circle btn-sm"
+                onClick={() => dispatch({ type: "open-news" })}
+              >
                 News
               </button>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <button type="button" class="btn btn-dark btn-circle btn-sm">
+              <button
+                type="button"
+                class="btn btn-dark btn-circle btn-sm"
+                onClick={() => dispatch({ type: "open-time" })}
+              >
                 Time
               </button>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <button type="button" class="btn btn-dark btn-circle btn-sm">
+              <button
+                type="button"
+                class="btn btn-dark btn-circle btn-sm "
+                onClick={() => dispatch({ type: "open-pay" })}
+              >
                 Pay
               </button>
             </a>
@@ -50,7 +65,11 @@ const Index = () => {
               <button
                 type="button"
                 class="btn btn-dark btn-circle btn-sm"
-                onClick={() => dispatch({ type: "pen-directory" })}
+                onClick={
+                  !state.openDirectory
+                    ? () => dispatch({ type: "open-directory" })
+                    : null
+                }
               >
                 Directory
               </button>

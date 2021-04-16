@@ -48,9 +48,9 @@ function Employeelist() {
       </div>
       {/* make a list here with called items from API */}
       <table className="table">
-        <tbody>
-          {employeeState.map((employee) => (
-            <List firstName={employee.firstName} lastName={employee.lastName} />
+        <tbody className="dropzone">
+          {employeeState.map((employee, index) => (
+            <List key={index} firstName={employee.firstName} lastName={employee.lastName} />
           ))}
         </tbody>
       </table>

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import axios from "axios";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import User from "./pages/user";
@@ -15,6 +16,17 @@ function App() {
     loading: true,
     user: null,
   });
+
+  useEffect(() => {
+    try {
+      axios.get("/api/users").then((res) => {
+        setAuthState({ ...authState, user: res.data });
+      });
+    } catch (error) {
+      console.error(error.response.data);
+    }
+  }, []);
+
   return (
     <StateProvider>
       <authContext.Provider
