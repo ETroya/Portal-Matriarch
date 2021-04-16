@@ -4,14 +4,16 @@ import { useStateContext } from "../../utils/GlobalState";
 
 const NewPost = () => {
   const [state, dispatch] = useStateContext();
+  const [title, setTitle] = useState();
+  const [content, setContent] = useState();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
 
     if (name === "postTitle") {
-      state.postTitle = value;
+      setTitle(value);
     } else {
-      state.postContent = value;
+      setContent(value);
     }
   };
 
@@ -37,7 +39,7 @@ const NewPost = () => {
         <button
           onClick={(e) => {
             e.preventDefault();
-            dispatch({ type: "add-new-post" });
+            dispatch({ type: "add-new-post", payload: { title, content } });
           }}
         >
           Post

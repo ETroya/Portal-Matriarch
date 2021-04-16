@@ -86,11 +86,12 @@ const reducer = (state, action) => {
       return { ...state, posts: new_comments };
     case "toggle-new-post":
       return { ...state, createPost: !state.createPost };
+
     case "add-new-post":
       const new_post = {
         author: "author",
-        title: state.postTitle,
-        content: state.postContent,
+        title: action.payload.title,
+        content: action.payload.content,
       };
 
       API.addNewPost(new_post).then((res) => {
@@ -100,7 +101,8 @@ const reducer = (state, action) => {
           createPost: !state.createPost,
         };
       });
-
+    case "open-directory":
+      return { ...state, openDirectory: !state.openDirectory };
     default:
       return;
   }
@@ -111,9 +113,10 @@ const StateProvider = ({ value = false, ...props }) => {
     posts: [],
     createPost: false,
     addUser: false,
-    postTitle: "",
-    postContent: "",
+    // postTitle: "",
+    // postContent: "",
     postCount: 3,
+    openDirectory: false,
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

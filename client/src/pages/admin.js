@@ -14,7 +14,7 @@ function Admin() {
       <h1 id="helloText">Hello Admin</h1>
       <Row>
         <Col xs={12} md={6}>
-          <Feed />
+          {state.openDirectory ? <Employeelist /> : <Feed />}
         </Col>
         <Col xs={12} md={6}>
           <div className="adminDiv">

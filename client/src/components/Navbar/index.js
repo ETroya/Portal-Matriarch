@@ -1,7 +1,9 @@
 import React from "react";
 import "./style.css";
+import { useStateContext } from "../../utils/GlobalState";
 
-const index = () => {
+const Index = () => {
+  const [state, dispatch] = useStateContext();
   return (
     <nav class="mynav navbar navbar-expand-lg navbar-dark">
       <img class="logo" src="/assets/bubbles.svg"></img>
@@ -45,7 +47,11 @@ const index = () => {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <button type="button" class="btn btn-dark btn-circle btn-sm">
+              <button
+                type="button"
+                class="btn btn-dark btn-circle btn-sm"
+                onClick={() => dispatch({ type: "pen-directory" })}
+              >
                 Directory
               </button>
             </a>
@@ -63,4 +69,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
