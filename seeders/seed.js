@@ -16,36 +16,36 @@ mongoose.connection.on("connected", () => {
   console.log("connected to mongoose");
 });
 
-let employeesSeed = [
+const employeesSeed = [
   {
-    username: "Carlos",
+    username: "cfuer12",
     password: "1234",
-    admin: "true",
-    city: "Riverside,CA"
+    admin: true,
+    city: "Riverside,CA",
   },
   {
     username: "Edwin",
     password: "5678",
-    admin: "true",
-    city: "Riverside,CA"
+    admin: true,
+    city: "Riverside,CA",
   },
   {
     username: "Eric",
     password: "9123",
-    admin: "true",
-    city: "Eastvale,CA"
+    admin: true,
+    city: "Eastvale,CA",
   },
   {
     username: "Marlon",
     password: "abcd",
-    admin: "true",
-    city: "San Diego,CA"
+    admin: true,
+    city: "San Diego,CA",
   },
   {
     username: "Amar",
     password: "efgh",
-    admin: "true",
-    city: "Highland,CA"
+    admin: true,
+    city: "Highland,CA",
   },
 ];
 
