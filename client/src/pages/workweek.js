@@ -3,7 +3,6 @@ import { Jumbotron, Row, Container, Col, Form, Button } from "react-bootstrap";
 import { useStateContext } from "../utils/GlobalState";
 import Employeelist from "../components/Employeelist";
 
-
 const Workweek = () => {
     return (
         <Jumbotron fluid>
@@ -16,10 +15,14 @@ const Workweek = () => {
         </Col>
         <Col xs={12} md={1}>
          Time
+         <div className="row">6:00 am</div>
         </Col>
         <Col xs={12} md={1}>
          Sunday
-         <div className="dropzone"></div>
+         <div className="sixAM row" value = "sunday6">6:00AM<div className="dropzone"></div></div>
+         <div className="eightAM row"><div className="dropzone"></div></div>
+         <div className="tenAM row"><div className="dropzone"></div></div>
+         
         </Col>
         <Col xs={12} md={1}>
          Monday

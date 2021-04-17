@@ -1,4 +1,5 @@
 import React, { createContext, useReducer, useContext } from "react";
+import API from "./api";
 
 const stateContext = createContext();
 const { Provider } = stateContext;
@@ -19,9 +20,18 @@ const reducer = (state, action) => {
         }),
       };
     case "create-array":
+      // API.getAllPosts()
+      //   .then((res) => {
+
       const new_state = { ...state, posts: action.payload };
 
       return new_state;
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    //   return [];
+    // });
+
     // toggle-user
     case "toggle-user":
       return {
@@ -76,22 +86,12 @@ const reducer = (state, action) => {
       return { ...state, posts: new_comments };
     case "toggle-new-post":
       return { ...state, createPost: !state.createPost };
+
     case "add-new-post":
-      const new_post = {
-        id: 12,
-        author: "Me",
-        date: "today",
-        title: state.postTitle,
-        content: state.postContent,
-        addComment: false,
-        comments: [],
-        commentCount: 0,
-      };
-      return {
-        ...state,
-        posts: [new_post].concat(state.posts),
-        createPost: !state.createPost,
-      };
+      const new_post = { ...action.payload };
+
+      return { ...state, posts: [new_post].concat(state.posts) };
+
     case "open-directory":
       return {
         ...state,
@@ -103,9 +103,11 @@ const reducer = (state, action) => {
     case "open-news":
       return {
         ...state,
+        openNews: true,
         openDirectory: false,
         openTime: false,
         openPay: false,
+        openNews: true,
       };
     case "open-pay":
       return {
@@ -121,7 +123,7 @@ const reducer = (state, action) => {
         openDirectory: false,
         openTime: true,
         openNews: false,
-        openPay: true,
+        openPay: false,
       };
     default:
       return;
@@ -138,9 +140,9 @@ const StateProvider = ({ value = false, ...props }) => {
     openPay: false,
     openTime: false,
     logout: false,
-    postTitle: "",
-    postContent: "",
+
     postCount: 3,
+    openDirectory: false,
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

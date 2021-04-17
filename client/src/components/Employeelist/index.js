@@ -1,35 +1,43 @@
 //emplyoee list that weill go to the admin page
 import React, { useState, useEffect } from "react";
 import List from "../List";
-import axios from "axios";
+// import axios from "axios";
+// import mongoose from "mongoose"
+import api from "../../utils/api";
 
 // API call
 function Employeelist() {
+  //employee state total
   const [employeeState, setEmployeeState] = useState([]);
+  //filtered employee names
+  const [filteredEmployee, setFilterEmployee]=useState([])
+ 
   useEffect(() => {
-    axios
-      .get("https://randomuser.me/api/?nat=us&results=50")
-      .then((allUsers) => {
-        setEmployeeState(
-          allUsers.data.results.map((result) => {
-            let employeeData = {
-              firstName: result.name.first,
-              lastName: result.name.last,
-            };
-            return employeeData;
-          })
-        );
-      });
+    //mapping thru the all user array and setting the result to the total user
+    api.getEmployee().then((allUsers) => {
+      const totalUsers =
+        allUsers.data.map((result) => {
+          let employee = {
+            firstName: result.first,
+            lastName: result.last,
+            id: result._id
+          };
+          return employee;
+        })
+  setEmployeeState(totalUsers)
+  setFilterEmployee(totalUsers)
+    });
   }, []);
 
   // input search bar here
   // filter employees by first name in search bar
   const filterName = (event) => {
     let firstName = event.target.value.toLowerCase();
-    setEmployeeState(
+    setFilterEmployee(
       employeeState.filter((employee) => {
         return employee.firstName.toLowerCase().includes(firstName);
       })
+
     );
   };
 
@@ -49,8 +57,13 @@ function Employeelist() {
       {/* make a list here with called items from API */}
       <table className="table">
         <tbody className="dropzone">
-          {employeeState.map((employee, index) => (
-            <List key={index} firstName={employee.firstName} lastName={employee.lastName} />
+          {filteredEmployee.map((employee, index) => (
+            <List
+              key={index}
+              firstName={employee.firstName}
+              lastName={employee.lastName}
+              id={employee.id}
+            />
           ))}
         </tbody>
       </table>
