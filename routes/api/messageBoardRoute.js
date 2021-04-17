@@ -11,7 +11,7 @@ const isAuth = (req, res, next) => {
 };
 
 router.post("/newpost", isAuth, async (req, res) => {
-  const { author, title, content } = req.body;
+  const {  title, content } = req.body;
   console.log(req.user);
   console.log(req.isAuthenticated());
   try {
@@ -46,6 +46,33 @@ router.get("/getposts", async (req, res) => {
 });
 
 // get put will update post or comment
+// called from comment component
+router.put("/comment", isAuth, async (req, res) => {
+  const {comment, id } = req.body;
+  console.log("comment");
+  console.log(comment);
+
+  try{
+
+   const new_comment = await MessageBoard.findByIdAndUpdate(
+      { _id: id }, 
+      { $push: { comments: {
+        author: req.user.first,
+        content: comment, 
+        likes: 0
+          }
+        }
+      },{
+        new: true,
+      }
+
+  );
+  return res.json(new_comment);
+  } catch (error){
+    console.log(error);
+  }
+})
+
 
 // get delete will delete post or comment
 
