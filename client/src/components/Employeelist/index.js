@@ -18,9 +18,10 @@ function Employeelist() {
       const totalUsers =
         allUsers.data.map((result) => {
           let employee = {
-            firstName: result.first,
-            lastName: result.last,
-            id: result._id
+            // firstName: result.first,
+            // lastName: result.last,
+            id: result._id,
+            username: result.username,
           };
           return employee;
         })
@@ -32,10 +33,10 @@ function Employeelist() {
   // input search bar here
   // filter employees by first name in search bar
   const filterName = (event) => {
-    let firstName = event.target.value.toLowerCase();
+    let username = event.target.value.toLowerCase();
     setFilterEmployee(
       employeeState.filter((employee) => {
-        return employee.firstName.toLowerCase().includes(firstName);
+        return employee.username.toLowerCase().includes(username);
       })
 
     );
@@ -51,7 +52,7 @@ function Employeelist() {
             filterName(e);
           }}
           className="form-control"
-          placeholder="Filter by First Name"
+          placeholder="Filter by User Name"
         ></input>
       </div>
       {/* make a list here with called items from API */}
@@ -60,9 +61,10 @@ function Employeelist() {
           {filteredEmployee.map((employee, index) => (
             <List
               key={index}
-              firstName={employee.firstName}
-              lastName={employee.lastName}
+              // firstName={employee.firstName}
+              // lastName={employee.lastName}
               id={employee.id}
+              username={employee.username}
             />
           ))}
         </tbody>
