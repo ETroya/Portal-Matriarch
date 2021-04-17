@@ -1,3 +1,4 @@
+//the messageboard in which employees get information. News FEED
 import React, { useState, useEffect } from "react";
 import { useStateContext } from "../../utils/GlobalState";
 import Post from "../post/index";

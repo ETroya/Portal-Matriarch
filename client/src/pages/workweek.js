@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Jumbotron, Row, Container, Col, Form, Button } from "react-bootstrap";
 import { useStateContext } from "../utils/GlobalState";
-import Employeelist from "../components/Employeelist";
+import EmployeeDND from "../components/EmployeeDND";
 
 const Workweek = () => {
     return (
@@ -10,7 +10,7 @@ const Workweek = () => {
             <Row>
         <Col xs={12} md={2}>
           <Form.Group>
-            <Employeelist className="dropzone"/>
+            <EmployeeDND/>
           </Form.Group>
         </Col>
         <Col xs={12} md={1}>

@@ -1,3 +1,4 @@
+//The employee will be able to see their work schedule
 import React from "react";
 import "./style.css";
 
