@@ -1,3 +1,4 @@
+//making a post to the news feed 
 import React from "react";
 import Comment from "../comment/index";
 import CommentList from "../comment_list/index";

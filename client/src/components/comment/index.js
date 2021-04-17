@@ -1,3 +1,4 @@
+//making a new comment component
 import React, { useState } from "react";
 import { GiBubbles } from "react-icons/gi";
 import { FaRegPaperPlane } from "react-icons/fa";

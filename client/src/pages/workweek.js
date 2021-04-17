@@ -10,7 +10,7 @@ const Workweek = () => {
             <Row>
         <Col xs={12} md={2}>
           <Form.Group>
-            <Employeelist className="dropzone"/>
+            <Employeelist />
           </Form.Group>
         </Col>
         <Col xs={12} md={1}>
