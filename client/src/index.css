@@ -12,7 +12,6 @@ code {
     monospace;
 }
 
-
 #draggable {
   width: 200px;
   height: 20px;
@@ -27,12 +26,13 @@ code {
   margin-bottom: 10px;
   padding: 10px;
 }
+
 .loginDiv {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 80px;
   width: 450px;
-  margin-bottom: 20px;
+  margin-bottom: 495px;
 }
 
 #helloText {
