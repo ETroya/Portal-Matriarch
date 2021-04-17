@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Row, Container, Col, Form, Button } from "react-bootstrap";
 //Feed from the components folder
 //need a button to look at all the employee List of just names.
@@ -59,6 +60,9 @@ function Admin() {
               variant="primary"
               size="lg"
               block
+              onClick={() => {
+              console.log("redirect");
+              return <Redirect to="/workweek" />}}
             >
               Create Schedule
             </Button>

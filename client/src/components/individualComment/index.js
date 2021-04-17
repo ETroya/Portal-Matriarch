@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { useStateContext } from "../../utils/GlobalState";
 
-const IndividualComment = ({ comment, id, author }) => {
+const IndividualComment = ({ content, id, author }) => {
   const [state, dispatch] = useStateContext();
 
   return (
@@ -12,7 +12,7 @@ const IndividualComment = ({ comment, id, author }) => {
           <i>{author}</i>
         </p>
       </div>
-      <p>{comment}</p>
+      <p>{content}</p>
       {/* <button
         className="like-button"
         onClick={() => dispatch({ type: "add-like", id })}

@@ -17,6 +17,7 @@ const Post = ({
   dispatch,
   comments,
 }) => {
+  console.log(comments);
   const getCommentButton = () => {
     let buttonLabel;
 

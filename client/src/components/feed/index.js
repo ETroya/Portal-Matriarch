@@ -26,6 +26,7 @@ const Feed = () => {
     <div className="container feed">
       {state.createPost ? <NewPost /> : null}
       {state.posts.slice(0, state.postCount).map((post) => {
+        console.log(post.comments);
         return (
           <div key={post.id}>
             <Post

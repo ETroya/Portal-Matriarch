@@ -79,7 +79,13 @@ const reducer = (state, action) => {
       });
       return { ...state, posts: new_comments };
     case "toggle-new-post":
-      return { ...state, createPost: !state.createPost };
+      return { ...state, 
+        createPost: !state.createPost,
+        openNews: true,
+        openDirectory: false,
+        openTime: false,
+        openPay: false,
+       };
 
     case "add-new-post":
       const new_post = { ...action.payload };
