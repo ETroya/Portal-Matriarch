@@ -10,27 +10,21 @@ const reducer = (state, action) => {
       return {
         ...state,
         posts: state.posts.map((post) => {
-          if (post.id === action.id) {
+          if (post._id === action.id) {
             return { ...post, addComment: !post.addComment };
           }
-          if (post.addComment === true && post.id != action.id) {
+          if (post.addComment === true && post._id != action.id) {
             return { ...post, addComment: !post.addComment };
           }
           return post;
         }),
       };
     case "create-array":
-      // API.getAllPosts()
-      //   .then((res) => {
+
 
       const new_state = { ...state, posts: action.payload };
 
       return new_state;
-    // })
-    // .catch((error) => {
-    //   console.log(error);
-    //   return [];
-    // });
 
     // toggle-user
     case "toggle-user":
@@ -41,7 +35,7 @@ const reducer = (state, action) => {
       };
     case "push-comment":
       const new_posts = state.posts.map((post) => {
-        if (post.id === action.payload.id) {
+        if (post._id === action.payload.id) {
           return {
             ...post,
             comments: post.comments.concat(action.payload.comment),

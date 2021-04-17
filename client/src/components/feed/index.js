@@ -31,7 +31,7 @@ const Feed = () => {
             <Post
               state={state}
               dispatch={dispatch}
-              id={post.id}
+              id={post._id}
               author={post.author}
               date={post.date}
               title={post.title}
