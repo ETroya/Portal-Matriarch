@@ -18,6 +18,7 @@ const Post = ({
   dispatch,
   comments,
 }) => {
+  console.log(comments);
   const getCommentButton = () => {
     let buttonLabel;
 
@@ -60,7 +61,7 @@ const Post = ({
 
       <div className="comments-btns">{getCommentButton()}</div>
       {addComment ? <CommentList comments={comments} /> : null}
-      {addComment ? <Comment id={id} dispatch={dispatch} /> : null}
+      {addComment ? <Comment id={id} state={state} dispatch={dispatch} /> : null}
     </div>
   );
 };

@@ -1,13 +1,26 @@
 //making a new comment component
 import React, { useState } from "react";
-import { GiBubbles } from "react-icons/gi";
-import { FaRegPaperPlane } from "react-icons/fa";
 import { FaRegComment } from "react-icons/fa";
 
 import "./style.css";
+import API from "../../utils/api";
 
 const Comment = ({ id, dispatch }) => {
+
   const [comment, setComment] = useState();
+
+  const handleComment = (event) => {
+    event.preventDefault();
+
+
+    //set comment in database
+    API.addComment(comment, id).then((res) => {
+      console.log(res);
+      dispatch({ type: "push-comment", payload: { comment, id } });
+    })
+
+    
+  }
   return (
     <div className="comment">
       <textarea
@@ -21,11 +34,7 @@ const Comment = ({ id, dispatch }) => {
 
       <button
         className="post-bubbles"
-        onClick={(event) => {
-          event.preventDefault();
-
-          dispatch({ type: "push-comment", payload: { comment, id } });
-        }}
+        onClick={(event) => handleComment(event)}
       >
         <p>
           Post <FaRegComment />
