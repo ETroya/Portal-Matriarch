@@ -1,6 +1,6 @@
 .footer {
   margin-top: 1rem;
-  padding: 1rem;
+  padding: 0.01rem;
   background-color: gray;
   position: fixed;
   bottom: 0;
@@ -17,5 +17,5 @@
   right: 0;
   background: gray;
   font-family: "Quicksand", sans-serif;
-  font-size: 20px;
+  font-size: 14px;
 }
