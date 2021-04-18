@@ -9,12 +9,12 @@
 }
 
 .footer span {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 10px;
+  padding: 10px;
+  position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   background: gray;
   font-family: "Quicksand", sans-serif;
   font-size: 14px;

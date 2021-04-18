@@ -1,3 +1,4 @@
+//the messageboard in which employees get information. News FEED
 import React, { useState, useEffect } from "react";
 import { useStateContext } from "../../utils/GlobalState";
 import Post from "../post/index";
@@ -26,12 +27,13 @@ const Feed = () => {
     <div className="container feed">
       {state.createPost ? <NewPost /> : null}
       {state.posts.slice(0, state.postCount).map((post) => {
+        console.log(post.comments);
         return (
           <div key={post.id}>
             <Post
               state={state}
               dispatch={dispatch}
-              id={post.id}
+              id={post._id}
               author={post.author}
               date={post.date}
               title={post.title}

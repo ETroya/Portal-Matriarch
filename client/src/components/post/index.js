@@ -1,3 +1,4 @@
+//making a post to the news feed 
 import React from "react";
 import Comment from "../comment/index";
 import CommentList from "../comment_list/index";
@@ -17,6 +18,7 @@ const Post = ({
   dispatch,
   comments,
 }) => {
+  console.log(comments);
   const getCommentButton = () => {
     let buttonLabel;
 
@@ -59,7 +61,7 @@ const Post = ({
 
       <div className="comments-btns">{getCommentButton()}</div>
       {addComment ? <CommentList comments={comments} /> : null}
-      {addComment ? <Comment id={id} dispatch={dispatch} /> : null}
+      {addComment ? <Comment id={id} state={state} dispatch={dispatch} /> : null}
     </div>
   );
 };
