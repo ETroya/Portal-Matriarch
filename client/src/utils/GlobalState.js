@@ -32,6 +32,12 @@ const reducer = (state, action) => {
         //not operator
         ...state,
         addUser: !state.addUser,
+        openNews: false,
+        openDirectory: false,
+        openTime: false,
+        openPay: false,
+        openManage: false,
+        openEmployeeForm: true,
       };
     case "push-comment":
       const new_posts = state.posts.map((post) => {
@@ -78,14 +84,19 @@ const reducer = (state, action) => {
         };
       });
       return { ...state, posts: new_comments };
+
     case "toggle-new-post":
-      return { ...state, 
+      return {
+        ...state,
         createPost: !state.createPost,
         openNews: true,
         openDirectory: false,
         openTime: false,
         openPay: false,
-       };
+        openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
+      };
 
     case "add-new-post":
       const new_post = { ...action.payload };
@@ -99,6 +110,9 @@ const reducer = (state, action) => {
         openTime: false,
         openPay: false,
         openNews: false,
+        openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
       };
     case "open-news":
       return {
@@ -107,7 +121,10 @@ const reducer = (state, action) => {
         openDirectory: false,
         openTime: false,
         openPay: false,
-        openNews: true,
+        openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
+        createPost: false,
       };
     case "open-pay":
       return {
@@ -116,6 +133,9 @@ const reducer = (state, action) => {
         openTime: false,
         openNews: false,
         openPay: true,
+        openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
       };
     case "open-time":
       return {
@@ -124,7 +144,41 @@ const reducer = (state, action) => {
         openTime: true,
         openNews: false,
         openPay: false,
+        openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
       };
+    case "open-manage":
+      return {
+        ...state,
+        openDirectory: false,
+        openTime: false,
+        openNews: false,
+        openPay: false,
+        openManage: true,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
+      };
+    case "open-createschedule":
+      return {
+        ...state,
+        openDirectory: false,
+        openTime: false,
+        openNews: false,
+        openPay: false,
+        openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: true,
+      };
+    // case "open-viewrequest":
+    //   return {
+    //     ...state,
+    //     openDirectory: false,
+    //     openTime: false,
+    //     openNews: false,
+    //     openPay: false,
+    //     openManage: false,
+    //   };
     default:
       return;
   }
@@ -134,15 +188,16 @@ const StateProvider = ({ value = false, ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     posts: [],
     createPost: false,
+    postCount: 3,
     addUser: false,
     openDirectory: false,
     openNews: false,
     openPay: false,
     openTime: false,
+    openManage: false,
+    openEmployeeForm: false,
+    openCreateSchedule: false,
     logout: false,
-
-    postCount: 3,
-    openDirectory: false,
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

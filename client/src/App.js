@@ -10,6 +10,8 @@ import Signup from "./pages/signup";
 import Workweek from "./pages/workweek";
 import privateroute from "./components/privateroute";
 import { StateProvider, authContext } from "./utils/GlobalState";
+import { Submenu } from "./components/ShowDiv";
+
 function App() {
   const [authState, setAuthState] = useState({
     isAuthenticated: null,
@@ -45,16 +47,17 @@ function App() {
                 <User />
               </Route>
               <Route exact path={"/admin"}>
-                <h1 id="helloText">Hello Admin</h1>
+                <Submenu />
                 <Admin />
               </Route>
               {/* <Route path="/signup" component={Signup} /> */}
               <Route exact path={"/signup"}>
                 <Signup />
               </Route>
-              <Route exact path={"/workweek"}>
+              {/* <Route exact path={"/workweek"}>
+                <Submenu />
                 <Workweek />
-              </Route>
+              </Route> */}
             </div>
             <Footer />
           </div>
