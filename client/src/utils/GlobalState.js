@@ -38,6 +38,12 @@ const reducer = (state, action) => {
         //not operator
         ...state,
         addUser: !state.addUser,
+        openNews: false,
+        openDirectory: false,
+        openTime: false,
+        openPay: false,
+        openManage: false,
+        openEmployeeForm: true,
       };
     case "push-comment":
       const new_posts = state.posts.map((post) => {
@@ -94,6 +100,8 @@ const reducer = (state, action) => {
         openTime: false,
         openPay: false,
         openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
       };
 
     case "add-new-post":
@@ -109,6 +117,8 @@ const reducer = (state, action) => {
         openPay: false,
         openNews: false,
         openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
       };
     case "open-news":
       return {
@@ -118,6 +128,9 @@ const reducer = (state, action) => {
         openTime: false,
         openPay: false,
         openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
+        createPost: false,
       };
     case "open-pay":
       return {
@@ -127,6 +140,8 @@ const reducer = (state, action) => {
         openNews: false,
         openPay: true,
         openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
       };
     case "open-time":
       return {
@@ -136,6 +151,8 @@ const reducer = (state, action) => {
         openNews: false,
         openPay: false,
         openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
       };
     case "open-manage":
       return {
@@ -145,6 +162,19 @@ const reducer = (state, action) => {
         openNews: false,
         openPay: false,
         openManage: true,
+        openEmployeeForm: false,
+        openCreateSchedule: false,
+      };
+    case "open-createschedule":
+      return {
+        ...state,
+        openDirectory: false,
+        openTime: false,
+        openNews: false,
+        openPay: false,
+        openManage: false,
+        openEmployeeForm: false,
+        openCreateSchedule: true,
       };
     // case "open-viewrequest":
     //   return {
@@ -171,6 +201,8 @@ const StateProvider = ({ value = false, ...props }) => {
     openPay: false,
     openTime: false,
     openManage: false,
+    openEmployeeForm: false,
+    openCreateSchedule: false,
     logout: false,
   });
   return <Provider value={[state, dispatch]} {...props} />;

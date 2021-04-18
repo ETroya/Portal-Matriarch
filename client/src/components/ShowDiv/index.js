@@ -8,6 +8,7 @@ import Pay from "../Pay";
 import Manage from "../Manage";
 import Feed from "../feed";
 import EmployeeForm from "../EmployeeForm";
+import CreateSchedule from "../CreateSchedule";
 
 export const ShowDiv = () => {
   const [state, dispatch] = useStateContext();
@@ -19,6 +20,10 @@ export const ShowDiv = () => {
     return <Pay />;
   } else if (state.openManage) {
     return <Manage />;
+  } else if (state.openEmployeeForm) {
+    return <EmployeeForm />;
+  } else if (state.openCreateSchedule) {
+    return <CreateSchedule />;
     // } else if (state.openViewRequest) {
     //   return <ViewRequest />;
   } else {
@@ -42,7 +47,7 @@ export const Submenu = () => {
             >
               Create New Account
             </Button>
-            {state.addUser ? <EmployeeForm /> : null}
+            {/* {state.addUser ? <EmployeeForm /> : null} */}
           </Col>
           <Col xs={1}>
             <Button
@@ -58,10 +63,11 @@ export const Submenu = () => {
             <Button
               id="adminButton"
               className="btn btn-dark"
-              onClick={() => {
-                console.log("this should redirect");
-                history.push("/workweek");
-              }}
+              onClick={() => dispatch({ type: "open-createschedule" })}
+              //   onClick={() => {
+              //     console.log("this should redirect");
+              //     history.push("/workweek");
+              //   }}
               variant="primary"
             >
               Create Schedule
