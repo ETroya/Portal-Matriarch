@@ -54,10 +54,10 @@ function App() {
               <Route exact path={"/signup"}>
                 <Signup />
               </Route>
-              {/* <Route exact path={"/workweek"}>
+              <Route exact path={"/workweek"}>
                 <Submenu />
                 <Workweek />
-              </Route> */}
+              </Route>
             </div>
             <Footer />
           </div>
