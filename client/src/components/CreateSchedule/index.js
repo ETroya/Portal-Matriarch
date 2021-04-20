@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Jumbotron, Row, Container, Col, Form, Button } from "react-bootstrap";
-import { useStateContext } from "../utils/GlobalState";
-import Employeelist from "../components/Employeelist";
-import { ShowDiv, Submenu } from "../components/ShowDiv";
+import { useStateContext } from "../../utils/GlobalState";
+import Employeelist from "../Employeelist";
+import { ShowDiv, Submenu } from "../ShowDiv";
+import "./style.css";
 
-const Workweek = () => {
+const CreateSchedule = () => {
   return (
     <Jumbotron fluid>
       <Container>
@@ -60,4 +61,4 @@ const Workweek = () => {
   );
 };
 
-export default Workweek;
+export default CreateSchedule;

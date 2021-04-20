@@ -1,3 +1,4 @@
+//making a new comment component
 import React, { useState } from "react";
 import { FaRegComment } from "react-icons/fa";
 
