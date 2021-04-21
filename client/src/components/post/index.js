@@ -38,7 +38,7 @@ const Post = ({
           value={id}
           name="commentButton"
           onClick={() => {
-            console.log(id);
+
             dispatch({ type: "toggle-comment", id });
           }}
         >
@@ -49,9 +49,10 @@ const Post = ({
   };
 
   const handleDelete = () => {
-    console.log("boom");
     API.deletePost(id).then((res) => {
-      console.log(res)
+        
+        dispatch({type: "delete-post", id});
+
       })
   }
 
@@ -64,8 +65,12 @@ const Post = ({
 
       <h4 className="post-title">{title}</h4>
       <p>{content}</p>
-      <button className="delete-btn" onClick={() => handleDelete()}>DELETE</button>
-      <div className="comments-btns">{getCommentButton()}</div>
+      
+      <div className="comments-btns">
+      <button className="delete-btn " onClick={() => handleDelete()}>DELETE POST</button>
+      
+        {getCommentButton()}
+        </div>
       {addComment ? <CommentList comments={comments} id={id} /> : null}
       {addComment ? <Comment id={id} commentCount={commentCount} state={state} dispatch={dispatch} /> : null}
     </div>

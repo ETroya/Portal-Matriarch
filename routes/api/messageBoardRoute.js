@@ -77,9 +77,6 @@ router.put("/comment", async (req, res) => {
 router.delete("/deletePost", isAuth, async (req, res, next) =>{
   const id = req.body.id;
 
-  console.log("from within delete post");
-  console.log(id);
-
   try{
    const deletePost =  await MessageBoard.findByIdAndDelete(id);
 
