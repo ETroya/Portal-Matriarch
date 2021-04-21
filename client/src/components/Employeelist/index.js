@@ -18,8 +18,8 @@ function Employeelist() {
       const totalUsers =
         allUsers.data.map((result) => {
           let employee = {
-            // firstName: result.first,
-            // lastName: result.last,
+            firstName: result.first,
+            lastName: result.last,
             id: result._id,
             // username: result.username,
           };
@@ -61,10 +61,9 @@ function Employeelist() {
           {filteredEmployee.map((employee, index) => (
             <List
               key={index}
-              // firstName={employee.firstName}
-              // lastName={employee.lastName}
-              id={employee.id}
-              username={employee.username}
+              firstName={employee.firstName}
+              lastName={employee.lastName}
+              index= {index}
             />
           ))}
         </tbody>

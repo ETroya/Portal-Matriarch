@@ -7,7 +7,6 @@ import User from "./pages/user";
 import Login from "./pages/login";
 import Admin from "./pages/admin";
 import Signup from "./pages/signup";
-import Workweek from "./pages/workweek";
 import privateroute from "./components/privateroute";
 import { StateProvider, authContext } from "./utils/GlobalState";
 import { Submenu } from "./components/ShowDiv";
@@ -54,10 +53,6 @@ function App() {
               <Route exact path={"/signup"}>
                 <Signup />
               </Route>
-              {/* <Route exact path={"/workweek"}>
-                <Submenu />
-                <Workweek />
-              </Route> */}
             </div>
             <Footer />
           </div>
