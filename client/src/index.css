@@ -36,8 +36,12 @@ code {
   justify-content: center;
 }
 
-#adminButton {
+.btn.adminButton {
   width: 90px;
   height: 50px;
   font-size: 12px;
+}
+
+.buttonCol {
+  text-align: center;
 }
