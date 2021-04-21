@@ -8,11 +8,6 @@ const adminEmployeeSchema = new Schema({
     unique: true,
     trim: true,
   },
-  password: {
-    type: String,
-    required: "Enter a new password.",
-    trim: true,
-  },
   first: {
     type: String,
     trim: true,
@@ -23,15 +18,43 @@ const adminEmployeeSchema = new Schema({
     trim: true,
     required: true,
   },
-
-  admin: {
-    type: Boolean,
+  password: {
+    type: String,
+    required: "Enter a new password.",
+    trim: true,
   },
-
   city: {
     type: String,
-    required: "Add a city.",
+    required: "Enter their city.",
     trim: true,
+  },
+  wage: {
+    type: Number,
+    required: "Enter their wage.",
+    trim: true,
+  },
+  hours: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
+  pto: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
+  upt: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
+  vacation: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
+  admin: {
+    type: Boolean,
   },
 });
 

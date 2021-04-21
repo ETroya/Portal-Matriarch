@@ -1,0 +1,18 @@
+#timeContainer {
+  margin-top: 20px;
+}
+
+#timeHeader {
+  background-color: gray;
+  font-size: 24px;
+}
+
+#timeBankDiv {
+  margin-top: 40px;
+  background-color: lightgray;
+  font-size: 20px;
+}
+
+#displayTimeDiv {
+  margin-top: 40px;
+}
