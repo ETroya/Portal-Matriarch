@@ -32,6 +32,21 @@
   display: table;
 }
 
+.comments-btns{
+  display: flex;
+justify-content: space-between;
+}
+
+.delete-btn { 
+  margin-left: auto;
+  margin-right: 5em;
+  background-color: crimson;
+  border-style: none;
+  border-radius: 1em;
+  /* border:solid 2px white; */
+  color: white;
+}
+
 .comment-button {
   border-style: none;
   border-radius: 1em;

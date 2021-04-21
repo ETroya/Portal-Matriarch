@@ -13,7 +13,9 @@ const Comment = ({ id, dispatch, commentCount }) => {
     event.preventDefault();
     //set comment in database
     API.addComment(comment, id, commentCount).then((res) => {
-      dispatch({ type: "push-comment", payload: { comment, id } });
+      console.log("from index, res.data");
+      console.log(res.data.comments);
+      dispatch({ type: "push-comment", payload: { comments: res.data.comments, id } });
     });
   };
   
