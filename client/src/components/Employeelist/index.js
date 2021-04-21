@@ -21,7 +21,7 @@ function Employeelist() {
             // firstName: result.first,
             // lastName: result.last,
             id: result._id,
-            username: result.username,
+            // username: result.username,
           };
           return employee;
         })
@@ -33,10 +33,10 @@ function Employeelist() {
   // input search bar here
   // filter employees by first name in search bar
   const filterName = (event) => {
-    let username = event.target.value.toLowerCase();
+    let firstName = event.target.value.toLowerCase();
     setFilterEmployee(
       employeeState.filter((employee) => {
-        return employee.username.toLowerCase().includes(username);
+        return employee.firstName.toLowerCase().includes(firstName);
       })
 
     );
