@@ -13,8 +13,8 @@ const Index = () => {
       <a class="navbar-brand" id="appName" href="#">
         Bubbles
       </a>
-      {window.location.pathname != "/login" &&
-      window.location.pathname != "/" ? (
+      {window.location.pathname !== "/login" &&
+      window.location.pathname !== "/" ? (
         <>
           <button
             class="navbar-toggler"

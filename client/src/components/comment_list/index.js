@@ -9,10 +9,6 @@ import "./style.css";
 const CommentList = ({ comments, id }) => {
   const [state, dispatch] = useStateContext();
 
-  useEffect(() => {
-    
-  }, [comments])
-
 
   return (
     <div className="comment-list">

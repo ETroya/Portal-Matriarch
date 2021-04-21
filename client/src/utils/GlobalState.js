@@ -1,5 +1,5 @@
 import React, { createContext, useReducer, useContext } from "react";
-import API from "./api";
+
 
 const stateContext = createContext();
 const { Provider } = stateContext;
@@ -13,7 +13,7 @@ const reducer = (state, action) => {
           if (post._id === action.id) {
             return { ...post, addComment: !post.addComment };
           }
-          if (post.addComment === true && post._id != action.id) {
+          if (post.addComment === true && post._id !== action.id) {
             return { ...post, addComment: !post.addComment };
           }
           return post;
@@ -40,17 +40,20 @@ const reducer = (state, action) => {
         openEmployeeForm: true,
       };
     case "push-comment":
+      console.log(state.posts);
       const new_posts = state.posts.map((post) => {
         if (post._id === action.payload.id) {
           return {
             ...post,
-            comments: post.comments.concat(action.payload.comment),
+            // comments: post.comments.concat(action.payload.comment),
+            comments: action.payload.comments,
             addComment: !post.addComment,
             commentCount: post.commentCount + 1,
           };
         }
         return post;
       });
+      console.log(new_posts);
 
       return { ...state, posts: new_posts };
 
@@ -179,6 +182,17 @@ const reducer = (state, action) => {
     //     openPay: false,
     //     openManage: false,
     //   };
+case "delete-post":
+console.log(state.posts);
+  const posts_after_delete = state.posts.filter((post) => {
+    console.log(post);
+    if(post._id !== action.id){
+      return post;
+    }
+    // return post;
+  });
+    console.log(posts_after_delete);
+  return {...state, posts: posts_after_delete};
     default:
       return;
   }
@@ -186,6 +200,7 @@ const reducer = (state, action) => {
 
 const StateProvider = ({ value = false, ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
+    stateControl: false,
     posts: [],
     createPost: false,
     postCount: 3,
