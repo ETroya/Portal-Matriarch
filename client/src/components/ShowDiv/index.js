@@ -38,10 +38,9 @@ export const Submenu = () => {
     <>
       <div className="adminDiv">
         <Row id="adminRow">
-          <Col xs={1}>
+          <Col className="buttonCol" xs={1}>
             <Button
-              id="adminButton"
-              className="btn btn-dark"
+              className="btn btn-dark adminButton"
               onClick={() => dispatch({ type: "toggle-user" })}
               variant="primary"
             >
@@ -49,20 +48,18 @@ export const Submenu = () => {
             </Button>
             {/* {state.addUser ? <EmployeeForm /> : null} */}
           </Col>
-          <Col xs={1}>
+          <Col className="buttonCol" xs={1}>
             <Button
-              id="adminButton"
-              className="btn btn-dark"
+              className="btn btn-dark adminButton"
               onClick={() => dispatch({ type: "open-manage" })}
               variant="primary"
             >
               Manage Accounts
             </Button>
           </Col>
-          <Col xs={1}>
+          <Col className="buttonCol" xs={1}>
             <Button
-              id="adminButton"
-              className="btn btn-dark"
+              className="btn btn-dark adminButton"
               onClick={() => dispatch({ type: "open-createschedule" })}
               //   onClick={() => {
               //     console.log("this should redirect");
@@ -81,10 +78,9 @@ export const Submenu = () => {
       >
         View Requested Time Off
       </Button> */}
-          <Col xs={1}>
+          <Col className="buttonCol" xs={1}>
             <Button
-              id="adminButton"
-              className="btn btn-dark"
+              className="btn btn-dark adminButton"
               onClick={() => dispatch({ type: "toggle-new-post" })}
               variant="primary"
             >
