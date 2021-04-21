@@ -1,8 +1,16 @@
 //maps over all the comments to display as a list
+import { useEffect } from "react";
+import { useStateContext } from "../../utils/GlobalState";
+//maps over all the comments to display as a list
 import IndividualComment from "../individualComment/index";
+
 import "./style.css";
 
-const CommentList = ({ comments }) => {
+const CommentList = ({ comments, id }) => {
+  const [state, dispatch] = useStateContext();
+
+  useEffect(() => {}, [comments]);
+
   return (
     <div className="comment-list">
       {comments.map((comment) => {

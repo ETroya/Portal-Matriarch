@@ -10,7 +10,10 @@ export default {
   getAllPosts: () => {
     return axios.get("/api/messages/getposts");
   },
-  addComment: (comment, id) => {
-    return axios.put("/api/messages/comment", { comment, id });
+  addComment: (comment, id, commentCount) => {
+    return axios.put("/api/messages/comment", { comment, id, commentCount });
   },
+  deletePost: ( id ) => {
+    return axios.delete("/api/messages/deletePost", {data: {id: id}});
+  }
 };
