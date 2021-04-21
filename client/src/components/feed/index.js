@@ -20,7 +20,7 @@ const Feed = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [state.posts]);
+  }, []);
 
 
   return (
