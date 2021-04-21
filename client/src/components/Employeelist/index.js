@@ -61,10 +61,16 @@ function Employeelist() {
           {filteredEmployee.map((employee, index) => (
             <List
               key={index}
+<<<<<<< HEAD
               firstName={employee.firstName}
               lastName={employee.lastName}
               id={employee.id}
               // username={employee.username}
+=======
+              id={employee.id}
+              firstName={employee.firstName}
+              lastName={employee.lastName}
+>>>>>>> 3a9f68d4cbdd083a944e7cb4324b82670a1ff351
             />
           ))}
         </tbody>

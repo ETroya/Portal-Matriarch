@@ -21,7 +21,6 @@ const NewPost = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     API.addNewPost({ title, content }).then((res) => {
-      console.log(res.data);
       dispatch({ type: "add-new-post", payload: res.data });
     });
   };

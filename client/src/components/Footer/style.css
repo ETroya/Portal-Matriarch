@@ -1,9 +1,12 @@
-/* .footer {
-  min-height: auto;
-  background: gray;
-  position: relative;
-  margin-top: 20px;
-} */
+.footer {
+  margin-top: 1rem;
+  padding: 0.01rem;
+  background-color: gray;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 
 .footer span {
   margin-top: 10px;
@@ -14,5 +17,5 @@
   width: 100%;
   background: gray;
   font-family: "Quicksand", sans-serif;
-  font-size: 20px;
+  font-size: 14px;
 }
