@@ -3,7 +3,19 @@ const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
 
 router.post("/", async (req, res) => {
-  const { username, first, last, admin, password, city } = req.body;
+  const {
+    username,
+    first,
+    last,
+    password,
+    city,
+    wage,
+    hours,
+    pto,
+    upt,
+    vacation,
+    admin,
+  } = req.body;
   console.log(req.body);
   try {
     const user = new User({
@@ -12,6 +24,11 @@ router.post("/", async (req, res) => {
       last,
       password,
       city,
+      wage,
+      hours,
+      pto,
+      upt,
+      vacation,
       admin,
     });
 
