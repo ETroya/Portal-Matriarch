@@ -1,20 +1,20 @@
 const mongoose = require("mongoose");
 
 const week1 = {
-  days: [
+  // days: [
+  //   {
+  date: Date,
+  shifts: [
     {
-      date: Date,
-      shifts: [
-        {
-          shiftType: {
-            type: String,
-            default: "9-5",
-          },
-          employees: [mongoose.Schema.Types.ObjectID],
-        },
-      ],
+      shiftType: {
+        type: String,
+        default: "9-5",
+      },
+      employees: [mongoose.Schema.Types.ObjectID],
     },
   ],
+  //   },
+  // ],
   // eslint-disable-next-line prettier/prettier
 };
 
