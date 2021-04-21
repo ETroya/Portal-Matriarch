@@ -13,15 +13,32 @@ function EmployeeForm() {
     last: "",
     password: "",
     city: "",
-    admin: false
+    wage: "",
+    hours: "40",
+    pto: "40",
+    upt: "80",
+    vacation: "0",
+    admin: false,
   });
 
-  const { username, first, last, admin, password, city } = formData;
+  const {
+    username,
+    first,
+    last,
+    password,
+    city,
+    wage,
+    hours,
+    pto,
+    upt,
+    vacation,
+    admin,
+  } = formData;
   const onChange = (e) => {
-    console.log (e)
-    if (e.target.name === "admin"){
+    console.log(e);
+    if (e.target.name === "admin") {
       if (e.target.value === "on") {
-     return setFormData({...formData, admin: true});
+        return setFormData({ ...formData, admin: true });
       }
     }
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,9 +60,14 @@ function EmployeeForm() {
       username,
       first,
       last,
-      admin,
       password,
       city,
+      wage,
+      hours,
+      pto,
+      upt,
+      vacation,
+      admin,
     });
     try {
       const res = await axios.post("/api/users", body, config);
@@ -60,6 +82,23 @@ function EmployeeForm() {
   return (
     <div id="createUserDiv">
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form.Row>
+          <Form.Group id="createUserInput" controlId="validationCustomUsername">
+            <Form.Label>Username</Form.Label>
+            <InputGroup hasValidation>
+              <Form.Control
+                type="text"
+                name="username"
+                placeholder="Username"
+                required
+                onChange={(e) => onChange(e)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please choose a username.
+              </Form.Control.Feedback>
+            </InputGroup>
+          </Form.Group>
+        </Form.Row>
         <Form.Row>
           <Form.Group id="createUserInput" controlId="validationCustom01">
             <Form.Label>First Name</Form.Label>
@@ -88,37 +127,6 @@ function EmployeeForm() {
           </Form.Group>
         </Form.Row>
         <Form.Row>
-          <Form.Group id="createUserInput" controlId="validationCustom03">
-            <Form.Label>City</Form.Label>
-            <Form.Control
-              required
-              name="city"
-              type="text"
-              placeholder="City"
-              required
-              onChange={(e) => onChange(e)}
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
-        <Form.Row>
-          <Form.Group id="createUserInput" controlId="validationCustomUsername">
-            <Form.Label>Username</Form.Label>
-            <InputGroup hasValidation>
-              <Form.Control
-                type="text"
-                name="username"
-                placeholder="Username"
-                required
-                onChange={(e) => onChange(e)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please choose a username.
-              </Form.Control.Feedback>
-            </InputGroup>
-          </Form.Group>
-        </Form.Row>
-        <Form.Row>
           <Form.Group id="createUserInput" controlId="validationCustomPassword">
             <Form.Label>Password</Form.Label>
             <InputGroup hasValidation>
@@ -133,6 +141,34 @@ function EmployeeForm() {
                 Please choose a username.
               </Form.Control.Feedback>
             </InputGroup>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group id="createUserInput" controlId="validationCustom03">
+            <Form.Label>City</Form.Label>
+            <Form.Control
+              required
+              name="city"
+              type="text"
+              placeholder="City"
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group id="createUserInput" controlId="validationCustom04">
+            <Form.Label>Hourly Wage</Form.Label>
+            <Form.Control
+              required
+              name="wage"
+              type="text"
+              placeholder="Wage"
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
         </Form.Row>
         <Form.Row>

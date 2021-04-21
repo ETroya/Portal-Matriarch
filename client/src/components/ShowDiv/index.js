@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { useStateContext } from "../../utils/GlobalState";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import EmployeeList from "../Employeelist";
 import Time from "../Time";
 import Pay from "../Pay";
@@ -33,7 +33,8 @@ export const ShowDiv = () => {
 
 export const Submenu = () => {
   const [state, dispatch] = useStateContext();
-  const history = useHistory();
+  // const history = useHistory();
+
   return (
     <>
       <div className="adminDiv">
