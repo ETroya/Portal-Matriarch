@@ -39,7 +39,7 @@ useEffect(() => {
       name={emp.username}
       openProfile={openProfile}
       profile={profile}
-      
+      currentEmployee={currentEmployee}
       setEmployee={setEmployee}/>
       
       </div>)
