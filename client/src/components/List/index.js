@@ -9,9 +9,9 @@ function List({ firstName, lastName, id, username }) {
       draggable
       ondragstart="event.dataTransfer.setData('text/plain',null)"
     >
-      <td className="user-name text-light">{username}</td>
-      {/* <td className="first-name">{firstName}</td>
-    <td className="last-name">{lastName}</td> */}
+      {/* <td className="user-name text-light">{username}</td> */}
+      <td className="first-name">{firstName}</td>
+    <td className="last-name">{lastName}</td>
     </tr>
   );
 }
