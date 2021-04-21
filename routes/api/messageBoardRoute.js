@@ -1,4 +1,5 @@
 const express = require("express");
+const { reset } = require("nodemon");
 const router = express.Router();
 const MessageBoard = require("../../models/messageBoardModel");
 const { route } = require("./users");
@@ -47,16 +48,15 @@ router.get("/getposts", async (req, res) => {
 
 // get put will update post or comment
 // called from comment component
-router.put("/comment", isAuth, async (req, res) => {
-  const {comment, id } = req.body;
-  console.log("comment");
-  console.log(comment);
+router.put("/comment", async (req, res) => {
+  const {comment, id, commentCount } = req.body;
 
   try{
 
    const new_comment = await MessageBoard.findByIdAndUpdate(
       { _id: id }, 
-      { $push: { comments: {
+      { commentCount: commentCount + 1, 
+        $push: { comments: {
         author: req.user.first,
         content: comment, 
         likes: 0
@@ -71,9 +71,27 @@ router.put("/comment", isAuth, async (req, res) => {
   } catch (error){
     console.log(error);
   }
+});
+
+// admin deletes a post from the database
+router.delete("/deletePost", isAuth, async (req, res, next) =>{
+  const id = req.body.id;
+
+  console.log("from within delete post");
+  console.log(id);
+
+  try{
+   const deletePost =  await MessageBoard.findByIdAndDelete(id);
+
+    res.status(200).json({message: "Post deleted"});
+  
+    next();
+
+  } catch(error){
+    console.log("error in delete post");
+    console.log(error);
+  };
 })
 
-
-// get delete will delete post or comment
 
 module.exports = router;

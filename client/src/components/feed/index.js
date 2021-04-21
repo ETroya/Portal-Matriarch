@@ -20,17 +20,17 @@ const Feed = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
-  console.log(state.posts);
+  }, [state.posts]);
+
 
   return (
     <div className="container feed">
       {state.createPost ? <NewPost /> : null}
       {state.posts.slice(0, state.postCount).map((post) => {
-        console.log(post.comments);
         return (
-          <div key={post.id}>
+          <div key={post._id}>
             <Post
+            key={post._id}
               state={state}
               dispatch={dispatch}
               id={post._id}
