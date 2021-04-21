@@ -63,7 +63,11 @@ function Employeelist() {
               key={index}
               firstName={employee.firstName}
               lastName={employee.lastName}
+<<<<<<< HEAD
               id={employee.id}
+=======
+              index= {index}
+>>>>>>> b29fdbd78db6b8a6f69571629bd25915b14bc5a9
             />
           ))}
         </tbody>

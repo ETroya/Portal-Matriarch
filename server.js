@@ -24,7 +24,6 @@ app.use(passport.session());
 // Add routes, both API and view
 app.use(routes);
 
-
 // Connect to the Mongo DB
 
 mongoose.connect(
