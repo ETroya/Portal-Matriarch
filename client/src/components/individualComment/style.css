@@ -1,10 +1,16 @@
 .comment-header {
-  display: flex;
+  /* display: flex; */
 }
 
 .commentDiv {
   margin-left: 20px;
 
+}
+
+.comment-date {
+  margin-left: 1em;
+  font-size: 0.75em;
+  margin-top: -0.5em;
 }
 
 .like-button {

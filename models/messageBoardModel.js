@@ -10,6 +10,10 @@ const messageBoardSchema = {
       author: String,
       content: String,
       likes: Number,
+      createdOn: {
+        type: Date,
+        default: Date.now,
+      },
     },
   ],
   commentCount: Number,
