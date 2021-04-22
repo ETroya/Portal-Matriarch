@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Jumbotron, Row, Container, Col, Form, Button } from "react-bootstrap";
 import { useStateContext } from "../../utils/GlobalState";
-import Employeelist from "../Employeelist";
+import EmployeeDND from "../EmployeeDND";
 import { ShowDiv, Submenu } from "../ShowDiv";
 import "./style.css";
 
@@ -12,7 +12,7 @@ const CreateSchedule = () => {
         <Row>
           <Col xs={12} md={2}>
             <Form.Group>
-              <Employeelist className="dropzone" />
+              <EmployeeDND className="dropzone" />
             </Form.Group>
           </Col>
           <Col xs={12} md={1}>
@@ -22,7 +22,7 @@ const CreateSchedule = () => {
           <Col xs={12} md={1}>
             Sunday
             <div className="sixAM row" value="sunday6">
-              6:00AM<div className="dropzone"></div>
+            <div className="dropzone"></div>
             </div>
             <div className="eightAM row">
               <div className="dropzone"></div>
