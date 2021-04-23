@@ -15,5 +15,8 @@ export default {
   },
   deletePost: ( id ) => {
     return axios.delete("/api/messages/deletePost", {data: {id: id}});
+  },
+  getUser: () => {
+    return axios.get("/api/users/getUser");
   }
 };

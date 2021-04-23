@@ -23,6 +23,11 @@
   /* position: absolute; */
 }
 
+.jumbotron {
+  width: auto;
+  padding: 10px;
+}
+
 .formbtn {
   display: flex;
   justify-content: center;
@@ -30,4 +35,10 @@
 
 #exampleFile {
   width: 5px;
+  font-size: 15px;
+}
+
+#submit {
+  padding: 10px;
+  margin: 10px;
 }

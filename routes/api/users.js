@@ -77,4 +77,9 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/getUser", async (req, res) => {
+  console.log(req.data);
+  res.json(req.data);
+});
+
 module.exports = router;

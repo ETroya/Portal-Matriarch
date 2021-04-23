@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-import { authContext } from "../utils/GlobalState";
+import { authContext, useStateContext } from "../utils/GlobalState";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 function Login() {
@@ -9,6 +9,8 @@ function Login() {
     username: "",
     password: "",
   });
+  const [state, dispatch]=useStateContext();
+
   const { authData, setAuth } = React.useContext(authContext);
 
   const { username, password } = formData;
@@ -37,6 +39,7 @@ function Login() {
           loading: false,
           user: res.data,
         });
+        dispatch({type:"set-user",payload:res.data});
       }
       console.log(res.data);
     } catch (error) {
