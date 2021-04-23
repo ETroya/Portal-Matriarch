@@ -20,6 +20,9 @@ useEffect(() => {
         first: result.first,
         last: result.last,
         username: result.username,
+        wage: result.wage,
+        hours: result.hours,
+        pto: result.pto,
       };
       return employee;
     });

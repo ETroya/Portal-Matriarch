@@ -1,0 +1,34 @@
+
+.new-post {
+    display:flex;
+    justify-content: center;
+  
+}
+
+.post-form {
+    width: 50em;
+}
+
+#postTitle {
+    color: white;
+    border: none;
+    border: solid 2px white;
+    background-color: transparent;
+    border-radius: 1em;
+    padding-left: 10px;
+    width: 75%;
+}
+
+#postContent {
+    color: white;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    resize: both;
+    border: solid 2px white;
+    background-color: transparent;
+    border-radius: 1em;
+    padding-left: 10px;
+    height: 5em;
+    width: 75%;
+  }
