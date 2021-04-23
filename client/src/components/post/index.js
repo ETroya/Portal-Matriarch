@@ -4,6 +4,7 @@ import Comment from "../comment/index";
 import CommentList from "../comment_list/index";
 import API from "../../utils/api";
 import "./style.css";
+import { now, post } from "jquery";
 
 const Post = ({
   state,
@@ -17,6 +18,35 @@ const Post = ({
   dispatch,
   comments,
 }) => {
+
+  const getTodaysDate = () => {
+    const today = new Date();
+    const postDate = new Date(date);
+
+      if(postDate.getDate() === today.getDate()){
+        if(postDate.getHours() === today.getHours()){
+          if(postDate.getMinutes() === today.getMinutes()){
+            if((today.getSeconds() - postDate.getSeconds()) === 1){
+              return `${today.getSeconds() - postDate.getSeconds()} seconds ago`;
+            };
+            return `${today.getSeconds() - postDate.getSeconds()} seconds ago`; 
+          };
+          if((today.getMinutes() - postDate.getMinutes()) === 1){
+            return `${today.getMinutes() - postDate.getMinutes()} Minute ago`;
+          };
+          return `${today.getMinutes() - postDate.getMinutes()} Minutes ago`;
+        };
+        if((today.getHours() - postDate.getHours()) === 1){
+          return `${today.getHours() - postDate.getHours()} Hour ago`;
+        };
+        return `${today.getHours() - postDate.getHours()} Hours ago`;
+      };
+      if((today.getDate() - postDate.getDate()) === 1){
+        return `${today.getDate() - postDate.getDate()} Day ago`;
+      }
+      return `${today.getDate() - postDate.getDate()} Days ago`;
+  };
+
 
   const getCommentButton = () => {
     let buttonLabel;
@@ -59,8 +89,8 @@ const Post = ({
   return (
     <div className="post">
       <p className="postInfo postAuthor">{author}</p>
-      <p className="postInfo postDate">
-        <i>{date}</i>
+      <p className="postInfo postDate" >{getTodaysDate()}
+        
       </p>
 
       <h4 className="post-title">{title}</h4>

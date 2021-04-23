@@ -1,12 +1,21 @@
 import React from "react";
 import "./style.css";
 
-const EmployeeCard = ({emp, name, first, last, openProfile, profile, setEmployee}) => {
+const EmployeeCard = ({emp, name, first, last, openProfile, profile, currentEmployee, setEmployee}) => {
+
+    const getProfile = () => {
+        console.log(currentEmployee);
+        
+        if(profile){
+            if(emp.id !== currentEmployee.id)
+          return setEmployee(emp);
+        }
+        
+        openProfile(!profile);
+    };
+
     return (
-        <div className="emp-card container" onClick={() => {
-            console.log({emp});
-            setEmployee(emp);
-            openProfile(!profile);}}>
+        <div className="emp-card container" onClick={() => getProfile()}>
             <h1>first: {first}</h1>
             <h1>last: {last}</h1>
             <h1>username: {name}</h1>

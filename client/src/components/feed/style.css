@@ -11,4 +11,11 @@
   border: solid 2px white;
   background-color: transparent;
   margin-bottom: 15px;
+  width: 30em;
+  letter-spacing: .5em;
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
 }

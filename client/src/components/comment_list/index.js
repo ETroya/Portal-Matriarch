@@ -20,6 +20,7 @@ const CommentList = ({ comments, id }) => {
               content={comment.content}
               id={comment.id}
               author={comment.author}
+              date={comment.createdOn}
             />
           </div>
         );
