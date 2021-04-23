@@ -30,12 +30,12 @@ const Feed = () => {
         return (
           <div key={post._id}>
             <Post
-            key={post._id}
+              key={post._id}
               state={state}
               dispatch={dispatch}
               id={post._id}
               author={post.author}
-              date={post.date}
+              date={post.createdOn}
               title={post.title}
               content={post.content}
               addComment={post.addComment}

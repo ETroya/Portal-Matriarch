@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useStateContext } from "../../utils/GlobalState";
 import API from "../../utils/api";
+import "./style.css";
 
 const NewPost = () => {
   const [state, dispatch] = useStateContext();
@@ -26,26 +27,33 @@ const NewPost = () => {
   };
 
   return (
-    <div>
-      <form>
-        <label htmlFor="postTitle">Enter Title</label>
-        <input
-          id="postTitle"
-          name="postTitle"
-          type="text"
-          placeholder="Post title goes here!"
-          onChange={handleChange}
-        />
-        <label htmlFor="postContent">Content</label>
-        <input
-          id="postContent"
-          name="postContent"
-          type="textarea"
-          placeholder="Post content goes here!"
-          onChange={handleChange}
-        />
-        <button onClick={(event) => handleSubmit(event)}>Post</button>
-      </form>
+    <div className="new-post">
+      <div className="post-form">
+        <div>
+          <label htmlFor="postTitle">Enter Title</label>
+        </div>
+        <div>
+          <input
+            id="postTitle"
+            name="postTitle"
+            type="text"
+            placeholder="Post title goes here!"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="postContent">Content</label>
+        </div>
+        <div>
+          <textarea
+            placeholder="Post content goes here!"
+            id="postContent"
+            name="postContent"
+            onChange={handleChange}
+          ></textarea>
+        </div>
+      </div>
+      <button className="btn-circle btn-sm" onClick={(event) => handleSubmit(event)}>Post</button>
     </div>
   );
 };

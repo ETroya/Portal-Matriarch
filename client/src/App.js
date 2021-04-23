@@ -18,6 +18,7 @@ function App() {
     user: null,
   });
 
+
   useEffect(() => {
     try {
       axios.get("/api/users").then((res) => {
@@ -47,6 +48,7 @@ function App() {
               </Route>
               <Route exact path={"/admin"}>
                 <Submenu />
+               
                 <Admin />
               </Route>
               {/* <Route path="/signup" component={Signup} /> */}
