@@ -99,6 +99,9 @@ router.put("/profile", async (req, res) =>{
     console.log("error in update profile route");
     console.log(error);
   }
+router.get("/getUser", async (req, res) => {
+  console.log(req.data);
+  res.json(req.data);
 });
 
 module.exports = router;

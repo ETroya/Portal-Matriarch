@@ -18,5 +18,8 @@ export default {
   },
   updateProfile: (data) => {
     return axios.put("/api/users/profile", data);
+  },
+  getUser: () => {
+    return axios.get("/api/users/getUser");
   }
 };
