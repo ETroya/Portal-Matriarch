@@ -4,8 +4,8 @@ import React from "react";
 function List({ firstName, lastName }) {
   return (
     <tr>
-      <td className="first-name">{firstName}</td>
-      <td className="last-name">{lastName}</td>
+      <td className="first-name text-light">{firstName}</td>
+      <td className="last-name text-light">{lastName}</td>
     </tr>
   );
 }
