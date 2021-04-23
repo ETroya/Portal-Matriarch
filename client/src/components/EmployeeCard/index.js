@@ -4,13 +4,12 @@ import "./style.css";
 const EmployeeCard = ({emp, name, first, last, openProfile, profile, currentEmployee, setEmployee}) => {
 
     const getProfile = () => {
-        console.log(currentEmployee);
         
         if(profile){
             if(emp.id !== currentEmployee.id)
           return setEmployee(emp);
         }
-        
+        setEmployee(emp);
         openProfile(!profile);
     };
 
