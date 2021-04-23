@@ -77,4 +77,36 @@ router.get("/", async (req, res) => {
   }
 });
 
+// admin updates employee profile
+router.put("/profile", async (req, res) =>{
+ const {id, mFirst, mLast, mUserName, mWage, mHours, mPTO} = req.body;
+ console.log(id);
+ console.log(mWage);
+
+ try{
+   const updated_profile = await User.findByIdAndUpdate(
+     id,
+     {first: mFirst,
+    last: mLast,
+    username: mUserName,
+    wage: mWage,
+    hours: mHours,
+    pto: mPTO,
+    }, { new: true,}
+    );
+    console.log("updated!");
+     return res.json(updated_profile);
+    
+  }catch(error){
+    console.log("error in update profile route");
+    console.log(error);
+  }
+
+});
+
+router.get("/getUser", async (req, res) => {
+  console.log(req.data);
+  res.json(req.data);
+});
+
 module.exports = router;

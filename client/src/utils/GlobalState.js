@@ -193,6 +193,8 @@ console.log(state.posts);
   });
     console.log(posts_after_delete);
   return {...state, posts: posts_after_delete};
+  case "set-user":
+    return{...state,currentUser:action.payload};
     default:
       return;
   }
@@ -213,6 +215,7 @@ const StateProvider = ({ value = false, ...props }) => {
     openEmployeeForm: false,
     openCreateSchedule: false,
     logout: false,
+    currentUser: null, 
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

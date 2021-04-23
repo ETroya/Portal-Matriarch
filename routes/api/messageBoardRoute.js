@@ -88,7 +88,9 @@ router.delete("/deletePost", isAuth, async (req, res, next) =>{
     console.log("error in delete post");
     console.log(error);
   };
-})
+});
+
+
 
 
 module.exports = router;
