@@ -34,13 +34,12 @@ const Time = () => {
         </div>
       </Jumbotron>
 
-      <Jumbotron fluid>
-        <Form.Group>
-          <Form.Label for="exampleFile">Submit time-off sheet</Form.Label>
+      <Jumbotron fluid className="formbtn">
+        <Form.Group className="text-center">
+          <Form.Label for="exampleFile">Upload to submit time-off sheet.</Form.Label>
           <Form.Control type="file" name="file" id="exampleFile" />
-          <Form.Text color="muted">
-            This is some placeholder block-level help text for the above input.
-            It's a bit lighter and easily wraps to a new line.
+          <Form.Text className="form" color="muted">
+            <a href="https://docs.google.com/document/d/119FW9OdssS6BbXxsuWVR5Y3qg_aPaFG0YwOI38xcVQ0/edit?usp=sharing" rel="noreferrer" target="_blank">Please fill out a form to request time off here.</a>
           </Form.Text>
         </Form.Group>
       </Jumbotron>

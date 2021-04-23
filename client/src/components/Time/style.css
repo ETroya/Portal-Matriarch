@@ -16,3 +16,18 @@
 #displayTimeDiv {
   margin-top: 40px;
 }
+
+.form {
+  font-size: large;
+  font-weight: bold;
+  /* position: absolute; */
+}
+
+.formbtn {
+  display: flex;
+  justify-content: center;
+}
+
+#exampleFile {
+  width: 5px;
+}
