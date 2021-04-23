@@ -19,7 +19,6 @@ const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
     setmWage(currentEmployee.wage);
     setmHours(currentEmployee.hours);
     SetmPTO(currentEmployee.pto);
-
   }, [currentEmployee]);
 
   const handleInput = (e) => {
@@ -47,42 +46,62 @@ const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
     //   mHours,
     //   mPTO,
     // };
-const id = currentEmployee.id;
+    const id = currentEmployee.id;
     console.log("SUBMIT!");
     // new route to update profile
     // API.updateProfile({id, mFirst, mLast, mUserName, mWage, mHours, mPTO});
-    updateEmployee({id, mFirst, mLast, mUserName, mWage, mHours, mPTO});
+    updateEmployee({ id, mFirst, mLast, mUserName, mWage, mHours, mPTO });
   };
 
   return (
     <div className="employee-profile container">
-      <h1>{currentEmployee.first}</h1>
-      <h1>{currentEmployee.last}</h1>
-      <h1>{currentEmployee.username}</h1>
-      <h1>{currentEmployee.id}</h1>
-
-      <label>Wage:</label>
-      <input
-        type="number"
-        name="mWage"
-        value={mWage}
-        onChange={(e) => handleInput(e)}
-      ></input>
-      <label>hours:</label>
-      <input
-        type="number"
-        name="mHours"
-        value={mHours}
-        onChange={(e) => handleInput(e)}
-      ></input>
-      <label>PTO:</label>
-      <input
-        type="number"
-        name="mPTO"
-        value={mPTO}
-        onChange={(e) => handleInput(e)}
-      ></input>
-      <button onClick={() => handleSubmit()}>Submit</button>
+      <div className="update-form">
+        <p>ID : {currentEmployee.id}</p>
+        <div className="employee-header">
+          <p className="header-element name">{currentEmployee.first}</p>
+          <p className="header-element name">{currentEmployee.last}</p>
+        </div>
+        <p>UserName : {currentEmployee.username}</p>
+        <div className="input-field">
+          <br />
+          <label for="wage">Wage:</label>
+          <input
+            className="profile-input"
+            id="wage"
+            type="number"
+            name="mWage"
+            value={mWage}
+            onChange={(e) => handleInput(e)}
+          ></input>
+        </div>
+        <div className="input-field">
+          <label for="hour">hours:</label>
+          <input
+            className="profile-input"
+            id="hour"
+            type="number"
+            name="mHours"
+            value={mHours}
+            onChange={(e) => handleInput(e)}
+          ></input>
+        </div>
+        <div className="input-field">
+          <label for="pto">PTO:</label>
+          <input
+            className="profile-input"
+            id="pto"
+            type="number"
+            name="mPTO"
+            value={mPTO}
+            onChange={(e) => handleInput(e)}
+          ></input>
+        </div>
+        <div className="button-to-submit">
+          <button className="submit-btn" onClick={() => handleSubmit()}>
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
