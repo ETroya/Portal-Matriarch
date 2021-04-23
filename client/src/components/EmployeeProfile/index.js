@@ -1,16 +1,26 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import API from "../../utils/api";
 
 import "./style.css";
 
-const EmployeeProfile = ({ currentEmployee }) => {
+const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
   console.log(currentEmployee);
-  const [mFirst, setmFirst] = useState(currentEmployee.first);
-  const [mLast, setmLast] = useState(currentEmployee.last);
-  const [mUserName, setmUserName] = useState(currentEmployee.userName);
-  const [mWage, setmWage] = useState(currentEmployee.wage);
-  const [mHours, setmHours] = useState(currentEmployee.hours);
-  const [mPTO, SetmPTO] = useState(currentEmployee.pto);
+  const [mFirst, setmFirst] = useState();
+  const [mLast, setmLast] = useState();
+  const [mUserName, setmUserName] = useState();
+  const [mWage, setmWage] = useState();
+  const [mHours, setmHours] = useState();
+  const [mPTO, SetmPTO] = useState();
+
+  useEffect(() => {
+    setmFirst(currentEmployee.first);
+    setmLast(currentEmployee.last);
+    setmUserName(currentEmployee.username);
+    setmWage(currentEmployee.wage);
+    setmHours(currentEmployee.hours);
+    SetmPTO(currentEmployee.pto);
+
+  }, [currentEmployee]);
 
   const handleInput = (e) => {
     switch (e.target.name) {
@@ -37,10 +47,11 @@ const EmployeeProfile = ({ currentEmployee }) => {
     //   mHours,
     //   mPTO,
     // };
-const id = currentEmployee._id;
+const id = currentEmployee.id;
     console.log("SUBMIT!");
     // new route to update profile
-    API.updateProfile({id, mFirst, mLast, mUserName, mWage, mHours, mPTO});
+    // API.updateProfile({id, mFirst, mLast, mUserName, mWage, mHours, mPTO});
+    updateEmployee({id, mFirst, mLast, mUserName, mWage, mHours, mPTO});
   };
 
   return (

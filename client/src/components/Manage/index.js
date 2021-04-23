@@ -30,6 +30,27 @@ useEffect(() => {
   });
 }, []);
 
+const updateEmployee = ({id, mFirst, mLast, mUserName, mWage, mHours, mPTO}) => {
+  API.updateProfile({id, mFirst, mLast, mUserName, mWage, mHours, mPTO})
+  .then(() => {
+    for (let i = 0; i < employeeState.length; i++) {
+      if (employeeState[i].id === id) {
+        employeeState[i] = {
+          id: id,
+          first: mFirst,
+          last: mLast,
+          username: mUserName,
+          wage: mWage,
+          hours: mHours,
+          pto: mPTO
+        };
+        break;
+      }
+    }
+  });
+
+}
+
   return ( 
     <div className="manage-employee-list  row">
     <div className="employee-list container" className={profile ? "col-sm-6" : "col-sm-12"} >
@@ -50,7 +71,7 @@ useEffect(() => {
     })}
     </div>
     <div className="employee-profile" className={profile ? "col-sm-6" : ""}>
-      {profile ? <EmployeeProfile currentEmployee={currentEmployee}/> : null}
+      {profile ? <EmployeeProfile updateEmployee={updateEmployee} currentEmployee={currentEmployee}/> : null}
     </div>
   </div>
  )
