@@ -32,17 +32,76 @@ code {
   margin-bottom: 20px;
 }
 
-#adminRow {
+.adminRow {
   justify-content: center;
+  position: relative;
+  left: -36px;
+}
+
+@media (max-width: 575.98px) {
+  .adminRow {
+    margin-right: 40px;
+    position: relative;
+    left: 0px;
+  }
 }
 
 .btn.adminButton {
-  width: 90px;
-  height: 50px;
+  width: 70px;
+  height: 68px;
   font-size: 12px;
   padding: 10px;
+  border-radius: 40px;
+  border-width: 2px;
+  border-color: rgb(0, 0, 0);
+  background-color: rgb(82, 82, 82);
 }
 
 .buttonCol {
   text-align: center;
+}
+
+@media (max-width: 575.98px) {
+  .buttonCol {
+    margin-right: 40px;
+    left: -13px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .buttonCol {
+    margin-right: 35px;
+    right: -30px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .buttonCol {
+    margin-right: 15px;
+    right: -33px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .buttonCol {
+    margin-right: 5px;
+    right: -33px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .buttonCol {
+    margin-right: -20px;
+    right: -33px;
+  }
+}
+
+.buttonText1 {
+  position: relative;
+  top: -6px;
+}
+
+.buttonText2 {
+  position: relative;
+  top: -2px;
 }
