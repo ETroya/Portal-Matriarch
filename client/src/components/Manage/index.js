@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import API from "../../utils/api";
 import EmployeeCard from "../EmployeeCard";
 import EmployeeProfile from "../EmployeeProfile/index";
-
+import "./style.css"
 const Manage = () => {
 const [ state, dispatch ] = useStateContext();
 const [profile, openProfile] = useState(false);

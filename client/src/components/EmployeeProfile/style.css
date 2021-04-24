@@ -1,4 +1,70 @@
 .employee-profile {
-    background-color: darkmagenta;
+  display: flex;
+  justify-content: center;
+}
 
+.name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.update-form {
+  width: auto;
+  font-size: 1.25em;
+  border: solid 2px black;
+  padding: 2em;
+  border-radius: 20px;
+  background-color: rgb(89, 171, 173)
+}
+
+.input-field {
+  margin-top: 1em;
+  display: flex;
+  justify-content: left;
+}
+
+.employee-header {
+  display: flex;
+}
+
+.header-element {
+  margin-right: 0.5em;
+}
+
+#wage {
+  /* margin-left: 1em; */
+}
+
+#hour {
+  /* margin-left: 1em; */
+}
+
+#pto {
+  /* margin-left: 1.7em; */
+}
+
+#profile-input {
+  color: white;
+  border: none;
+  border: solid 2px white;
+  background-color: transparent;
+
+}
+
+.button-to-submit {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-btn {
+  margin-top: 1.5em;
+  /* margin-left: 2.8em; */
+  color: white;
+  font-size: 1.5em;
+  border: none;
+  border: solid 2px white;
+  background-color: transparent;
+  border-radius: 5em;
+  height: 3em;
+  width: 5em;
 }
