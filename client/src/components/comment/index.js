@@ -22,7 +22,7 @@ const Comment = ({ id, dispatch, commentCount }) => {
   return (
     <div className="comment">
       <textarea
-        placeholder="...Enter comment here!"
+        placeholder="Enter your comment here."
         className="comment-text"
         value={comment}
         onChange={(event) => {

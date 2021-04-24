@@ -50,11 +50,11 @@ const Post = ({
     let buttonLabel;
 
     if (commentCount === 0) {
-      buttonLabel = "Add comment";
+      buttonLabel = "Add Comment";
     } else if (commentCount === 1) {
-      buttonLabel = `1 comment`;
+      buttonLabel = `1 Comment`;
     } else {
-      buttonLabel = `${commentCount} comments`;
+      buttonLabel = `${commentCount} Comments`;
     }
     if (addComment === true) {
       buttonLabel = "X";
