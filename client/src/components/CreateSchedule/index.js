@@ -7,6 +7,8 @@ import "./style.css";
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from "@fullcalendar/interaction"
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
 
 const CreateSchedule = () => {
   return (
@@ -15,52 +17,11 @@ const CreateSchedule = () => {
         <Row>
           <Col xs={12} md={2}>
             <Form.Group>
-              <EmployeeDND className="dropzone" />
+              <EmployeeDND className="dropzone fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event" />
             </Form.Group>
           </Col>
-          {/* <Col xs={12} md={1}>
-            Time
-            <div className="row">6:00 am</div>
-          </Col>
-          <Col xs={12} md={1}>
-            Sunday
-            <div className="sixAM row" value="sunday6">
-            <div className="dropzone"></div>
-            </div>
-            <div className="eightAM row">
-              <div className="dropzone"></div>
-            </div>
-            <div className="tenAM row">
-              <div className="dropzone"></div>
-            </div>
-          </Col>
-          <Col xs={12} md={1}>
-            Monday
-            <div className="dropzone"></div>
-          </Col>
-          <Col xs={12} md={1}>
-            Tuesday
-            <div className="dropzone"></div>
-          </Col>
-          <Col xs={12} md={1}>
-            Wednesday
-            <div className="dropzone"></div>
-          </Col>
-          <Col xs={12} md={1}>
-            Thursday
-            <div className="dropzone"></div>
-          </Col>
-          <Col xs={12} md={1}>
-            Friday
-            <div className="dropzone"></div>
-          </Col>
-          <Col xs={12} md={1}>
-            Saturday
-            <div className="dropzone"></div>
-          </Col> */}
-
       <FullCalendar  
-  plugins={[ dayGridPlugin, interactionPlugin ]}
+  plugins={[ dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin ]}
   initialView="dayGridMonth"
   weekends={false}
   droppable={true}
