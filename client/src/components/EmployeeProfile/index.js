@@ -58,10 +58,11 @@ const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
       <div className="update-form">
         <p>ID : {currentEmployee.id}</p>
         <div className="employee-header">
-          <h1 className="header-element name">{currentEmployee.first}</h1>
-          <h1 className="header-element name">{currentEmployee.last}</h1>
+          <p className="header-element name col-sm-12">
+            {currentEmployee.first} {currentEmployee.last}
+          </p>
         </div>
-        <p>UserName : {currentEmployee.username}</p>
+        <p>Username : {currentEmployee.username}</p>
         <div className="input-field">
           <br />
           <label for="wage">Wage:</label>
