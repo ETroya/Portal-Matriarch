@@ -2,6 +2,16 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
 
+const isAuth = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    console.log("[WARNING] Not auth");
+    res.json(req.isAuthenticated());
+    return res.status(401).send("Not Authorized");
+  };
+  return next();
+};
+
+
 router.post("/", async (req, res) => {
   const {
     username,
@@ -62,10 +72,19 @@ router.post("/login", async (req, res) => {
       res.json(user);
     });
   } catch (error) {
+    console.log("[WARNING] from within admin route");
     console.log(error);
 
     res.status(500).json({ message: "Server error try again!" });
   }
+});
+
+router.get("/admin", isAuth, async (req, res) => {
+try {
+  res.json(req.user.admin);
+}catch(error){
+  console.log(error);
+};
 });
 
 router.get("/", async (req, res) => {
@@ -78,32 +97,40 @@ router.get("/", async (req, res) => {
 });
 
 // admin updates employee profile
-router.put("/profile", async (req, res) =>{
- const {id, mFirst, mLast, mUserName, mWage, mHours, mPTO} = req.body;
- console.log(id);
- console.log(mWage);
+router.put("/profile", async (req, res) => {
 
- try{
-   const updated_profile = await User.findByIdAndUpdate(
-     id,
-     {first: mFirst,
-    last: mLast,
-    username: mUserName,
-    wage: mWage,
-    hours: mHours,
-    pto: mPTO,
-    }, { new: true,}
+  const { id, mFirst, mLast, mUserName, mWage, mHours, mPTO } = req.body;
+  console.log(id);
+  console.log(mLast);
+
+  try {
+    const updated_profile = await User.findByIdAndUpdate(
+      id,
+      {
+        first: mFirst,
+        last: mLast,
+        username: mUserName,
+        wage: mWage,
+        hours: mHours,
+        pto: mPTO,
+      },
+      { new: true }
     );
     console.log("updated!");
-     return res.json(updated_profile);
+    console.log("[INFO] isAuthenticated");
+    console.log(req.isAuthenticated());
+    console.log(req.user);
     
-  }catch(error){
+
+
+    return res.json(updated_profile);
+  } catch (error) {
     console.log("error in update profile route");
     console.log(error);
   }
-
 });
 
+//get single user
 router.get("/getUser", async (req, res) => {
   console.log(req.data);
   res.json(req.data);

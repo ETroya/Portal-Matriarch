@@ -4,6 +4,7 @@ import API from "../../utils/api";
 import EmployeeCard from "../EmployeeCard";
 import EmployeeProfile from "../EmployeeProfile/index";
 import "./style.css"
+
 const Manage = () => {
 const [ state, dispatch ] = useStateContext();
 const [profile, openProfile] = useState(false);
@@ -32,10 +33,11 @@ useEffect(() => {
 
 const updateEmployee = ({id, mFirst, mLast, mUserName, mWage, mHours, mPTO}) => {
   API.updateProfile({id, mFirst, mLast, mUserName, mWage, mHours, mPTO})
-  .then(() => {
-    for (let i = 0; i < employeeState.length; i++) {
-      if (employeeState[i].id === id) {
-        employeeState[i] = {
+  .then((res) => {
+    console.log(res.data);
+    const updatedUsers = employeeState.map((emp) => {
+      if(emp.id === id) {
+        emp = {
           id: id,
           first: mFirst,
           last: mLast,
@@ -43,18 +45,22 @@ const updateEmployee = ({id, mFirst, mLast, mUserName, mWage, mHours, mPTO}) => 
           wage: mWage,
           hours: mHours,
           pto: mPTO
-        };
-        break;
+        }
       }
-    }
-  });
+      return emp;
+    });
 
+    console.log(updatedUsers);
+    setEmployeeState(updatedUsers);
+
+  });
+openProfile(!profile);
 }
 
   return ( 
     <div className="manage-employee-list  row">
-    <div className="employee-list container" className={profile ? "col-sm-6" : "col-sm-12"} >
-    {employeeState.map((emp) => {
+    <div className="employee-list container" className={profile ? "col-sm-6" : "col-sm-6"} >
+    {employeeState.map((emp, index) => {
       return (<div key={emp._id} >
       <EmployeeCard
       emp={emp}
@@ -64,14 +70,19 @@ const updateEmployee = ({id, mFirst, mLast, mUserName, mWage, mHours, mPTO}) => 
       openProfile={openProfile}
       profile={profile}
       currentEmployee={currentEmployee}
-      setEmployee={setEmployee}/>
+      setEmployee={setEmployee}
+      onClick={() => {
+        setEmployee(employeeState[index]);
+        openProfile(!profile);
+      }}
+      />
       
       </div>)
       
     })}
     </div>
     <div className="employee-profile" className={profile ? "col-sm-6" : ""}>
-      {profile ? <EmployeeProfile updateEmployee={updateEmployee} currentEmployee={currentEmployee}/> : null}
+      {profile ? <EmployeeProfile updateEmployee={updateEmployee} currentEmployee={currentEmployee} setEmployee={setEmployee}/> : null}
     </div>
   </div>
  )

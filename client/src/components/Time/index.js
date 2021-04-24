@@ -1,18 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { Form, Jumbotron, Button } from "react-bootstrap";
 import Timelist from "./timelist";
 import "./style.css";
 import api from "../../utils/api";
-import {useStateContext} from "../../utils/GlobalState";
+import {useStateContext, authContext} from "../../utils/GlobalState";
+
 
 const Time = () => {
   const[state,dispatch]=useStateContext();
-  // useEffect(() => {
-  //   api.getUser().then((res) => {
-  //     console.log("made it");
-  //     console.log(res)
-  //   })
-  // })
+  const { authData } = useContext(authContext);
+
+  console.log(authData.user);
+ 
   console.log(state.currentUser);
   return (
     <div>
@@ -20,7 +19,7 @@ const Time = () => {
         <div className="container" id="timeContainer">
           <div className="row">
             <div className="col-12 text-center text-light" id="timeHeader">
-              User Name: {state.currentUser.username}
+              User Name: {authData.user.userName}
             </div>
             <div className="col-4 text-center" id="timeBankDiv">
               Paid Time: {state.currentUser.pto} hours

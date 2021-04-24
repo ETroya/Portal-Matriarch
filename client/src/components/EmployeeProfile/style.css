@@ -8,6 +8,14 @@
   font-weight: bold;
 }
 
+.edit-icon {
+  padding-top: 1em;
+}
+
+.edit-icon:hover{
+  cursor: pointer;
+}
+
 .update-form {
   width: auto;
   font-size: 1.25em;
@@ -27,6 +35,9 @@
   display: flex;
 }
 
+.userName{
+  margin-right: .85em;
+}
 .header-element {
   margin-right: 0.5em;
 }
