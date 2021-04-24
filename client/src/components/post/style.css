@@ -32,26 +32,26 @@
   display: table;
 }
 
-.comments-btns{
+.comments-btns {
   display: flex;
-justify-content: space-between;
+  justify-content: space-between;
 }
 
-.delete-btn { 
+.delete-btn {
   margin-left: auto;
-  margin-right: 5em;
-  background-color: crimson;
+  margin-right: 5px;
+  background-color: rgb(20, 140, 220);
   border-style: none;
   border-radius: 1em;
-  /* border:solid 2px white; */
+  border: solid 2px rgb(0, 0, 0);
   color: white;
 }
 
 .comment-button {
   border-style: none;
   border-radius: 1em;
-  border: solid 2px white;
-  background-color: transparent;
+  border: solid 2px rgb(0, 0, 0);
+  background-color: rgb(20, 140, 220);
   color: white;
   float: right;
 }
