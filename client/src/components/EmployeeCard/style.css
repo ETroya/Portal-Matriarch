@@ -5,3 +5,7 @@
     border-radius: 2em;
     background-color: rgb(89, 171, 173);
 }
+
+h1 .emp-card {
+    text-align: center;
+}

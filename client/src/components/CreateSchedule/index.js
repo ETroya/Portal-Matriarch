@@ -39,4 +39,3 @@ const CreateSchedule = () => {
 };
 
 export default CreateSchedule;
-
