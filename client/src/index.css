@@ -98,10 +98,12 @@ code {
 
 .buttonText1 {
   position: relative;
+  font-weight: 600;
   top: -6px;
 }
 
 .buttonText2 {
   position: relative;
+  font-weight: 600;
   top: -2px;
 }
