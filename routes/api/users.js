@@ -98,13 +98,12 @@ router.get("/", async (req, res) => {
 
 // admin updates employee profile
 router.put("/profile", async (req, res) => {
-
   const { id, mFirst, mLast, mUserName, mWage, mHours, mPTO } = req.body;
   console.log(id);
-  console.log(mLast);
+  console.log(mWage);
 
   try {
-    const updated_profile = await User.findByIdAndUpdate(
+    const updatedProfile = await User.findByIdAndUpdate(
       id,
       {
         first: mFirst,
@@ -117,13 +116,7 @@ router.put("/profile", async (req, res) => {
       { new: true }
     );
     console.log("updated!");
-    console.log("[INFO] isAuthenticated");
-    console.log(req.isAuthenticated());
-    console.log(req.user);
-    
-
-
-    return res.json(updated_profile);
+    return res.json(updatedProfile);
   } catch (error) {
     console.log("error in update profile route");
     console.log(error);

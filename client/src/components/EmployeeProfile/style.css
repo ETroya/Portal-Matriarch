@@ -29,10 +29,12 @@
   margin-top: 1em;
   display: flex;
   justify-content: left;
+
 }
 
 .employee-header {
   display: flex;
+  
 }
 
 .userName{
@@ -43,15 +45,15 @@
 }
 
 #wage {
-  /* margin-left: 1em; */
+  margin-left: 2em;
 }
 
 #hour {
-  /* margin-left: 1em; */
+  margin-left: 1.9em;
 }
 
 #pto {
-  /* margin-left: 1.7em; */
+  margin-left: 2.5em;
 }
 
 #profile-input {
@@ -59,7 +61,6 @@
   border: none;
   border: solid 2px white;
   background-color: transparent;
-
 }
 
 .button-to-submit {

@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from "react";
 import { Form, Jumbotron, Button } from "react-bootstrap";
-import Timelist from "./timelist";
 import "./style.css";
 import api from "../../utils/api";
 import {useStateContext, authContext} from "../../utils/GlobalState";
@@ -31,13 +30,13 @@ const Time = () => {
               Vacation Time: {state.currentUser.vacation} hours
             </div>
             <div className="col-4 text-center" id="displayTimeDiv">
-              display db info here
+              Current Wage: ${state.currentUser.wage} per hour
             </div>
             <div className="col-4 text-center" id="displayTimeDiv">
-              display db info here
+              Hours Worked: {state.currentUser.hours} hours
             </div>
             <div className="col-4 text-center" id="displayTimeDiv">
-              display db info here
+              City: {state.currentUser.city}
             </div>
           </div>
         </div>
@@ -55,7 +54,10 @@ const Time = () => {
               Please fill out a form to request time off here.
             </a>
           </Form.Text>
-          <Button id="submit" variant="success">Submit</Button>{""}
+          <Button id="submit" variant="success">
+            Submit
+          </Button>
+          {""}
         </Form.Group>
       </Jumbotron>
     </div>
