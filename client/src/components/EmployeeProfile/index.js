@@ -54,12 +54,12 @@ const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
   };
 
   return (
-    <div className="employee-profile container">
+    <div className="employee-profile container text-center">
       <div className="update-form">
         <p>ID : {currentEmployee.id}</p>
         <div className="employee-header">
-          <p className="header-element name">{currentEmployee.first}</p>
-          <p className="header-element name">{currentEmployee.last}</p>
+          <h1 className="header-element name">{currentEmployee.first}</h1>
+          <h1 className="header-element name">{currentEmployee.last}</h1>
         </div>
         <p>UserName : {currentEmployee.username}</p>
         <div className="input-field">
@@ -75,7 +75,7 @@ const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
           ></input>
         </div>
         <div className="input-field">
-          <label for="hour">hours:</label>
+          <label for="hour">Hours:</label>
           <input
             className="profile-input"
             id="hour"

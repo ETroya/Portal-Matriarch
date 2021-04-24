@@ -4,14 +4,9 @@ import { useStateContext } from "../../utils/GlobalState";
 import EmployeeDND from "../EmployeeDND";
 import { ShowDiv, Submenu } from "../ShowDiv";
 import "./style.css";
-<<<<<<< HEAD
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-=======
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from "@fullcalendar/interaction"
->>>>>>> 28e178db317044b65dbc6fb22f2de41f49ba5700
 
 const CreateSchedule = () => {
   return (
@@ -64,21 +59,6 @@ const CreateSchedule = () => {
             <div className="dropzone"></div>
           </Col> */}
 
-<<<<<<< HEAD
-          <FullCalendar
-            className="dropzone"
-            plugins={[dayGridPlugin]}
-            initialView="dayGridMonth"
-            weekends={false}
-            droppable={true}
-            events={[
-              { title: "Eveyone is working", date: "2021-04-22" },
-              { title: "Project Due", date: "2021-04-27" },
-              { title: "working", date: "2021-04-26" },
-            ]}
-            Employee={[]}
-          />
-=======
       <FullCalendar  
   plugins={[ dayGridPlugin, interactionPlugin ]}
   initialView="dayGridMonth"
@@ -91,7 +71,6 @@ const CreateSchedule = () => {
     { title: "working", date: "2021-04-26"}
   ]}
 />
->>>>>>> 28e178db317044b65dbc6fb22f2de41f49ba5700
         </Row>
       </Container>
     </Jumbotron>
