@@ -6,6 +6,7 @@ import { ShowDiv, Submenu } from "../ShowDiv";
 import "./style.css";
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
+import interactionPlugin from "@fullcalendar/interaction"
 
 const CreateSchedule = () => {
   return (
@@ -58,19 +59,16 @@ const CreateSchedule = () => {
             <div className="dropzone"></div>
           </Col> */}
 
-      <FullCalendar 
-  className="dropzone"
-  plugins={[ dayGridPlugin ]}
+      <FullCalendar  
+  plugins={[ dayGridPlugin, interactionPlugin ]}
   initialView="dayGridMonth"
   weekends={false}
   droppable={true}
+  editable={true}
   events={[
     { title: "Eveyone is working", date: '2021-04-22' },
     { title: 'Project Due', date: '2021-04-27' },
     { title: "working", date: "2021-04-26"}
-  ]}
-  Employee={[
-    
   ]}
 />
         </Row>
