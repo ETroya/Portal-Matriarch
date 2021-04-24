@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../utils/api";
 import ListDND from "../../components/ListDND"
+// import { Draggable } from "@fullcalendar/interaction";
 
 function EmployeeDND() {
   //employee state total
@@ -33,6 +34,15 @@ function EmployeeDND() {
       })
     );
   };
+  
+  // const dropzone = document.querySelector(".dropzone")
+  // new Draggable(dropzone, {
+  //   itemSelector:".drag-item",
+  //   eventData: function(eventEl){
+  //     return{
+  //       title:eventEl.innerText
+  //     }
+  //   }}) 
 
   return (
     <div>
