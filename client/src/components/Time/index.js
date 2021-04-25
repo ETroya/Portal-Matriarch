@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import {useStateContext, authContext } from "../../utils/GlobalState";
+import React, { useState, useEffect, useContext } from "react";
 import { Form, Jumbotron, Button } from "react-bootstrap";
 import "./style.css";
 import api from "../../utils/api";
-import { useStateContext } from "../../utils/GlobalState";
 
 const Time = () => {
   const [state, dispatch] = useStateContext();
+  const { authData } = useContext(authContext);
   console.log(state.currentUser);
   return (
     <div>
@@ -13,25 +14,25 @@ const Time = () => {
         <div className="container" id="timeContainer">
           <div className="row">
             <div className="col-12 text-center text-light" id="timeHeader">
-              User Name: {state.currentUser.username}
+              User Name: {authData.user.username}
             </div>
             <div className="col-4 text-center" id="timeBankDiv">
-              Paid Time: {state.currentUser.pto} hours
+              Paid Time: {authData.user.pto} hours
             </div>
             <div className="col-4 text-center" id="timeBankDiv">
-              Unpaid Time: {state.currentUser.upt} hours
+              Unpaid Time: {authData.user.upt} hours
             </div>
             <div className="col-4 text-center" id="timeBankDiv">
-              Vacation Time: {state.currentUser.vacation} hours
+              Vacation Time:{authData.user.vacation} hours
             </div>
             <div className="col-4 text-center" id="displayTimeDiv">
-              Current Wage: ${state.currentUser.wage} per hour
+              Current Wage: ${authData.user.wage} per hour
             </div>
             <div className="col-4 text-center" id="displayTimeDiv">
-              Hours Worked: {state.currentUser.hours} hours
+              Hours Worked: {authData.user.hours} hours
             </div>
             <div className="col-4 text-center" id="displayTimeDiv">
-              City: {state.currentUser.city}
+              City: {authData.user.city}
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+const withAuth = require("../../config/middleware/isAuthenticated");
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
@@ -107,6 +108,15 @@ router.put("/profile", async (req, res) => {
 router.get("/getUser", async (req, res) => {
   console.log(req.data);
   res.json(req.data);
+});
+//500 error 
+router.get("/user", withAuth, async (req, res) => {
+  try {
+    const user = await User.findById(req.session.passport.user._id);
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: "User is not logged in" });
+  }
 });
 
 module.exports = router;
