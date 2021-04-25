@@ -138,4 +138,19 @@ router.get("/user", withAuth, async (req, res) => {
   }
 });
 
+//logging out of the page
+router.post("/logout", (req, res) => {
+  if (req.isAuthenticated()) {
+    console.log(req.isAuthenticated());
+    req.logout();
+    req.session = null;
+      console.log("account logout");
+      res.status(204).end();
+      console.log(req.isAuthenticated());
+      res.redirect("/login");
+  } else {
+    res.status(404).end();
+  }
+});
+
 module.exports = router;

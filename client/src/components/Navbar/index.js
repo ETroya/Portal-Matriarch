@@ -1,12 +1,30 @@
-import React from "react";
-import { useStateContext } from "../../utils/GlobalState";
+import React, {useContext} from "react";
+import {useHistory} from "react-router-dom"
+import { useStateContext, authContext} from "../../utils/GlobalState";
 import { Navbar, Nav } from "react-bootstrap";
 import Pay from "../Pay/index";
 import Time from "../Time/index";
 import "./style.css";
+import API from "../../utils/api";
+
 
 const Index = () => {
   const [state, dispatch] = useStateContext();
+   const history = useHistory();
+   const {authData, setAuth}= useContext(authContext);
+   
+   const loguserout =()=>{
+    console.log("button click");
+    API.logout().then(()=>{
+      setAuth({...authData, 
+      isAuthenticated: false, 
+    user: null});
+      history.push("/login");
+    });
+   }
+
+
+
   return (
     <nav class="mynav navbar navbar-expand-lg navbar-dark">
       <img class="logo" src="/assets/bubbles.svg"></img>
@@ -67,7 +85,9 @@ const Index = () => {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button type="button" action="/logout" class="button is-link" class="btn btn-dark btn-circle btn-sm">
+                <button type="button" action="/logout" class="button is-link" class="btn btn-dark btn-circle btn-sm" onClick={()=>{
+                 loguserout();
+                }}>
                   Logout
                 </button>
               </a>
