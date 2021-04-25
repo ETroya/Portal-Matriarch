@@ -2,6 +2,16 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
 
+const isAuth = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    console.log("[WARNING] Not auth");
+    res.json(req.isAuthenticated());
+    return res.status(401).send("Not Authorized");
+  };
+  return next();
+};
+
+
 router.post("/", async (req, res) => {
   const {
     username,
@@ -62,10 +72,19 @@ router.post("/login", async (req, res) => {
       res.json(user);
     });
   } catch (error) {
+    console.log("[WARNING] from within admin route");
     console.log(error);
 
     res.status(500).json({ message: "Server error try again!" });
   }
+});
+
+router.get("/admin", isAuth, async (req, res) => {
+try {
+  res.json(req.user.admin);
+}catch(error){
+  console.log(error);
+};
 });
 
 router.get("/", async (req, res) => {
@@ -104,6 +123,7 @@ router.put("/profile", async (req, res) => {
   }
 });
 
+//get single user
 router.get("/getUser", async (req, res) => {
   console.log(req.data);
   res.json(req.data);

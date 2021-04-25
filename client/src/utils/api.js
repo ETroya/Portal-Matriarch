@@ -21,5 +21,8 @@ export default {
   },
   getUser: () => {
     return axios.get("/api/users/getUser");
+  },
+  isAdmin: () => {
+    return axios.get("/api/users/admin");
   }
 };

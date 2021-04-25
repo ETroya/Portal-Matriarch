@@ -2,10 +2,6 @@
     color: white;
     padding: 2em;
     margin-left: 2em;
-    display: flex;
-    justify-content: center;
-}
-
-.employee-list {
-    margin-left: auto;
+  display: flex;
+  justify-content: center;
 }

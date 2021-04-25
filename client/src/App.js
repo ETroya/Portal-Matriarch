@@ -26,7 +26,7 @@ function App() {
       });
     } catch (error) {
       console.error(error.response.data);
-    }
+    };
   }, []);
 
   return (
