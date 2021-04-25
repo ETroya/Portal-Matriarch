@@ -1,13 +1,12 @@
-import {useStateContext, authContext } from "../../utils/GlobalState";
-import React, { useState, useEffect, useContext } from "react";
+import { authContext } from "../../utils/GlobalState";
+import React, { useContext } from "react";
 import { Form, Jumbotron, Button } from "react-bootstrap";
 import "./style.css";
-import api from "../../utils/api";
+
 
 const Time = () => {
-  const [state, dispatch] = useStateContext();
   const { authData } = useContext(authContext);
-  console.log(state.currentUser);
+
   return (
     <div>
       <Jumbotron fluid>
