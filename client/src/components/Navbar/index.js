@@ -67,7 +67,7 @@ const Index = () => {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <button type="button" class="btn btn-dark btn-circle btn-sm">
+                <button type="button" action="/logout" class="button is-link" class="btn btn-dark btn-circle btn-sm">
                   Logout
                 </button>
               </a>
