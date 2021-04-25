@@ -24,5 +24,8 @@ export default {
   },
   isAdmin: () => {
     return axios.get("/api/users/admin");
+  },
+  logout: ()=> {
+    return axios.post("/api/users/logout");
   }
 };

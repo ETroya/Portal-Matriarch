@@ -12,7 +12,7 @@ const isAuth = (req, res, next) => {
 };
 
 router.post("/newpost", isAuth, async (req, res) => {
-  const {  title, content } = req.body;
+  const { title, content } = req.body;
   console.log(req.user);
   console.log(req.isAuthenticated());
   try {
@@ -49,49 +49,46 @@ router.get("/getposts", async (req, res) => {
 // get put will update post or comment
 // called from comment component
 router.put("/comment", async (req, res) => {
-  const {comment, id, commentCount } = req.body;
+  const { comment, id, commentCount } = req.body;
 
-  try{
-
-   const new_comment = await MessageBoard.findByIdAndUpdate(
-      { _id: id }, 
-      { commentCount: commentCount + 1, 
-        $push: { comments: {
-        author: req.user.first,
-        content: comment, 
-        likes: 0
-          }
-        }
-      },{
+  try {
+    const new_comment = await MessageBoard.findByIdAndUpdate(
+      { _id: id },
+      {
+        commentCount: commentCount + 1,
+        $push: {
+          comments: {
+            author: req.user.first,
+            content: comment,
+            likes: 0,
+          },
+        },
+      },
+      {
         new: true,
       }
+    );
 
-  );
-
-  return res.json(new_comment);
-  } catch (error){
+    return res.json(new_comment);
+  } catch (error) {
     console.log(error);
   }
 });
 
 // admin deletes a post from the database
-router.delete("/deletePost", isAuth, async (req, res, next) =>{
+router.delete("/deletePost", isAuth, async (req, res, next) => {
   const id = req.body.id;
 
-  try{
-   const deletePost =  await MessageBoard.findByIdAndDelete(id);
+  try {
+    const deletePost = await MessageBoard.findByIdAndDelete(id);
 
-    res.status(200).json({message: "Post deleted"});
-  
+    res.status(200).json({ message: "Post deleted" });
+
     next();
-
-  } catch(error){
+  } catch (error) {
     console.log("error in delete post");
     console.log(error);
-  };
+  }
 });
-
-
-
 
 module.exports = router;

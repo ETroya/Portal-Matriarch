@@ -59,8 +59,7 @@ openProfile(!profile);
   return (
     <div className="manage-employee-list  row">
       <div
-        className="employee-list container"
-        className={profile ? "col-sm-6" : "col-sm-6"}
+        className="employee-list container col-sm-6"
       >
         {employeeState.map((emp) => {
           return (

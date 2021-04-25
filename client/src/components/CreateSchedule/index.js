@@ -1,8 +1,5 @@
-import React, { useState } from "react";
 import { Jumbotron, Row, Container, Col, Form, Button } from "react-bootstrap";
-import { useStateContext } from "../../utils/GlobalState";
 import EmployeeDND from "../EmployeeDND";
-import { ShowDiv, Submenu } from "../ShowDiv";
 import "./style.css";
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'

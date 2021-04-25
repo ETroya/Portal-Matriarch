@@ -1,3 +1,4 @@
+const withAuth = require("../../config/middleware/isAuthenticated");
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
@@ -7,10 +8,9 @@ const isAuth = (req, res, next) => {
     console.log("[WARNING] Not auth");
     res.json(req.isAuthenticated());
     return res.status(401).send("Not Authorized");
-  };
+  }
   return next();
 };
-
 
 router.post("/", async (req, res) => {
   const {
@@ -80,11 +80,11 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/admin", isAuth, async (req, res) => {
-try {
-  res.json(req.user.admin);
-}catch(error){
-  console.log(error);
-};
+  try {
+    res.json(req.user.admin);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.get("/", async (req, res) => {
@@ -127,6 +127,30 @@ router.put("/profile", async (req, res) => {
 router.get("/getUser", async (req, res) => {
   console.log(req.data);
   res.json(req.data);
+});
+//500 error
+router.get("/user", withAuth, async (req, res) => {
+  try {
+    const user = await User.findById(req.session.passport.user._id);
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: "User is not logged in" });
+  }
+});
+
+//logging out of the page
+router.post("/logout", (req, res) => {
+  if (req.isAuthenticated()) {
+    console.log(req.isAuthenticated());
+    req.logout();
+    req.session = null;
+      console.log("account logout");
+      res.status(204).end();
+      console.log(req.isAuthenticated());
+      res.redirect("/login");
+  } else {
+    res.status(404).end();
+  }
 });
 
 module.exports = router;

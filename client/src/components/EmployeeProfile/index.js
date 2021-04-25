@@ -33,13 +33,11 @@ const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
         setmHours(e.target.value);
         break;
       case "mPTO":
-        console.log(e.target.value);
         SetmPTO(e.target.value);
         break;
       case "name":
-        console.log(e.target.value);
         setNewName(e.target.value);
-
+//reassigns the editted users name to first and last
         const index = e.target.value.indexOf(" ");
         let tmp_first = e.target.value.substr(0, index);
         let tmp_last = e.target.value.substr(index + 1);
@@ -57,29 +55,8 @@ const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
     }
   };
 
-  const setName = () => {
-    const index = newName.indexOf(" ");
-    let tmp_first = newName.substr(0, index);
-    let tmp_last = newName.substr(index + 1);
-    console.log(tmp_first);
-    console.log(tmp_last);
-    setmFirst(tmp_first);
-    setmLast(tmp_last);
-    setEditName(!editName);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(editName);
-
-    if (editName) {
-      // setName();
-
-    }
-    console.log(mFirst);
-    console.log(mLast);
-    console.log(mUserName);
 
     const id = currentEmployee.id;
     //update employee functin located on manage component
