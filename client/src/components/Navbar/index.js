@@ -19,12 +19,11 @@ const Index = () => {
       isAuthenticated: false, 
       user: null});
       history.push("/login");
+      window.location.redirect("/login")
     });
     console.log("[INFO] Shoud have routed the user to the login screen \ Navbar line 18");
     
    }
-
-
 
   return (
     <nav class="mynav navbar navbar-expand-lg navbar-dark">
@@ -85,8 +84,8 @@ const Index = () => {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <button type="button" action="/logout" class="button is-link" class="btn btn-dark btn-circle btn-sm" onClick={()=>{
+              <a class="nav-link" href="/login">
+                <button type="button" class="button is-link" class="btn btn-dark btn-circle btn-sm" onClick={()=>{
                  loguserout();
                 }}>
                   Logout

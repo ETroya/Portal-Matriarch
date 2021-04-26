@@ -70,6 +70,7 @@ function Login() {
               placeholder="Enter Username"
               onChange={(e) => onChange(e)}
             />
+             <Form.Control.Feedback type="invalid">Enter information</Form.Control.Feedback>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
@@ -85,7 +86,7 @@ function Login() {
           </Button>
         </Col>
       </Form.Row>
-    </div>
+      </div>
   );
 }
 
