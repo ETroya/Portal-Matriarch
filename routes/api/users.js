@@ -3,7 +3,6 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
 
-
 const isAuth = (req, res, next) => {
   if (!req.isAuthenticated()) {
     console.log("[WARNING] Not auth");
@@ -145,37 +144,32 @@ router.post("/logout", withAuth, (req, res) => {
   req.session.destroy(() => {
     res.status(204).end();
   });
+});
 /**
  * Logs the user out of the site
  */
 router.post("/logout", async (req, res) => {
-
   console.log("[INFO] req.session");
   console.log(req.session);
 
-try {
+  try {
+    req.logout();
 
-  req.logout();
-
-  // If user seeion is not active
-  if (req.session) {
-
-    // Destroy the seesion
-    req.session = null;
-    res.status(204).end();
+    // If user seeion is not active
+    if (req.session) {
+      // Destroy the seesion
+      req.session = null;
+      res.status(204).end();
+    } else {
+      //Even if session is not active, send user to login screen
+      res.redirect("/login");
+    }
+  } catch (error) {
+    console.log("[WARNING] ERROR IN LOGOUT ROUTE");
+    console.log(error);
+    res.status(404).end();
   }
-  else {
-    //Even if session is not active, send user to login screen
-    res.redirect('/login');
-  }
-
-} catch (error) {
-  console.log("[WARNING] ERROR IN LOGOUT ROUTE");
-  console.log(error);
-  res.status(404).end();
-};
   // logs the user out
-
 
   // if (req.isAuthenticated()) {
   //   console.log(req.isAuthenticated());
