@@ -10,7 +10,7 @@ function ListDND({username, id}) {
         draggable
         ondragstart="event.dataTransfer.setData('text/plain',null)"
       >
-        <td className="user-name text-light" id={id}>{username}</td>
+        <td className="user-name" id={id}>{username}</td>
       </tr>
     );
   }
