@@ -18,4 +18,6 @@
     margin: 0 auto;
   }
   
-  
+  .fc fc-media-screen fc-direction-ltr fc-theme-standard{
+   size: 1000px;
+  }

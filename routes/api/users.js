@@ -3,6 +3,7 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
 
+
 const isAuth = (req, res, next) => {
   if (!req.isAuthenticated()) {
     console.log("[WARNING] Not auth");
@@ -138,19 +139,10 @@ router.get("/user", withAuth, async (req, res) => {
   }
 });
 
-//logging out of the page
-router.post("/logout", (req, res) => {
-  if (req.isAuthenticated()) {
-    console.log(req.isAuthenticated());
-    req.logout();
-    req.session = null;
-      console.log("account logout");
-      res.status(204).end();
-      console.log(req.isAuthenticated());
-      res.redirect("/login");
-  } else {
-    res.status(404).end();
-  }
+router.post("/logout", withAuth, (req, res) => {
+  req.session.destroy(() => {
+    res.status(204).end();
+  });
 });
 
 module.exports = router;
