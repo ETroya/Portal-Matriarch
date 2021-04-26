@@ -69,6 +69,7 @@ openProfile(!profile);
                 first={emp.first}
                 last={emp.last}
                 name={emp.username}
+                city={emp.city}
                 openProfile={openProfile}
                 profile={profile}
                 currentEmployee={currentEmployee}
