@@ -16,9 +16,9 @@ const EmployeeCard = ({emp, name, first, last, openProfile, profile, currentEmpl
     return (
         <div className="emp-card container" onClick={() => getProfile()}>
         <div className="emp-card container" onClick={onClick}></div>
-            <h1>first: {first}</h1>
-            <h1>last: {last}</h1>
-            <h1>username: {name}</h1>
+            <h1>First Name: {first}</h1>
+            <h1>Last Name: {last}</h1>
+            <h1>Username: {name}</h1>
         </div>
     );
 };
