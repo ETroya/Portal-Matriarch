@@ -1,5 +1,6 @@
 //making a post to the news feed
-import React from "react";
+import React, { useContext } from "react";
+import { authContext, authData } from "../../utils/GlobalState";
 import Comment from "../comment/index";
 import CommentList from "../comment_list/index";
 import API from "../../utils/api";
@@ -18,6 +19,8 @@ const Post = ({
   dispatch,
   comments,
 }) => {
+const { authData } = useContext(authContext);
+
   const getTodaysDate = () => {
     const today = new Date();
     const postDate = new Date(date);
@@ -90,13 +93,17 @@ const Post = ({
       <p>{content}</p>
 
       <div className="comments-btns">
-        <button className="delete-btn " onClick={() => handleDelete()}>
+
+        {/** if user is not admin, do not show button */ }
+
+
+        {!authData.user.admin ? null : <button className="delete-btn " onClick={() => handleDelete()}>
           Delete Post
-        </button>
+        </button>}
 
         {getCommentButton()}
       </div>
-      {addComment ? <CommentList comments={comments} id={id} /> : null}
+      {addComment ? <CommentList comments={comments} id={id} commentCount={commentCount} /> : null}
       {addComment ? (
         <Comment
           id={id}

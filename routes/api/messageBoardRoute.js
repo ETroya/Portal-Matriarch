@@ -15,7 +15,9 @@ router.post("/newpost", isAuth, async (req, res) => {
   const { title, content } = req.body;
   console.log(req.user);
   console.log(req.isAuthenticated());
+
   try {
+    
     const newpost = new MessageBoard({
       author: req.user.first,
       title,
@@ -51,6 +53,8 @@ router.get("/getposts", async (req, res) => {
 router.put("/comment", async (req, res) => {
   const { comment, id, commentCount } = req.body;
 
+  const authoerFullName = `${req.user.first} ${req.user.last}`;
+  const authID = req.user._id;
   try {
     const new_comment = await MessageBoard.findByIdAndUpdate(
       { _id: id },
@@ -58,7 +62,9 @@ router.put("/comment", async (req, res) => {
         commentCount: commentCount + 1,
         $push: {
           comments: {
-            author: req.user.first,
+            author: authoerFullName,
+            authorUserName: req.user.username,
+            authorID: authID,
             content: comment,
             likes: 0,
           },
@@ -89,6 +95,42 @@ router.delete("/deletePost", isAuth, async (req, res, next) => {
     console.log("error in delete post");
     console.log(error);
   }
+});
+
+/**
+ * Deletes comment from post
+ */
+router.put("/deleteComment", isAuth, async (req, res) => {
+  const { commentID, postID, commentCount } = req.body;
+  console.log("[INFO] ID'S FROM DELETECOMMENT");
+  console.log(commentID);
+  console.log(postID);
+
+  try {
+
+    const delete_comment = await MessageBoard.findByIdAndUpdate(
+      { _id: commentID },
+      {
+        commentCount: commentCount - 1,
+        $pull: {
+          comments: {
+            _id: postID
+          },
+        },
+      }
+    );
+
+    res.status(200).json({message: "comment deleted"});
+    console.log("deleted");
+    
+    return res.json(delete_comment);
+
+
+  } catch (error) {
+
+    console.log("[WARNING] ERROR IN DELETE COMMENT ROUTE");
+    console.log(error);
+  };
 });
 
 module.exports = router;

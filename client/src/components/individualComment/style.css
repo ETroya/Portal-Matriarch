@@ -23,3 +23,13 @@
   background-color: transparent;
   margin-bottom: -10px;
 }
+
+.deleteCommentButton{
+  margin-left: auto;
+  margin-right: 5px;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 1em;
+  border: solid 2px rgb(0, 0, 0);
+  color: #9d0208;
+}
