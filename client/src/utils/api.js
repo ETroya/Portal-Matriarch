@@ -27,5 +27,8 @@ export default {
   },
   logout: ()=> {
     return axios.post("/api/users/logout");
+  },
+  deleteComment: (commentID, postID, commentCount) => {
+    return axios.put("/api/messages/deleteComment", { commentID, postID, commentCount });
   }
 };

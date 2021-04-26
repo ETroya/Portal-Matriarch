@@ -129,6 +129,8 @@ router.get("/getUser", async (req, res) => {
   console.log(req.data);
   res.json(req.data);
 });
+
+//! What does this do ??????
 //500 error
 router.get("/user", withAuth, async (req, res) => {
   try {
@@ -143,6 +145,49 @@ router.post("/logout", withAuth, (req, res) => {
   req.session.destroy(() => {
     res.status(204).end();
   });
+/**
+ * Logs the user out of the site
+ */
+router.post("/logout", async (req, res) => {
+
+  console.log("[INFO] req.session");
+  console.log(req.session);
+
+try {
+
+  req.logout();
+
+  // If user seeion is not active
+  if (req.session) {
+
+    // Destroy the seesion
+    req.session = null;
+    res.status(204).end();
+  }
+  else {
+    //Even if session is not active, send user to login screen
+    res.redirect('/login');
+  }
+
+} catch (error) {
+  console.log("[WARNING] ERROR IN LOGOUT ROUTE");
+  console.log(error);
+  res.status(404).end();
+};
+  // logs the user out
+
+
+  // if (req.isAuthenticated()) {
+  //   console.log(req.isAuthenticated());
+  //   req.logout();
+  //   req.session = null;
+  //     console.log("account logout");
+  //     res.status(204).end();
+  //     console.log(req.isAuthenticated());
+  //     res.redirect("/login");
+  // } else {
+  //   res.status(404).end();
+  // }
 });
 
 module.exports = router;

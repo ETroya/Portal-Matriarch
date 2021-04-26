@@ -3,7 +3,7 @@
   border-style: none;
   border-radius: 1em;
   border: solid 2px rgb(0, 0, 0);
-  background-color: rgb(20, 140, 220);
+  background-color: transparent;
   position: relative;
   top: -10px;
   left: 4px;
@@ -18,7 +18,7 @@
   outline: none;
   resize: both;
   border: solid 2px rgb(58, 58, 58);
-  background-color: black;
+  background-color:transparent;
   border-radius: 1em;
   padding-left: 10px;
   height: 5em;

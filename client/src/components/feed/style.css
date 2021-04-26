@@ -10,11 +10,14 @@
   border-style: none;
   border-radius: 1em;
   border: solid 2px rgb(0, 0, 0);
-  background-color: rgb(20, 140, 220);
+  background-color: transparent;
   margin-bottom: 15px;
+width: 30em;
+letter-spacing: .75em;
 }
 
 .load-more {
   display: flex;
   justify-content: center;
+
 }

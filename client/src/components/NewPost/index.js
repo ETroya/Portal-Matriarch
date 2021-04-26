@@ -27,7 +27,7 @@ const NewPost = () => {
   };
 
   return (
-    <div className="new-post">
+    <div className="new-post ">
       <div className="post-form">
         <div>
           <label htmlFor="postTitle">
@@ -56,9 +56,11 @@ const NewPost = () => {
             onChange={handleChange}
           ></textarea>
         </div>
+        <div className="btn-div">
         <button className="postButton" onClick={(event) => handleSubmit(event)}>
           Post
         </button>
+        </div>
       </div>
     </div>
   );

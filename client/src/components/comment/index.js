@@ -35,7 +35,7 @@ const Comment = ({ id, dispatch, commentCount }) => {
         onClick={(event) => handleComment(event)}
       >
         <p>
-          Send <FaRegComment />
+          Comment <FaRegComment />
         </p>
       </button>
     </div>

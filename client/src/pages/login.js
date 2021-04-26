@@ -11,6 +11,8 @@ function Login() {
   });
   const [state, dispatch]=useStateContext();
 
+  console.log("[INFO] YOU MADE IT THIS FAR | login.js line 14");
+
   const { authData, setAuth } = React.useContext(authContext);
 
   const { username, password } = formData;
@@ -55,6 +57,7 @@ function Login() {
     console.log(authData);
     return <Redirect to="/user" />;
   }
+  
   return (
     <div className="loginDiv">
       <Form.Row>

@@ -1,6 +1,5 @@
 import React, { createContext, useReducer, useContext } from "react";
 
-
 const stateContext = createContext();
 const { Provider } = stateContext;
 
@@ -20,8 +19,6 @@ const reducer = (state, action) => {
         }),
       };
     case "create-array":
-
-
       const new_state = { ...state, posts: action.payload };
 
       return new_state;
@@ -104,7 +101,7 @@ const reducer = (state, action) => {
     case "add-new-post":
       const new_post = { ...action.payload };
 
-      return { ...state, posts: [new_post].concat(state.posts) };
+      return { ...state, createPost: !state.createPost, posts: [new_post].concat(state.posts) };
 
     case "open-directory":
       return {
@@ -182,19 +179,43 @@ const reducer = (state, action) => {
     //     openPay: false,
     //     openManage: false,
     //   };
-case "delete-post":
-console.log(state.posts);
-  const posts_after_delete = state.posts.filter((post) => {
-    console.log(post);
-    if(post._id !== action.id){
-      return post;
-    }
-    // return post;
-  });
-    console.log(posts_after_delete);
-  return {...state, posts: posts_after_delete};
-  case "set-user":
-    return{...state,currentUser:action.payload};
+    case "delete-post":
+
+      const posts_after_delete = state.posts.filter((post) => {
+        if (post._id !== action.id) {
+          return post;
+        }
+        // return post;
+      });
+
+      return { ...state, posts: posts_after_delete };
+    case "set-user":
+      return { ...state, currentUser: action.payload };
+    case "delete-comment":
+
+    const newComments = action.allComments.filter((comment) => {
+      if (comment._id != action.commentID ) {
+        return comment;
+      }
+    })
+
+    console.log("FROM global delete comment");
+    console.log(action.allComments);
+    console.log(newComments);
+;
+      const postsAfterDeletingComment = state.posts.map((post) => {
+        if (action.postID === post._id) {
+          return {
+            ...post,
+            commentCount: post.commentCount - 1,
+            addComment: !post.addComment,
+            comments: newComments,
+          };
+        }
+        return post;
+      });
+        console.log(postsAfterDeletingComment);
+      return { ...state, posts: postsAfterDeletingComment };
     default:
       return;
   }
@@ -215,7 +236,7 @@ const StateProvider = ({ value = false, ...props }) => {
     openEmployeeForm: false,
     openCreateSchedule: false,
     logout: false,
-    currentUser: null, 
+    currentUser: null,
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };

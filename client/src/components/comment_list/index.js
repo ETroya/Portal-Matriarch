@@ -6,22 +6,27 @@ import IndividualComment from "../individualComment/index";
 
 import "./style.css";
 
-const CommentList = ({ comments, id }) => {
+const CommentList = ({ comments, id, commentCount }) => {
   const [state, dispatch] = useStateContext();
 
 
   return (
     <div className="comment-list">
       {comments.map((comment) => {
-        console.log(comment);
         return (
-          <div className="comment-card">
+          <div className="comment-card" key={comment._id}>
             <IndividualComment
+            allComments={comments}
               content={comment.content}
-              id={comment.id}
+              postID={id}
+              commentID={comment._id}
               author={comment.author}
+              authorUserName={comment.authorUserName}
+              authorID={comment.authorID}
               date={comment.createdOn}
+              commentCount={commentCount}
             />
+            
           </div>
         );
       })}

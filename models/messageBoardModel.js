@@ -8,6 +8,8 @@ const messageBoardSchema = {
   comments: [
     {
       author: String,
+      authorUserName: String,
+      authorID: String,
       content: String,
       likes: Number,
       createdOn: {

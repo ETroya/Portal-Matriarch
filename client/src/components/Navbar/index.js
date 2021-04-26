@@ -2,8 +2,7 @@ import React, {useContext} from "react";
 import {useHistory} from "react-router-dom"
 import { useStateContext, authContext} from "../../utils/GlobalState";
 import { Navbar, Nav } from "react-bootstrap";
-import Pay from "../Pay/index";
-import Time from "../Time/index";
+
 import "./style.css";
 import API from "../../utils/api";
 
@@ -18,10 +17,12 @@ const Index = () => {
     API.logout().then(()=>{
       setAuth({...authData, 
       isAuthenticated: false, 
-    user: null});
+      user: null});
       history.push("/login");
       window.location.redirect("/login")
     });
+    console.log("[INFO] Shoud have routed the user to the login screen \ Navbar line 18");
+    
    }
 
   return (
