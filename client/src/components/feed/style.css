@@ -2,20 +2,22 @@
   border: solid 2px;
   border-radius: 5px;
   background-color: rgb(89, 171, 173);
+  margin-bottom: 80px;
 }
 
 .loadButton {
   color: white;
   border-style: none;
   border-radius: 1em;
-  border: solid 2px white;
+  border: solid 2px rgb(0, 0, 0);
   background-color: transparent;
   margin-bottom: 15px;
-  width: 30em;
-  letter-spacing: .5em;
+width: 30em;
+letter-spacing: .75em;
 }
 
 .load-more {
   display: flex;
   justify-content: center;
+
 }

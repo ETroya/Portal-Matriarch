@@ -1,16 +1,19 @@
-import React, { useState, useCallback, useEffect } from "react";
-import API from "../../utils/api";
+import React, { useState, useEffect } from "react";
+
+import { BsPencil } from "react-icons/bs";
 
 import "./style.css";
 
 const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
-  console.log(currentEmployee);
   const [mFirst, setmFirst] = useState();
   const [mLast, setmLast] = useState();
   const [mUserName, setmUserName] = useState();
   const [mWage, setmWage] = useState();
   const [mHours, setmHours] = useState();
   const [mPTO, SetmPTO] = useState();
+  const [editName, setEditName] = useState(false);
+  const [editUserName, setEditUserName] = useState(false);
+  const [newName, setNewName] = useState(mFirst + " " + mLast);
 
   useEffect(() => {
     setmFirst(currentEmployee.first);
@@ -32,77 +35,128 @@ const EmployeeProfile = ({ currentEmployee, updateEmployee }) => {
       case "mPTO":
         SetmPTO(e.target.value);
         break;
+      case "name":
+        setNewName(e.target.value);
+//reassigns the editted users name to first and last
+        const index = e.target.value.indexOf(" ");
+        let tmp_first = e.target.value.substr(0, index);
+        let tmp_last = e.target.value.substr(index + 1);
+
+        setmFirst(tmp_first);
+        setmLast(tmp_last);
+
+
+        break;
+      case "userName":
+        setmUserName(e.target.value);
+        break;
       default:
         break;
     }
   };
 
-  const handleSubmit = () => {
-    // const update_profile = {
-    //   mFirst,
-    //   mLast,
-    //   mUserName,
-    //   mWage,
-    //   mHours,
-    //   mPTO,
-    // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     const id = currentEmployee.id;
-    console.log("SUBMIT!");
-    // new route to update profile
-    // API.updateProfile({id, mFirst, mLast, mUserName, mWage, mHours, mPTO});
+    //update employee functin located on manage component
     updateEmployee({ id, mFirst, mLast, mUserName, mWage, mHours, mPTO });
   };
 
   return (
-    <div className="employee-profile container text-center">
-      <div className="update-form">
-        <p>ID : {currentEmployee.id}</p>
-        <div className="employee-header">
-          <p className="header-element name col-sm-12">
-            {currentEmployee.first} {currentEmployee.last}
-          </p>
+    <div className="employee-profile container">
+      <form>
+        <div className="update-form">
+          <p>ID : {currentEmployee.id}</p>
+          <div className="employee-header">
+
+
+            {editName ? (
+              <input
+                name="name"
+                type="text"
+                defaultValue={`${mFirst} ${mLast}`}
+                onChange={(e) => handleInput(e)}
+              ></input>
+            ) : (
+              <>
+                <p className="header-element name">{currentEmployee.first}</p>
+                <p className="header-element name">{currentEmployee.last}</p>
+              </>
+            )}
+
+
+            <sup className="edit-icon" onClick={() => setEditName(!editName)}>
+              <BsPencil />
+            </sup>
+          </div>
+          <div className="employee-header">
+            {editUserName ? (
+              <>
+                <label>UserName: </label>
+                <input
+                  name="userName"
+                  type="text"
+                  defaultValue={mUserName}
+                  onChange={(e) => handleInput(e)}
+                ></input>
+              </>
+            ) : (
+              <>
+                <p className="userName">
+                  UserName : {currentEmployee.username}
+                </p>
+              </>
+            )}
+
+            <sup
+              className="edit-icon"
+              onClick={() => setEditUserName(!editUserName)}
+            >
+              <BsPencil />
+            </sup>
+          </div>
+          <div className="input-field">
+            <br />
+            <label for="wage">Wage:</label>
+            <input
+              className="profile-input"
+              id="wage"
+              type="number"
+              name="mWage"
+              value={mWage}
+              onChange={(e) => handleInput(e)}
+            ></input>
+          </div>
+          <div className="input-field">
+            <label for="hour">hours:</label>
+            <input
+              className="profile-input"
+              id="hour"
+              type="number"
+              name="mHours"
+              value={mHours}
+              onChange={(e) => handleInput(e)}
+            ></input>
+          </div>
+          <div className="input-field">
+            <label for="pto">PTO:</label>
+            <input
+              className="profile-input"
+              id="pto"
+              type="number"
+              name="mPTO"
+              value={mPTO}
+              onChange={(e) => handleInput(e)}
+            ></input>
+          </div>
+          <div className="button-to-submit">
+            <button className="submit-btn" onClick={(e) => handleSubmit(e)}>
+              Submit
+            </button>
+          </div>
         </div>
-        <p>Username : {currentEmployee.username}</p>
-        <div className="input-field">
-          <br />
-          <label for="wage">Wage:</label>
-          <input
-            className="profile-input"
-            id="wage"
-            type="number"
-            name="mWage"
-            value={mWage}
-            onChange={(e) => handleInput(e)}
-          ></input>
-        </div>
-        <div className="input-field">
-          <label for="hour">Hours:</label>
-          <input
-            className="profile-input"
-            id="hour"
-            type="number"
-            name="mHours"
-            value={mHours}
-            onChange={(e) => handleInput(e)}
-          ></input>
-        </div>
-        <div className="input-field">
-          <label for="pto">PTO:</label>
-          <input
-            className="profile-input"
-            id="pto"
-            type="number"
-            name="mPTO"
-            value={mPTO}
-            onChange={(e) => handleInput(e)}
-          ></input>
-        </div>
-        <div className="button-to-submit">
-          <button className="submit-btn" onClick={() => handleSubmit()}>
-            Submit
-          </button>
-        </div>
-      </div>
+      </form>
     </div>
   );
 };

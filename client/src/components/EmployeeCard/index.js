@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-const EmployeeCard = ({emp, name, first, last, openProfile, profile, currentEmployee, setEmployee}) => {
+const EmployeeCard = ({emp, name, first, last, openProfile, profile, currentEmployee, setEmployee, onClick}) => {
 
     const getProfile = () => {
         
@@ -14,10 +14,11 @@ const EmployeeCard = ({emp, name, first, last, openProfile, profile, currentEmpl
     };
 
     return (
-        <div className="emp-card container text-center " onClick={() => getProfile()}>
-            <h1>First: {first}</h1>
-            <h1>Last: {last}</h1>
-            <h1>Username: {name}</h1>
+        <div className="emp-card container" onClick={() => getProfile()}>
+        <div className="emp-card container" onClick={onClick}></div>
+            <h1>first: {first}</h1>
+            <h1>last: {last}</h1>
+            <h1>username: {name}</h1>
         </div>
     );
 };

@@ -1,34 +1,65 @@
-
 .new-post {
-    display:flex;
-    justify-content: center;
-  
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .post-form {
-    width: 50em;
+  /* width: 100%; */
+  width: 50em;
+  /* margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px; */
+
 }
 
 #postTitle {
-    color: white;
-    border: none;
-    border: solid 2px white;
-    background-color: transparent;
-    border-radius: 1em;
-    padding-left: 10px;
-    width: 75%;
+  color: rgb(255, 255, 255);
+  border: none;
+  border: solid 2px rgb(58, 58, 58);
+  background-color: transparent;
+  border-radius: 1em;
+  padding-left: 10px;
+  width: 100%;
 }
 
 #postContent {
-    color: white;
-    border: none;
-    overflow: hidden;
-    outline: none;
-    resize: both;
-    border: solid 2px white;
-    background-color: transparent;
-    border-radius: 1em;
-    padding-left: 10px;
-    height: 5em;
-    width: 75%;
-  }
+  color: white;
+  border: none;
+  overflow: hidden;
+  outline: none;
+  resize: both;
+  border: solid 2px rgb(58, 58, 58);
+  background-color: transparent;
+  border-radius: 1em;
+  padding-left: 10px;
+  height: 5em;
+  width: 100%;
+}
+
+.btn-div {
+  display: flex;
+  justify-content:flex-end;
+}
+
+.postButton {
+  color: white;
+  border-style: none;
+  border-radius: 1em;
+  border: solid 2px rgb(0, 0, 0);
+  background-color: transparent;
+  margin-top: .5em;
+  width: 10em;
+  letter-spacing: .25em;
+}
+
+.newPostText {
+  color: white;
+  font-weight: 600;
+}
+
+.newPostText2 {
+  color: white;
+  font-weight: 600;
+  margin-top: 20px;
+}

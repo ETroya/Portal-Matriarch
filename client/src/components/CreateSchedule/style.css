@@ -1,3 +1,4 @@
+
 #draggable {
     width: 100px;
     height: 20px;
@@ -8,8 +9,15 @@
   .dropzone {
     width: 100px;
     height: 150px;
-    background: blueviolet;
+    background: rgb(89, 171, 173);
     margin-bottom: 10px;
     padding: 10px;
   }
+  #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
   
+  .fc fc-media-screen fc-direction-ltr fc-theme-standard{
+   
+  }

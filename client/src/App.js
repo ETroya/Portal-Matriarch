@@ -21,12 +21,16 @@ function App() {
 
   useEffect(() => {
     try {
-      axios.get("/api/users").then((res) => {
-        setAuthState({ ...authState, user: res.data });
+      axios.get("/api/users/user").then((res) => {
+        setAuthState({
+          isAuthenticated: true,
+          loading: false,
+          user: res.data,
+        });
       });
     } catch (error) {
       console.error(error.response.data);
-    }
+    };
   }, []);
 
   return (

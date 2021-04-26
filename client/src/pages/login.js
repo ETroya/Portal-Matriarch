@@ -11,6 +11,8 @@ function Login() {
   });
   const [state, dispatch]=useStateContext();
 
+  console.log("[INFO] YOU MADE IT THIS FAR | login.js line 14");
+
   const { authData, setAuth } = React.useContext(authContext);
 
   const { username, password } = formData;
@@ -55,6 +57,7 @@ function Login() {
     console.log(authData);
     return <Redirect to="/user" />;
   }
+  
   return (
     <div className="loginDiv">
       <Form.Row>
@@ -67,6 +70,7 @@ function Login() {
               placeholder="Enter Username"
               onChange={(e) => onChange(e)}
             />
+             <Form.Control.Feedback type="invalid">Enter information</Form.Control.Feedback>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
@@ -82,7 +86,7 @@ function Login() {
           </Button>
         </Col>
       </Form.Row>
-    </div>
+      </div>
   );
 }
 

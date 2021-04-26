@@ -27,33 +27,41 @@ const NewPost = () => {
   };
 
   return (
-    <div className="new-post">
+    <div className="new-post ">
       <div className="post-form">
         <div>
-          <label htmlFor="postTitle">Enter Title</label>
+          <label htmlFor="postTitle">
+            <span className="newPostText">Enter Title</span>
+          </label>
         </div>
         <div>
           <input
             id="postTitle"
             name="postTitle"
             type="text"
-            placeholder="Post title goes here!"
+            placeholder="Enter post title here."
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label htmlFor="postContent">Content</label>
+        <div className="newPostText2">
+          <label htmlFor="postContent">
+            <span className="newPostText2">Content</span>
+          </label>
         </div>
         <div>
           <textarea
-            placeholder="Post content goes here!"
+            placeholder="Enter post content here."
             id="postContent"
             name="postContent"
             onChange={handleChange}
           ></textarea>
         </div>
+        <div className="btn-div">
+        <button className="postButton" onClick={(event) => handleSubmit(event)}>
+          Post
+        </button>
+        </div>
       </div>
-      <button className="btn-circle btn-sm" onClick={(event) => handleSubmit(event)}>Post</button>
     </div>
   );
 };

@@ -21,5 +21,14 @@ export default {
   },
   getUser: () => {
     return axios.get("/api/users/getUser");
+  },
+  isAdmin: () => {
+    return axios.get("/api/users/admin");
+  },
+  logout: ()=> {
+    return axios.post("/api/users/logout");
+  },
+  deleteComment: (commentID, postID, commentCount) => {
+    return axios.put("/api/messages/deleteComment", { commentID, postID, commentCount });
   }
 };

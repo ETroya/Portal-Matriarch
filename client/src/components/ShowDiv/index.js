@@ -38,14 +38,14 @@ export const Submenu = () => {
   return (
     <>
       <div className="adminDiv">
-        <Row id="adminRow">
+        <Row className="adminRow">
           <Col className="buttonCol" xs={1}>
             <Button
               className="btn btn-dark adminButton"
               onClick={() => dispatch({ type: "toggle-user" })}
               variant="primary"
             >
-              Create New Account
+              <span className="buttonText1">Create New Account</span>
             </Button>
             {/* {state.addUser ? <EmployeeForm /> : null} */}
           </Col>
@@ -55,7 +55,7 @@ export const Submenu = () => {
               onClick={() => dispatch({ type: "open-manage" })}
               variant="primary"
             >
-              Manage Accounts
+              <span className="buttonText2">Manage Accounts</span>
             </Button>
           </Col>
           <Col className="buttonCol" xs={1}>
@@ -68,7 +68,7 @@ export const Submenu = () => {
               //   }}
               variant="primary"
             >
-              Create Schedule
+              <span className="buttonText2">Create Schedule</span>
             </Button>
           </Col>
           {/* <Button
@@ -85,7 +85,7 @@ export const Submenu = () => {
               onClick={() => dispatch({ type: "toggle-new-post" })}
               variant="primary"
             >
-              Create New Post
+              <span className="buttonText1">Create New Post</span>
             </Button>
           </Col>
         </Row>

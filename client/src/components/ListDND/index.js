@@ -54,7 +54,7 @@ document.addEventListener(
   function (event) {
     // highlight potential drop target when the draggable element enters it
     if (event.target.className === "dropzone") {
-      event.target.style.background = "purple";
+  
     }
   },
   false
@@ -65,7 +65,7 @@ document.addEventListener(
   function (event) {
     // reset background of potential drop target when the draggable element leaves it
     if (event.target.className === "dropzone") {
-      event.target.style.background = "";
+      
     }
   },
   false
@@ -78,12 +78,13 @@ document.addEventListener(
     // prevent default action (open as link for some elements)
     event.preventDefault();
     // move dragged elem to the selected drop target
-    if (event.target.className === "dropzone") {
+    if (event.target.className ==="fc-daygrid-day-events") {
       event.target.style.background = "";
-      dragged.parentNode.removeChild(dragged);
+      // dragged.parentNode.removeChild(dragged);
       event.target.appendChild(dragged);
     }
   },
   false
 );
+
   export default ListDND;

@@ -2,7 +2,7 @@
   color: white;
   border-style: none;
   border-radius: 1em;
-  border: solid 2px white;
+  border: solid 2px rgb(0, 0, 0);
   background-color: transparent;
   position: relative;
   top: -10px;
@@ -17,8 +17,8 @@
   overflow: hidden;
   outline: none;
   resize: both;
-  border: solid 2px white;
-  background-color: transparent;
+  border: solid 2px rgb(58, 58, 58);
+  background-color:transparent;
   border-radius: 1em;
   padding-left: 10px;
   height: 5em;
