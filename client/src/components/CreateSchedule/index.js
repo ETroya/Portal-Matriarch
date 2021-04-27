@@ -18,7 +18,7 @@ const CreateSchedule = () => {
               <EmployeeDND/>
             </Form.Group>
           </Col>
-      <FullCalendar className="fc-daygrid-day-events fc fc-media-screen fc-direction-ltr fc-theme-standard"
+      <FullCalendar className="fc-daygrid-day-events fc fc-media-screen fc-direction-ltr fc-theme-standard myCalendar"
   plugins={[ dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin ]}
   initialView="dayGridMonth"
   weekends={false}
