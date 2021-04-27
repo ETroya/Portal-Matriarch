@@ -12,11 +12,28 @@ const CreateSchedule = () => {
     <Jumbotron fluid>
       <Container>
         <Row>
-          <Col xs={12} md={2}>
+          {/* <Col xs={12} md={2}>
             <Form.Group>
               <EmployeeDND />
             </Form.Group>
-          </Col>
+          </Col> */}
+
+          <div className="col-16">
+            <Form>
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Event Title</Form.Label>
+                <Form.Control type="text" rows={8} />
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Event Date</Form.Label>
+                <Form.Control type="date" rows={8} />
+              </Form.Group>
+              <Button>
+                Submit Event
+              </Button>
+            </Form>
+          </div>
+
           <FullCalendar
             className="fc-daygrid-day-events fc fc-media-screen fc-direction-ltr fc-theme-standard myCalendar"
             plugins={[
