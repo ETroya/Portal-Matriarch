@@ -1,3 +1,4 @@
+import React, { useState, useContext } from "react";
 import { Jumbotron, Row, Container, Col, Form, Button } from "react-bootstrap";
 import EmployeeDND from "../EmployeeDND";
 import "./style.css";
@@ -6,26 +7,43 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin, { Draggable } from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
-<<<<<<< HEAD
 import API from "../../utils/api";
-=======
->>>>>>> de022ce389086d736d1e4c1fa7e4baaa92bffb25
+import {authContext} from "../../utils/GlobalState";
 
 const CreateSchedule = () => {
+  const [eventTitle, setEventTitle] = useState();
+  const [eventDate, setEventDate] = useState();
+  const {authData} = useContext(authContext);
 
-  const handleSubmit = () => {
-    console.log("HandleSubmit");
-    API.updateEvent(title, date).then(() => {
-      console.log("Boom!!!");
-    })
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("clicked!!!");
+    API.updateEvent(eventTitle, eventDate).then((res) => {
+      console.log(res);
+    });
+  };
 
-  const eventArray = [
-    { title: "Eveyone is working", date: "2021-04-22" },
-    { title: "Project Due", date: "2021-04-26" },
-    { title: "working", date: "2021-04-26" },
-    { title: "New event", date: "2021-04-28"}
-  ];
+  const handleChange = (event) => {
+    console.log(event.target.name);
+    switch (event.target.name) {
+      case "title":
+        setEventTitle(event.target.value);
+        break;
+      case "date":
+        setEventDate(event.target.value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  // const eventArray = [
+  //   { title: "Eveyone is working", date: "2021-04-22" },
+  //   { title: "Project Due", date: "2021-04-26" },
+  //   { title: "working", date: "2021-04-26" },
+  //   { title: "New event", date: "2021-04-28" },
+  // ];
+  const eventArray = authData.user.events;
   return (
     <Jumbotron fluid>
       <Container>
@@ -35,26 +53,35 @@ const CreateSchedule = () => {
               <EmployeeDND />
             </Form.Group>
           </Col> */}
-<<<<<<< HEAD
-=======
 
           <div className="col-16">
             <Form>
-            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Event Title</Form.Label>
-                <Form.Control type="text" rows={8} />
+                <Form.Control
+                  type="text"
+                  rows={8}
+                  name="title"
+                  value={eventTitle}
+                  onChange={(event) => handleChange(event)}
+                />
               </Form.Group>
               <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Event Date</Form.Label>
-                <Form.Control type="date" rows={8} />
+                <Form.Control
+                  type="date"
+                  rows={8}
+                  name="date"
+                  value={eventDate}
+                  onChange={(event) => handleChange(event)}
+                />
               </Form.Group>
-              <Button>
+              <Button onClick={(event) => handleSubmit(event)}>
                 Submit Event
               </Button>
             </Form>
           </div>
 
->>>>>>> de022ce389086d736d1e4c1fa7e4baaa92bffb25
           <FullCalendar
             className="fc-daygrid-day-events fc fc-media-screen fc-direction-ltr fc-theme-standard myCalendar"
             plugins={[
@@ -67,15 +94,7 @@ const CreateSchedule = () => {
             weekends={false}
             editable={true}
             droppable={true}
-<<<<<<< HEAD
             events={eventArray}
-=======
-            events={[
-              { title: "Eveyone is working", date: "2021-04-22" },
-              { title: "Project Due", date: "2021-04-27" },
-              { title: "working", date: "2021-04-26" },
-            ]}
->>>>>>> de022ce389086d736d1e4c1fa7e4baaa92bffb25
           />
         </Row>
       </Container>
