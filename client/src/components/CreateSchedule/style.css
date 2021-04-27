@@ -13,11 +13,19 @@
     margin-bottom: 10px;
     padding: 10px;
   }
+  #calendar {
+   width: 500em;
+    margin: 0 auto;
+  }
+
+  .myCalendar{
+    width:100em;
+  }
   /* #calendar {
     max-width: 900px;
     margin: 0 auto;
   } */
   
-  .fc fc-media-screen fc-direction-ltr fc-theme-standard{
-   
-  }
+ .fc {
+   width: 500em;
+ }

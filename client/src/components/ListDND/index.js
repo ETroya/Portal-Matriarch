@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 // import interactionPlugin, {Draggable} from "@fullcalendar/interaction"
 
 //creating list for workers to pull from api and show on site 
@@ -16,7 +16,7 @@ function ListDND({username, _id}) {
     );
   }
 
-  var dragged;
+var dragged;
 
 document.addEventListener("drag", function (event) {}, false);
 
@@ -55,7 +55,6 @@ document.addEventListener(
   function (event) {
     // highlight potential drop target when the draggable element enters it
     if (event.target.className === "dropzone") {
-  
     }
   },
   false
@@ -66,7 +65,6 @@ document.addEventListener(
   function (event) {
     // reset background of potential drop target when the draggable element leaves it
     if (event.target.className === "dropzone") {
-      
     }
   },
   false
@@ -75,11 +73,12 @@ document.addEventListener(
 document.addEventListener(
   "drop",
   function (event) {
-    console.log(event);
+    console.log(event.target.outerText);
+    console.log(event.target.childNodes.nodeValue);
     // prevent default action (open as link for some elements)
     event.preventDefault();
     // move dragged elem to the selected drop target
-    if (event.target.className ==="fc-daygrid-day-events") {
+    if (event.target.className === "fc-daygrid-day-events") {
       event.target.style.background = "";
       // dragged.parentNode.removeChild(dragged);
       event.target.appendChild(dragged);
@@ -88,4 +87,4 @@ document.addEventListener(
   false
 );
 
-  export default ListDND;
+export default ListDND;
