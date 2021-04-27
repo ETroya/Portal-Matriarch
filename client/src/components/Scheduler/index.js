@@ -1,3 +1,5 @@
+// Future development to input info from calender into DB
+
 // import { authContext } from "../../utils/GlobalState";
 // import React, { useContext } from "react";
 // import { Form, Jumbotron, Button } from "react-bootstrap";
