@@ -23,6 +23,7 @@ const Manage = () => {
           wage: result.wage,
           hours: result.hours,
           pto: result.pto,
+          city: result.city,
         };
         return employee;
       });
@@ -62,6 +63,8 @@ openProfile(!profile);
         className="employee-list container col-sm-6"
       >
         {employeeState.map((emp) => {
+    
+
           return (
             <div key={emp._id}>
               <EmployeeCard

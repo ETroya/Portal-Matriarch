@@ -22,14 +22,27 @@ const EmployeeCard = ({
   };
 
   return (
-    <div className="emp-card container" onClick={() => getProfile()}>
-      <div className="emp-card container" onClick={onClick}></div>
+    <div className="emp-card container" onClick={() => {getProfile()}}>
+      <div className=" container" onClick={onClick}></div>
+
+
+
       <div className="employeeInfo">
-        <p className="infoLabel">Name: {`${first} ${last}`}</p>
-        <p>Username: {name}</p>
+        <div className="employeeName">
+          <p className="nameLabel">
+            Name: <b className="infoContent">{`${first} ${last}`}</b>
+          </p>
+        </div>
+        <div className="employeeUsername">
+          <p className="usernameLabel">
+            Username: <b className="infoContent">{name}</b>
+          </p>
+        </div>
       </div>
-      <div>
-      <p>{city}</p>
+      <div className="employeeCity">
+        <p>
+          City: <b>{city}</b>
+        </p>
       </div>
     </div>
   );

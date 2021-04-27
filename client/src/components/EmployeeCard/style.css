@@ -4,8 +4,23 @@
     margin-bottom: 1em;
     border-radius: 2em;
     background-color: rgb(89, 171, 173);
+    padding: .25em;
 }
 
 h1 .emp-card {
     text-align: center;
+}
+
+.employeeInfo {
+    display: block;
+    margin-top: .5em;
+}
+
+.employeeName {
+    margin-left: 2em;
+    width: 15em;
+}
+
+.employeeCity {
+    margin-left: 2em;
 }
