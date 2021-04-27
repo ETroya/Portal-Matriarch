@@ -2,24 +2,19 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { authContext, useStateContext } from "../utils/GlobalState";
-import { Form, Button, Row, Col } from "react-bootstrap";
-
+import { Form, Button, Col } from "react-bootstrap";
 function Login() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-  const [state, dispatch]=useStateContext();
-
-  console.log("[INFO] YOU MADE IT THIS FAR | login.js line 14");
-
+  const [state, dispatch] = useStateContext();
+  const [errorBar, setErrorBar] = useState(false);
   const { authData, setAuth } = React.useContext(authContext);
-
   const { username, password } = formData;
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log("submit");
@@ -41,23 +36,28 @@ function Login() {
           loading: false,
           user: res.data,
         });
-        dispatch({type:"set-user",payload:res.data});
+        dispatch({ type: "set-user", payload: res.data });
       }
-      console.log(res.data);
     } catch (error) {
+      // Ensures that isAuthenticated is false to restrict access
       setAuth({ ...authData, isAuthenticated: false });
+      // Displays the error message
+      setErrorBar(true);
+      // Hides the error message after 3 seconds
+      setTimeout(() => {
+        setErrorBar(false);
+      }, 3000);
+      // Logs the error
       console.log(error);
     }
   };
-
   if (authData.isAuthenticated && authData.user.admin) {
-    console.log(authData);
+    // If user is an admin, redirects to admin page
     return <Redirect to="/admin" />;
   } else if (authData.isAuthenticated && !authData.user.admin) {
-    console.log(authData);
+    // If user is not an admin, redirects to standard user page
     return <Redirect to="/user" />;
   }
-  
   return (
     <div className="loginDiv">
       <Form.Row>
@@ -70,7 +70,9 @@ function Login() {
               placeholder="Enter Username"
               onChange={(e) => onChange(e)}
             />
-             <Form.Control.Feedback type="invalid">Enter information</Form.Control.Feedback>
+            <Form.Control.Feedback type="invalid">
+              Enter information
+            </Form.Control.Feedback>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
@@ -84,10 +86,19 @@ function Login() {
           <Button variant="primary" type="submit" onClick={(e) => onSubmit(e)}>
             Submit
           </Button>
+          {errorBar && (
+            <p style={{ color: "red", marginTop: "10px" }}>
+              Invalid credentials, please try again.
+            </p>
+          )}
         </Col>
       </Form.Row>
-      </div>
+    </div>
   );
 }
-
 export default Login;
+
+
+
+
+
