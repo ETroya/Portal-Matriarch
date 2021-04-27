@@ -18,8 +18,7 @@ const Index = () => {
       setAuth({...authData, 
       isAuthenticated: false, 
       user: null});
-      history.push("/login");
-      window.location.redirect("/login")
+      history.push("/");
     });
     console.log("[INFO] Shoud have routed the user to the login screen \ Navbar line 18");
     
@@ -84,7 +83,7 @@ const Index = () => {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/login">
+              <a class="nav-link" href="/" onClick= {() => alert("You Logged Out")}>
                 <button type="button" class="button is-link" class="btn btn-dark btn-circle btn-sm" onClick={()=>{
                  loguserout();
                 }}>
