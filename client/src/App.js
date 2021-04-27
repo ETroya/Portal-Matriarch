@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./components/Navbar";
@@ -19,6 +19,7 @@ function App() {
   });
 
 
+
   useEffect(() => {
     try {
       axios.get("/api/users/user").then((res) => {
@@ -32,6 +33,7 @@ function App() {
       console.error(error.response.data);
     };
   }, []);
+
 
   return (
     <StateProvider>
@@ -47,7 +49,6 @@ function App() {
                 <Login />
               </Route>
               <Route exact path={"/user"}>
-                <h1 id="helloText">Hello User</h1>
                 <User />
               </Route>
               <Route exact path={"/admin"}>

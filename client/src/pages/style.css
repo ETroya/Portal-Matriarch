@@ -1,0 +1,8 @@
+.userTitle {
+    display: flex;
+    justify-content: center;
+}
+
+.user-content {
+    margin-top: 3em;
+}

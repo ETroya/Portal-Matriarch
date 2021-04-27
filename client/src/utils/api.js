@@ -30,5 +30,8 @@ export default {
   },
   deleteComment: (commentID, postID, commentCount) => {
     return axios.put("/api/messages/deleteComment", { commentID, postID, commentCount });
+  },
+  updateEvent: (eventTitle, eventDate) => {
+    return axios.put("/api/users/updateEvent", {eventTitle, eventDate});
   }
 };
