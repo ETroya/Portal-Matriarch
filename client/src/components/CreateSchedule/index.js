@@ -8,12 +8,12 @@ import interactionPlugin, { Draggable } from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import API from "../../utils/api";
-import {authContext} from "../../utils/GlobalState";
+import { authContext } from "../../utils/GlobalState";
 
 const CreateSchedule = () => {
   const [eventTitle, setEventTitle] = useState();
   const [eventDate, setEventDate] = useState();
-  const {authData} = useContext(authContext);
+  const { authData } = useContext(authContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -54,33 +54,33 @@ const CreateSchedule = () => {
             </Form.Group>
           </Col> */}
 
-          <div className="col-16">
-            <Form>
-              <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Event Title</Form.Label>
-                <Form.Control
-                  type="text"
-                  rows={8}
-                  name="title"
-                  value={eventTitle}
-                  onChange={(event) => handleChange(event)}
-                />
-              </Form.Group>
-              <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Event Date</Form.Label>
-                <Form.Control
-                  type="date"
-                  rows={8}
-                  name="date"
-                  value={eventDate}
-                  onChange={(event) => handleChange(event)}
-                />
-              </Form.Group>
-              <Button onClick={(event) => handleSubmit(event)}>
+          <Form id="box">
+            <Form.Group id="title" controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Event Title</Form.Label>
+              <Form.Control
+                type="text"
+                rows={8}
+                name="title"
+                value={eventTitle}
+                onChange={(event) => handleChange(event)}
+              />
+            </Form.Group>
+            <Form.Group id="event" controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Event Date</Form.Label>
+              <Form.Control
+                type="date"
+                rows={8}
+                name="date"
+                value={eventDate}
+                onChange={(event) => handleChange(event)}
+              />
+            </Form.Group>
+            <div className="submitButton">
+              <Button id="submit" onClick={(event) => handleSubmit(event)}>
                 Submit Event
               </Button>
-            </Form>
-          </div>
+            </div>
+          </Form>
 
           <FullCalendar
             className="fc-daygrid-day-events fc fc-media-screen fc-direction-ltr fc-theme-standard myCalendar"
