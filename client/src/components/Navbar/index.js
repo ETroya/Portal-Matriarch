@@ -1,32 +1,42 @@
-import React, {useContext} from "react";
-import {useHistory} from "react-router-dom"
-import { useStateContext, authContext} from "../../utils/GlobalState";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { useStateContext, authContext } from "../../utils/GlobalState";
 import { Navbar, Nav } from "react-bootstrap";
 
 import "./style.css";
 import API from "../../utils/api";
 
-
 const Index = () => {
   const [state, dispatch] = useStateContext();
-   const history = useHistory();
-   const {authData, setAuth}= useContext(authContext);
-   
-   const loguserout =()=>{
+  const history = useHistory();
+  const { authData, setAuth } = useContext(authContext);
+
+  const loguserout = () => {
     console.log("button click");
-    API.logout().then(()=>{
-      setAuth({...authData, 
-      isAuthenticated: false, 
-      user: null});
+    API.logout().then(() => {
+      setAuth({ ...authData, isAuthenticated: false, user: null });
       history.push("/");
     });
-    console.log("[INFO] Shoud have routed the user to the login screen \ Navbar line 18");
-    
-   }
+    console.log(
+      "[INFO] Shoud have routed the user to the login screen  Navbar line 18"
+    );
+  };
 
   return (
     <nav class="mynav navbar navbar-expand-lg navbar-dark">
-      <img class="logo" src="/assets/bubbles.svg"></img>
+      <div>
+        <img class="logo" src="/assets/bubbles.svg"></img>
+        <a class="nav-link" href="/" onClick={() => alert("You Logged Out")}>
+          <span
+            id="logoutText"
+            onClick={() => {
+              loguserout();
+            }}
+          >
+            Logout
+          </span>
+        </a>
+      </div>
       <a class="navbar-brand" id="appName" href="#">
         Bubbles
       </a>
@@ -34,7 +44,7 @@ const Index = () => {
       window.location.pathname !== "/" ? (
         <>
           <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="#">
                 <button
                   type="button"
@@ -78,16 +88,7 @@ const Index = () => {
                       : null
                   }
                 >
-                  Directory
-                </button>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/" onClick= {() => alert("You Logged Out")}>
-                <button type="button" class="button is-link" class="btn btn-dark btn-circle btn-sm" onClick={()=>{
-                 loguserout();
-                }}>
-                  Logout
+                  Users
                 </button>
               </a>
             </li>

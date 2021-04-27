@@ -45,7 +45,7 @@ export const Submenu = () => {
               onClick={() => dispatch({ type: "toggle-user" })}
               variant="primary"
             >
-              <span className="buttonText1">Create New Account</span>
+              <span className="buttonText2">Create User</span>
             </Button>
             {/* {state.addUser ? <EmployeeForm /> : null} */}
           </Col>
@@ -85,7 +85,7 @@ export const Submenu = () => {
               onClick={() => dispatch({ type: "toggle-new-post" })}
               variant="primary"
             >
-              <span className="buttonText1">Create New Post</span>
+              <span className="buttonText2">Create Post</span>
             </Button>
           </Col>
         </Row>

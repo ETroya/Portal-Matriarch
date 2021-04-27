@@ -46,6 +46,28 @@
   background-color: rgb(136, 182, 180);
 }
 
+@media (max-width: 575.98px) {
+  .btn-circle.btn-sm {
+    width: 55px;
+    height: 55px;
+    padding: 6px 0px;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0);
+    background-color: rgb(136, 182, 180);
+  }
+}
+
+#logoutText {
+  font-size: 14px;
+  color: white;
+  font-weight: 600;
+}
+
 /*
 .btn-circle.btn-sm:hover {
     styles here for hover
