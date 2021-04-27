@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import api from "../../utils/api";
-import ListDND from "../../components/ListDND"
+import ListDND from "../../components/ListDND";
+import { authContext } from "../../utils/GlobalState";
+import Schedular from "../../components/Scheduler";
 
 
 function EmployeeDND() {
@@ -49,15 +51,18 @@ function EmployeeDND() {
       </div>
         <table className="table">
           <tbody className="dropzone">
-            {filteredEmployee.map((employee, index) => (
+            {filteredEmployee.map((employee, _id, index) => (
                   <ListDND
                   key={index}
-                  id={employee.id}
+                  id={employee._id}
                   username={employee.username}
                 />
             ))}
           </tbody>
         </table>
+        {/* <div className="col-4 text-center text-dark" id="ID">
+          <Schedular />
+        </div> */}
     </div>
   );
 }
