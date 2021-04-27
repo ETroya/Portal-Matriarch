@@ -56,6 +56,13 @@ const adminEmployeeSchema = new Schema({
   admin: {
     type: Boolean,
   },
+  events: [
+    {
+      title: String,
+      date: String,
+    }
+  ]
+
 });
 
 const employee = mongoose.model("employee", adminEmployeeSchema);

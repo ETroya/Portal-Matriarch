@@ -34,7 +34,9 @@ let overtimeHours = null;
   const socialThisPeriodPay = thisPay * .062;
   const socialYTDPay = ytdPay * .062;
   const medicareThisPeriodPay = thisPay * .0145;
+  const medicareThisPeriodPayFixed = medicareThisPeriodPay.toFixed(2);
   const medicareYTDPay = ytdPay * .0145;
+  const medicareYTDPayFixed = medicareYTDPay.toFixed(2);
   const fedThisPeriodPay = 208 + (thisPay * .008);
   const fedYTDPay = 20 * (ytdPay * .008);
   const caTax = thisPay * .01; 
@@ -47,7 +49,12 @@ let overtimeHours = null;
   const disabilityInsuranceYTD = ytdPay * .005;
   const grossEarnings = ytdPay + birthdayPay + floatingPay + overtimePay + holidayPay;
   const YTDWithholdings = socialYTDPay + medicareYTDPay + fedYTDPay + caYTDTax + caDisabilityYTD;
+  const YTDWithholdingsFixed = YTDWithholdings.toFixed(2); 
   const grossThisPeriod = thisPay + overtimeThisPeriod;
+  const thisPeriodNet = thisPay - fixedWithholdingThisPeriodTotal - disabilityInsuranceThisPeriod;
+  const thisPeriodNetFixed = thisPeriodNet.toFixed(2);
+  const ytdNet = grossEarnings - YTDWithholdings - disabilityInsuranceYTD;
+  const ytdNetFixed = ytdNet.toFixed(2);
 
 
   return (
@@ -70,15 +77,15 @@ let overtimeHours = null;
               </tr>
               <tr>
                 <td>Check Amt.</td>
-                <td>{thisPay - fixedWithholdingThisPeriodTotal - disabilityInsuranceThisPeriod}</td>
-                <td>{grossEarnings - YTDWithholdings - disabilityInsuranceYTD}</td>
+                <td>{thisPeriodNetFixed}</td>
+                <td>{ytdNetFixed}</td>
               </tr>
               <tr>
                 <td>
                   <b>NET PAY</b>
                 </td>
-                <td>{thisPay - fixedWithholdingThisPeriodTotal - disabilityInsuranceThisPeriod}</td>
-                <td>{grossEarnings - YTDWithholdings - disabilityInsuranceYTD}</td>
+                <td>{thisPeriodNetFixed}</td>
+                <td>{ytdNetFixed}</td>
               </tr>
             </table>
           </div>
@@ -238,9 +245,9 @@ let overtimeHours = null;
                 <td>Medicare</td>
                 <td></td>
                 <td></td>
-                <td>{medicareThisPeriodPay}</td>
+                <td>{medicareThisPeriodPayFixed}</td>
                 <td></td>
-                <td>{medicareYTDPay}</td>
+                <td>{medicareYTDPayFixed}</td>
               </tr>
               <tr>
                 <td>FED Income Tax</td>
@@ -274,7 +281,7 @@ let overtimeHours = null;
                 <td></td>
                 <td>{fixedWithholdingThisPeriodTotal}</td>
                 <td></td>
-                <td>{YTDWithholdings}</td>
+                <td>{YTDWithholdingsFixed}</td>
               </tr>
             </table>
           </div>
