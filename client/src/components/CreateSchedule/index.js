@@ -18,21 +18,19 @@ const CreateSchedule = () => {
             </Form.Group>
           </Col> */}
 
-          <div className="col-16">
-            <Form>
-            <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Event Title</Form.Label>
-                <Form.Control type="text" rows={8} />
-              </Form.Group>
-              <Form.Group controlId="exampleForm.ControlTextarea1">
-                <Form.Label>Event Date</Form.Label>
-                <Form.Control type="date" rows={8} />
-              </Form.Group>
-              <Button>
-                Submit Event
-              </Button>
-            </Form>
-          </div>
+          <Form id="box" className="col-sm-16">
+            <Form.Group id="title" controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Event Title</Form.Label>
+              <Form.Control type="text" rows={8} />
+            </Form.Group>
+            <Form.Group id="event" controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Event Date</Form.Label>
+              <Form.Control type="date" rows={8} />
+            </Form.Group>
+            <div className="submitButton">
+              <Button id="submit">Submit Event</Button>
+            </div>
+          </Form>
 
           <FullCalendar
             className="fc-daygrid-day-events fc fc-media-screen fc-direction-ltr fc-theme-standard myCalendar"
