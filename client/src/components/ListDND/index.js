@@ -1,21 +1,19 @@
 import React from "react";
 // import interactionPlugin, {Draggable} from "@fullcalendar/interaction"
 
-//creating list for workers to pull from api and show on site
-function ListDND({ username, id }) {
-  return (
-    <tr
-      className="drag-item"
-      value={id}
-      draggable
-      ondragstart="event.dataTransfer.setData('text/plain',null)"
-    >
-      <td className="user-name text-light" id={id}>
-        {username}
-      </td>
-    </tr>
-  );
-}
+//creating list for workers to pull from api and show on site 
+function ListDND({username, id}) {
+    return (
+      <tr
+        className="drag-item"
+        value={id}
+        draggable
+        ondragstart="event.dataTransfer.setData('text/plain',null)"
+      >
+        <td className="user-name" id={id}>{username}</td>
+      </tr>
+    );
+  }
 
 var dragged;
 

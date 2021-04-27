@@ -52,7 +52,7 @@ function Employeelist() {
             filterName(e);
           }}
           className="form-control"
-          placeholder="Filter by User Name"
+          placeholder="Filter by First Name"
         ></input>
       </div>
       {/* make a list here with called items from API */}

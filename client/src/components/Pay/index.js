@@ -28,7 +28,7 @@ const Pay = () => {
               <tr>
                 <td>Chkg 917</td>
                 <td>10035.20</td>
-                <td>166111.39</td>
+                <td>166111.39</td>  
               </tr>
               <tr>
                 <td>

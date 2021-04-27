@@ -21,6 +21,10 @@
   .myCalendar{
     width:100em;
   }
+  /* #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  } */
   
  .fc {
    width: 500em;
