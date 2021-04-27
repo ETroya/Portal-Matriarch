@@ -1,16 +1,64 @@
 import "./style.css";
-
+import React, {useContext} from "react";
+import {authContext} from "../../utils/GlobalState"
 //shoes the customers information
 const Pay = () => {
+  const {authData} = useContext(authContext);
+  const fullName = `${authData.user.first} ${authData.user.last}`;
+  const wage = authData.user.wage;
+  let hoursWorked = 0;
+let overtimeHours = null;
+
+  const getHoursWorked = () => {
+    if(authData.user.hours > 40){
+      overtimeHours = authData.user.hours - 40;
+      hoursWorked = 40;
+    }else{
+      hoursWorked = authData.user.hours;
+    }
+
+  }
+
+  getHoursWorked();
+
+  const birthdayPay = 230;
+  const floatingPay = 230;
+ 
+  
+  const overtimeRate = wage + (wage / 2);
+  const overtimeThisPeriod = overtimeHours * overtimeRate;
+  const overtimePay = 3.60 * (wage + (wage / 2)) + overtimeThisPeriod;
+  const holidayPay = 8 * (wage * 2);
+  const ytdPay = 616 * wage;
+  const thisPay = hoursWorked * wage;
+  const socialThisPeriodPay = thisPay * .062;
+  const socialYTDPay = ytdPay * .062;
+  const medicareThisPeriodPay = thisPay * .0145;
+  const medicareYTDPay = ytdPay * .0145;
+  const fedThisPeriodPay = 208 + (thisPay * .008);
+  const fedYTDPay = 20 * (ytdPay * .008);
+  const caTax = thisPay * .01; 
+  const caYTDTax = ytdPay * .01;
+  const caDisability = thisPay * .012;
+  const caDisabilityYTD = ytdPay * .012;
+  const withholdingThisPeriodTotal = socialThisPeriodPay + medicareThisPeriodPay + fedThisPeriodPay + caTax + caDisability;
+  const fixedWithholdingThisPeriodTotal = withholdingThisPeriodTotal.toFixed(2);
+  const disabilityInsuranceThisPeriod = thisPay * .005;
+  const disabilityInsuranceYTD = ytdPay * .005;
+  const grossEarnings = ytdPay + birthdayPay + floatingPay + overtimePay + holidayPay;
+  const YTDWithholdings = socialYTDPay + medicareYTDPay + fedYTDPay + caYTDTax + caDisabilityYTD;
+  const grossThisPeriod = thisPay + overtimeThisPeriod;
+
+
   return (
     <div className="pay-container container">
       <div className="row pay-content">
         <div className="Personal-info col-md-5">
           <div className="personal-header">Personal and Check Information</div>
-          <p className="name">Name goes Here</p>
-          <p className="address">address goes Here</p>
-          <p className="city">City goes Here</p>
-          <p className="id">ID goes Here</p>
+          <p className="name">{fullName}</p>
+          <p className="address">address will go here</p>
+          <p className="city">{authData.user.city}</p>
+          <p className="id">ID: {authData.user._id}</p>
           <hr />
           <div className="net-pay">
             <p>NET PAY ALLOCATIONS</p>
@@ -22,20 +70,15 @@ const Pay = () => {
               </tr>
               <tr>
                 <td>Check Amt.</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr>
-                <td>Chkg 917</td>
-                <td>10035.20</td>
-                <td>166111.39</td>  
+                <td>{thisPay - fixedWithholdingThisPeriodTotal - disabilityInsuranceThisPeriod}</td>
+                <td>{grossEarnings - YTDWithholdings - disabilityInsuranceYTD}</td>
               </tr>
               <tr>
                 <td>
                   <b>NET PAY</b>
                 </td>
-                <td>10035.20</td>
-                <td>166111.39</td>
+                <td>{thisPay - fixedWithholdingThisPeriodTotal - disabilityInsuranceThisPeriod}</td>
+                <td>{grossEarnings - YTDWithholdings - disabilityInsuranceYTD}</td>
               </tr>
             </table>
           </div>
@@ -50,7 +93,7 @@ const Pay = () => {
               </tr>
               <tr>
                 <td>Vacation</td>
-                <td>80 hrs</td>
+                <td>{authData.user.pto} hrs.</td>
                 <td>2 hrs</td>
               </tr>
               <tr>
@@ -60,8 +103,8 @@ const Pay = () => {
               </tr>
               <tr>
                 <td>Sick</td>
-                <td>16 hrs</td>
-                <td>24 hrs</td>
+                <td>16 hrs.</td>
+                <td>24 hrs.</td>
               </tr>
               <tr>
                 <th>DESCRIPTION</th>
@@ -70,8 +113,8 @@ const Pay = () => {
               </tr>
               <tr>
                 <td>Floating</td>
-                <td>0 hrs</td>
-                <td>-1 hrs</td>
+                <td>0 hrs.</td>
+                <td>8 hrs.</td>
               </tr>
               <tr>
                 <th>DESCRIPTION</th>
@@ -80,8 +123,8 @@ const Pay = () => {
               </tr>
               <tr>
                 <td>Birthday</td>
-                <td>0 hrs</td>
-                <td>-3 hrs</td>
+                <td>0 hrs.</td>
+                <td>8 hrs.</td>
               </tr>
             </table>
           </div>
@@ -101,11 +144,11 @@ const Pay = () => {
               </tr>
               <tr>
                 <td>Regular</td>
-                <td></td>
-                <td></td>
-                <td>10300.00</td>
-                <td>31.90</td>
-                <td>109777.50</td>
+                <td>{hoursWorked}</td>
+                <td>{wage}</td>
+                <td>{thisPay}</td>
+                <td>616</td>
+                <td>{ytdPay}</td>
               </tr>
               <tr>
                 <td>Birthday</td>
@@ -113,7 +156,7 @@ const Pay = () => {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>230</td>
+                <td>{birthdayPay}</td>
               </tr>
               <tr>
                 <td>Floating</td>
@@ -121,15 +164,15 @@ const Pay = () => {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>230</td>
+                <td>{floatingPay}</td>
               </tr>
               <tr>
                 <td>Overtime</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{overtimeHours}</td>
+                <td>{overtimeRate }</td>
+                <td>{overtimeThisPeriod}</td>
                 <td>3.60</td>
-                <td>1035</td>
+                <td>{overtimePay}</td>
               </tr>
               <tr>
                 <td>Holiday</td>
@@ -137,13 +180,13 @@ const Pay = () => {
                 <td></td>
                 <td></td>
                 <td>8.00</td>
-                <td>2000</td>
+                <td>{holidayPay}</td>
               </tr>
               <tr>
                 <td>
                   <b>Total Hours</b>
                 </td>
-                <td></td>
+                <td>{authData.user.hours}</td>
                 <td></td>
                 <td></td>
                 <td>43.50</td>
@@ -155,9 +198,9 @@ const Pay = () => {
                 </td>
                 <td></td>
                 <td></td>
-                <td>10300.00</td>
+                <td>{grossThisPeriod}</td>
                 <td></td>
-                <td>200632.50</td>
+                <td>{grossEarnings}</td>
               </tr>
               <tr>
                 <td>
@@ -187,41 +230,41 @@ const Pay = () => {
                 <td>Social Security</td>
                 <td></td>
                 <td></td>
-                <td>80.6</td>
+                <td>{socialThisPeriodPay}</td>
                 <td></td>
-                <td>1279.22</td>
+                <td>{socialYTDPay}</td>
               </tr>
               <tr>
                 <td>Medicare</td>
                 <td></td>
                 <td></td>
-                <td>18.85</td>
+                <td>{medicareThisPeriodPay}</td>
                 <td></td>
-                <td>299.17</td>
+                <td>{medicareYTDPay}</td>
               </tr>
               <tr>
                 <td>FED Income Tax</td>
                 <td>j +$208</td>
                 <td></td>
-                <td>345.50</td>
+                <td>{fedThisPeriodPay}</td>
                 <td></td>
-                <td>2498.50</td>
+                <td>{fedYTDPay}</td>
               </tr>
               <tr>
                 <td>CA Income Tax</td>
                 <td>MI1 7 0</td>
                 <td></td>
-                <td>202.50</td>
+                <td>{caTax}</td>
                 <td></td>
-                <td>483.23</td>
+                <td>{caYTDTax}</td>
               </tr>
               <tr>
                 <td>CA Disability</td>
                 <td></td>
                 <td></td>
-                <td>45.60</td>
+                <td>{caDisability}</td>
                 <td></td>
-                <td>367.21</td>
+                <td>{caDisabilityYTD}</td>
               </tr>
               <tr>
                 <td>
@@ -229,11 +272,10 @@ const Pay = () => {
                 </td>
                 <td></td>
                 <td></td>
-                <td>340.24</td>
+                <td>{fixedWithholdingThisPeriodTotal}</td>
                 <td></td>
-                <td>6281.15</td>
+                <td>{YTDWithholdings}</td>
               </tr>
-  
             </table>
           </div>
           <hr/>
@@ -252,17 +294,17 @@ const Pay = () => {
                 <td>Disability Insu</td>
                 <td></td>
                 <td></td>
-                <td>6.75</td>
+                <td>{disabilityInsuranceThisPeriod}</td>
                 <td></td>
-                <td>83.49</td>
+                <td>{disabilityInsuranceYTD}</td>
               </tr>
               <tr>
                 <td><b>TOTAL</b></td>
                 <td></td>
                 <td></td>
-                <td>6.75</td>
+                <td>{disabilityInsuranceThisPeriod}</td>
                 <td></td>
-                <td>83.96</td>
+                <td>{disabilityInsuranceYTD}</td>
               </tr>
             </table>
           </div>
