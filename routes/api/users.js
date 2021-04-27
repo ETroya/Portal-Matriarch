@@ -184,4 +184,25 @@ router.post("/logout", async (req, res) => {
   // }
 });
 
+router.put("/updateEvent", async (req, res) => {
+  const {title, date} = req.body;
+
+  try {
+    const new_event = await User.findByIdAndUpdate(req.user._id, 
+      {
+        $push: {
+          events: {
+            title: title,
+            date: date,
+          }
+        }
+      });
+
+      return res.json(new_event);
+  } catch (error) {
+    console.log("[WARNING] ERROR IN UPDATE EVENT ROUTE");
+    console.log(error);
+  };
+})
+
 module.exports = router;
