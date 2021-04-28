@@ -4,9 +4,14 @@ import "./style.css";
 
 const index = () => {
   return (
-    <div className="sched">
-      <h1>Tomorrows Sched.</h1>
-      <h2>Start Time: 6 am</h2>
+    <div className="sched ">
+      <div className="scheduleInfo">
+      <p className="scheduleheader">4/28 Schedule</p>
+      <div className="startTimeDiv">
+      <p className="startTimeLabel">Start Time:</p>
+      <p className="startTime">8 AM</p>
+      </div>
+    </div>
     </div>
   );
 };

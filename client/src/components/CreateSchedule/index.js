@@ -27,7 +27,7 @@ const CreateSchedule = () => {
           ...authData,
           user: res.data,
         });
-  
+        setEvents(authData.user.events);
     });
     setEventForm(!eventForm);
   };
@@ -52,7 +52,7 @@ const CreateSchedule = () => {
   // let eventArray = authData.user.events;
   useEffect(() => {
     setEvents(authData.user.events);
-  }, [eventForm])
+  }, [])
 
   return (
     <Jumbotron fluid>

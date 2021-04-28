@@ -1,10 +1,19 @@
 #createUserDiv {
   margin-top: 20px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.newUserForm {
+  border:solid 2px rgb(89, 171, 173);
+padding: 2em;
+border-radius: 5px;
 }
 
 #createUserInput {
-  margin-left: auto;
+  margin-left: 1em;
   margin-right: auto;
 }
 
@@ -16,6 +25,11 @@
 #checkBoxButton {
   width: 20px;
   height: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#createUserAdminInput {
   margin-left: auto;
   margin-right: auto;
 }
