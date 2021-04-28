@@ -6,3 +6,12 @@
 .user-content {
     margin-top: 3em;
 }
+
+.loginDiv{
+    border:solid 2px rgb(89, 171, 173);
+    padding: 2em;
+    border-radius: 10px;
+}
+
+
+

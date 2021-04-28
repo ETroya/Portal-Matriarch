@@ -81,9 +81,36 @@ function EmployeeForm() {
 
   return (
     <div id="createUserDiv">
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form className="newUserForm"noValidate validated={validated} onSubmit={handleSubmit}>
         <Form.Row>
-          <Form.Group id="createUserInput" controlId="validationCustomUsername">
+
+          <Form.Group id="createUserInput" controlId="validationCustom01">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control
+              required
+              name="first"
+              type="text"
+              placeholder="First Name"
+              onChange={(e) => onChange(e)}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group id="createUserInput" controlId="validationCustom02">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+              required
+              name="last"
+              type="text"
+              placeholder="Last Name"
+              required
+              onChange={(e) => onChange(e)}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        </Form.Row>
+
+        <Form.Row>
+        <Form.Group id="createUserInput" controlId="validationCustomUsername">
             <Form.Label>Username</Form.Label>
             <InputGroup hasValidation>
               <Form.Control
@@ -98,35 +125,6 @@ function EmployeeForm() {
               </Form.Control.Feedback>
             </InputGroup>
           </Form.Group>
-        </Form.Row>
-        <Form.Row>
-          <Form.Group id="createUserInput" controlId="validationCustom01">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
-              required
-              name="first"
-              type="text"
-              placeholder="First Name"
-              onChange={(e) => onChange(e)}
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
-        <Form.Row>
-          <Form.Group id="createUserInput" controlId="validationCustom02">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              required
-              name="last"
-              type="text"
-              placeholder="Last Name"
-              required
-              onChange={(e) => onChange(e)}
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-        </Form.Row>
-        <Form.Row>
           <Form.Group id="createUserInput" controlId="validationCustomPassword">
             <Form.Label>Password</Form.Label>
             <InputGroup hasValidation>
@@ -156,8 +154,6 @@ function EmployeeForm() {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
-        </Form.Row>
-        <Form.Row>
           <Form.Group id="createUserInput" controlId="validationCustom04">
             <Form.Label>Hourly Wage</Form.Label>
             <Form.Control
@@ -171,8 +167,9 @@ function EmployeeForm() {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
         </Form.Row>
+
         <Form.Row>
-          <Form.Group id="createUserInput" controlId="validationCustomAdmin">
+          <Form.Group id="createUserAdminInput" controlId="validationCustomAdmin">
             <Form.Label>Admin</Form.Label>
             <Form.Control
               type="checkbox"

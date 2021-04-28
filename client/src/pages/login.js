@@ -3,6 +3,8 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { authContext, useStateContext } from "../utils/GlobalState";
 import { Form, Button, Col } from "react-bootstrap";
+import "./style.css";
+
 function Login() {
   const [formData, setFormData] = useState({
     username: "",
@@ -60,6 +62,7 @@ function Login() {
   }
   return (
     <div className="loginDiv">
+      <Form>
       <Form.Row>
         <Col>
           <Form.Group controlId="formBasicUsername">
@@ -83,16 +86,20 @@ function Login() {
               onChange={(e) => onChange(e)}
             />
           </Form.Group>
-          <Button variant="primary" type="submit" onClick={(e) => onSubmit(e)}>
+  
+          <Button className="submitButton" variant="primary" type="submit" onClick={(e) => onSubmit(e)}>
             Submit
           </Button>
+
           {errorBar && (
             <p style={{ color: "red", marginTop: "10px" }}>
               Invalid credentials, please try again.
             </p>
           )}
+
         </Col>
       </Form.Row>
+      </Form>
     </div>
   );
 }

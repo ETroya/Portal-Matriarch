@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import API from "../../utils/api";
 import EmployeeCard from "../EmployeeCard";
 import EmployeeProfile from "../EmployeeProfile/index";
-import "./style.css"
+import "./style.css";
 
 const Manage = () => {
   const [state, dispatch] = useStateContext();
@@ -31,40 +31,51 @@ const Manage = () => {
     });
   }, []);
 
-const updateEmployee = ({id, mFirst, mLast, mUserName, mWage, mHours, mPTO}) => {
-  API.updateProfile({id, mFirst, mLast, mUserName, mWage, mHours, mPTO})
-  .then((res) => {
-    console.log(res.data);
-    const updatedUsers = employeeState.map((emp) => {
-      if(emp.id === id) {
-        emp = {
-          id: id,
-          first: mFirst,
-          last: mLast,
-          username: mUserName,
-          wage: mWage,
-          hours: mHours,
-          pto: mPTO
+  const updateEmployee = ({
+    id,
+    mFirst,
+    mLast,
+    mUserName,
+    mWage,
+    mHours,
+    mPTO,
+  }) => {
+    
+    API.updateProfile({
+      id,
+      mFirst,
+      mLast,
+      mUserName,
+      mWage,
+      mHours,
+      mPTO,
+    }).then((res) => {
+      console.log(res.data);
+      const updatedUsers = employeeState.map((emp) => {
+        if (emp.id === id) {
+          emp = {
+            id: id,
+            first: mFirst,
+            last: mLast,
+            username: mUserName,
+            wage: mWage,
+            hours: mHours,
+            pto: mPTO,
+          };
         }
-      }
-      return emp;
+        return emp;
+      });
+
+      console.log(updatedUsers);
+      setEmployeeState(updatedUsers);
     });
-
-    console.log(updatedUsers);
-    setEmployeeState(updatedUsers);
-
-  });
-openProfile(!profile);
-}
+    openProfile(!profile);
+  };
 
   return (
     <div className="manage-employee-list  row">
-      <div
-        className="employee-list container col-sm-6"
-      >
+      <div className="employee-list container col-sm-6">
         {employeeState.map((emp) => {
-    
-
           return (
             <div key={emp._id}>
               <EmployeeCard
