@@ -23,65 +23,68 @@ const Index = () => {
   };
 
   return (
-    <nav class="mynav navbar navbar-expand-lg navbar-dark">
+    <nav className="mynav navbar navbar-expand-lg navbar-dark">
       <div>
-        <img class="logo" src="/assets/bubbles.svg"></img>
-        <a class="nav-link" href="/" onClick={() => alert("You Logged Out")}>
-          <span
-            id="logoutText"
-            onClick={() => {
-              loguserout();
-            }}
-          >
-            Logout
-          </span>
-        </a>
+        <img className="logo" src="/assets/bubbles.svg"></img>
+        {/* {window.location.pathname !== "/login" &&
+        window.location.pathname !== "/" ? (
+          <a className="nav-link" href="/" onClick={() => alert("You Logged Out")}>
+            <span
+              id="logoutText"
+              onClick={() => {
+                loguserout();
+              }}
+            >
+              Logout
+            </span>
+          </a>
+        ) : null} */}
       </div>
-      <a class="navbar-brand" id="appName" href="#">
+      <a className="navbar-brand" id="appName" href="#">
         Bubbles
       </a>
       {window.location.pathname !== "/login" &&
       window.location.pathname !== "/" ? (
         <>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 <button
                   type="button"
-                  class="btn btn-dark btn-circle btn-sm"
+                  className="btn btn-dark btn-circle btn-sm"
                   onClick={() => dispatch({ type: "open-news" })}
                 >
                   News
                 </button>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 <button
                   type="button"
-                  class="btn btn-dark btn-circle btn-sm"
+                  className="btn btn-dark btn-circle btn-sm"
                   onClick={() => dispatch({ type: "open-time" })}
                 >
                   Time
                 </button>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 <button
                   type="button"
-                  class="btn btn-dark btn-circle btn-sm "
+                  className="btn btn-dark btn-circle btn-sm "
                   onClick={() => dispatch({ type: "open-pay" })}
                 >
                   Pay
                 </button>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
                 <button
                   type="button"
-                  class="btn btn-dark btn-circle btn-sm"
+                  className="btn btn-dark btn-circle btn-sm"
                   onClick={
                     !state.openDirectory
                       ? () => dispatch({ type: "open-directory" })
@@ -93,6 +96,18 @@ const Index = () => {
               </a>
             </li>
           </ul>
+          <p className="logout">
+          <a className="nav-link" href="/" onClick={() => alert("You Logged Out")}>
+            <span
+              id="logoutText"
+              onClick={() => {
+                loguserout();
+              }}
+            >
+              Logout
+            </span>
+          </a>
+          </p>
         </>
       ) : (
         <></>
