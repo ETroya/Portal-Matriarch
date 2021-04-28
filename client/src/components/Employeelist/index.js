@@ -4,29 +4,29 @@ import List from "../List";
 // import axios from "axios";
 // import mongoose from "mongoose"
 import api from "../../utils/api";
+import "./style.css";
 
 // API call
 function Employeelist() {
   //employee state total
   const [employeeState, setEmployeeState] = useState([]);
   //filtered employee names
-  const [filteredEmployee, setFilterEmployee]=useState([])
- 
+  const [filteredEmployee, setFilterEmployee] = useState([]);
+
   useEffect(() => {
     //mapping thru the all user array and setting the result to the total user
     api.getEmployee().then((allUsers) => {
-      const totalUsers =
-        allUsers.data.map((result) => {
-          let employee = {
-            firstName: result.first,
-            lastName: result.last,
-            id: result._id,
-            username: result.username,
-          };
-          return employee;
-        })
-  setEmployeeState(totalUsers)
-  setFilterEmployee(totalUsers)
+      const totalUsers = allUsers.data.map((result) => {
+        let employee = {
+          firstName: result.first,
+          lastName: result.last,
+          id: result._id,
+          username: result.username,
+        };
+        return employee;
+      });
+      setEmployeeState(totalUsers);
+      setFilterEmployee(totalUsers);
     });
   }, []);
 
@@ -38,7 +38,6 @@ function Employeelist() {
       employeeState.filter((employee) => {
         return employee.firstName.toLowerCase().includes(firstName);
       })
-
     );
   };
 
@@ -56,7 +55,7 @@ function Employeelist() {
         ></input>
       </div>
       {/* make a list here with called items from API */}
-      <table className="table">
+      <table className="table" id="list">
         <tbody className="dropzone">
           {filteredEmployee.map((employee, index) => (
             <List
@@ -65,7 +64,7 @@ function Employeelist() {
               lastName={employee.lastName}
               id={employee.id}
               // username={employee.username}
-              index= {index}
+              index={index}
             />
           ))}
         </tbody>
